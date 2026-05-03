@@ -13,7 +13,11 @@ export const Route = createFileRoute("/careers")({
   head: () => ({
     meta: [
       { title: "Careers — BJ & R Maintenance | Join Our Team" },
-      { name: "description", content: "Join BJ & R Maintenance. We're hiring labourers, turf installers, site cleaners and trade workers across WA. Apply now." },
+      {
+        name: "description",
+        content:
+          "Join BJ & R Maintenance. We're hiring labourers, turf installers, site cleaners and trade workers across WA. Apply now.",
+      },
     ],
   }),
   component: CareersPage,
@@ -69,12 +73,24 @@ function CareersPage() {
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Open positions</h2>
             <div className="grid sm:grid-cols-2 gap-4">
               {jobs.map((j) => (
-                <div key={j.title} className="rounded-2xl border bg-card p-6 hover:shadow-card hover:-translate-y-0.5 transition-all">
+                <div
+                  key={j.title}
+                  className="rounded-2xl border bg-card p-6 hover:shadow-card hover:-translate-y-0.5 transition-all"
+                >
                   <h3 className="font-semibold text-lg">{j.title}</h3>
                   <div className="mt-2 flex flex-wrap gap-3 text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1"><Briefcase className="h-3 w-3" />{j.type}</span>
-                    <span className="flex items-center gap-1"><MapPin className="h-3 w-3" />{j.location}</span>
-                    <span className="flex items-center gap-1"><Clock className="h-3 w-3" />Start ASAP</span>
+                    <span className="flex items-center gap-1">
+                      <Briefcase className="h-3 w-3" />
+                      {j.type}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <MapPin className="h-3 w-3" />
+                      {j.location}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Clock className="h-3 w-3" />
+                      Start ASAP
+                    </span>
                   </div>
                   <Button
                     size="sm"
@@ -93,7 +109,9 @@ function CareersPage() {
 
           <div id="apply" className="rounded-2xl bg-card border p-6 md:p-8 shadow-card h-fit">
             <h3 className="text-xl font-bold">Apply now</h3>
-            <p className="text-sm text-muted-foreground mt-1">Fill in your details — we'll be in touch.</p>
+            <p className="text-sm text-muted-foreground mt-1">
+              Fill in your details — we'll be in touch.
+            </p>
             <form className="mt-5 grid gap-4" onSubmit={onSubmit}>
               <div>
                 <Label htmlFor="cname">Full Name</Label>
@@ -109,13 +127,27 @@ function CareersPage() {
               </div>
               <div>
                 <Label htmlFor="cposition">Position</Label>
-                <Input id="cposition" name="position" value={selected} onChange={(e) => setSelected(e.target.value)} placeholder="Position you're applying for" required />
+                <Input
+                  id="cposition"
+                  name="position"
+                  value={selected}
+                  onChange={(e) => setSelected(e.target.value)}
+                  placeholder="Position you're applying for"
+                  required
+                />
               </div>
               <div>
                 <Label htmlFor="cmsg">About you</Label>
-                <Textarea id="cmsg" name="message" rows={4} placeholder="Experience, availability, licences..." />
+                <Textarea
+                  id="cmsg"
+                  name="message"
+                  rows={4}
+                  placeholder="Experience, availability, licences..."
+                />
               </div>
-              <Button type="submit" className="bg-gradient-primary text-primary-foreground">Submit application</Button>
+              <Button type="submit" className="bg-gradient-primary text-primary-foreground">
+                Submit application
+              </Button>
             </form>
           </div>
         </div>

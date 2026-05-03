@@ -6,7 +6,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import {
-  Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
 } from "@/components/ui/select";
 import { Upload, Send } from "lucide-react";
 
@@ -67,15 +71,26 @@ export function QuoteForm() {
       <div>
         <Label htmlFor="service">Service Needed</Label>
         <Select name="service" required>
-          <SelectTrigger id="service"><SelectValue placeholder="Select a service" /></SelectTrigger>
+          <SelectTrigger id="service">
+            <SelectValue placeholder="Select a service" />
+          </SelectTrigger>
           <SelectContent>
-            {services.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+            {services.map((s) => (
+              <SelectItem key={s} value={s}>
+                {s}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
       </div>
       <div>
         <Label htmlFor="message">Project Details</Label>
-        <Textarea id="message" name="message" rows={4} placeholder="Tell us about your project, area size, location..." />
+        <Textarea
+          id="message"
+          name="message"
+          rows={4}
+          placeholder="Tell us about your project, area size, location..."
+        />
       </div>
       <div>
         <Label htmlFor="files">Upload Images (optional)</Label>
@@ -97,7 +112,12 @@ export function QuoteForm() {
           />
         </label>
       </div>
-      <Button type="submit" size="lg" disabled={submitting} className="bg-gradient-primary text-primary-foreground gap-2 w-full sm:w-auto">
+      <Button
+        type="submit"
+        size="lg"
+        disabled={submitting}
+        className="bg-gradient-primary text-primary-foreground gap-2 w-full sm:w-auto"
+      >
         <Send className="h-4 w-4" /> {submitting ? "Sending..." : "Request Free Quote"}
       </Button>
     </form>

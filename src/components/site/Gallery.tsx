@@ -20,7 +20,9 @@ export function Gallery({ heading = true }: { heading?: boolean }) {
       <div className="container-x">
         {heading && (
           <div className="max-w-2xl mb-12">
-            <p className="text-primary font-semibold uppercase tracking-widest text-xs mb-3">Our work</p>
+            <p className="text-primary font-semibold uppercase tracking-widest text-xs mb-3">
+              Our work
+            </p>
             <h2 className="text-3xl md:text-5xl font-bold text-balance">
               Recent projects across Perth & WA
             </h2>

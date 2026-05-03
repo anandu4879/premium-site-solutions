@@ -24,7 +24,11 @@ export function CTASection() {
                 </Button>
               </Link>
               <a href="tel:+61400000000">
-                <Button size="lg" variant="outline" className="h-12 px-7 gap-2 bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="h-12 px-7 gap-2 bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                >
                   <Phone className="h-4 w-4" /> Call Now
                 </Button>
               </a>

@@ -8,12 +8,16 @@ export function Footer() {
       <div className="container-x py-16 grid gap-10 md:grid-cols-4">
         <div>
           <Link to="/" className="flex items-center gap-2.5 font-display font-bold text-lg">
-            <img src={logo} alt="BJ & R Maintenance" className="h-10 w-10 rounded-xl object-contain bg-background/10 p-1" />
+            <img
+              src={logo}
+              alt="BJ & R Maintenance"
+              className="h-10 w-10 rounded-xl object-contain bg-background/10 p-1"
+            />
             BJ & R Maintenance
           </Link>
           <p className="mt-4 text-sm text-background/70 leading-relaxed">
-            Premium artificial grass installation and trusted construction site
-            services across Australia. Residential & commercial.
+            Premium artificial grass installation and trusted construction site services across
+            Australia. Residential & commercial.
           </p>
           <div className="flex gap-3 mt-5">
             {[Facebook, Instagram, Linkedin].map((Icon, i) => (
@@ -40,7 +44,9 @@ export function Footer() {
               ["/contact", "Contact"],
             ].map(([to, label]) => (
               <li key={to}>
-                <Link to={to} className="hover:text-primary transition-colors">{label}</Link>
+                <Link to={to} className="hover:text-primary transition-colors">
+                  {label}
+                </Link>
               </li>
             ))}
           </ul>
@@ -60,9 +66,15 @@ export function Footer() {
         <div>
           <h4 className="font-semibold mb-4">Contact</h4>
           <ul className="space-y-3 text-sm text-background/70">
-            <li className="flex gap-2"><Phone className="h-4 w-4 shrink-0 text-primary" /> 0400 000 000</li>
-            <li className="flex gap-2"><Mail className="h-4 w-4 shrink-0 text-primary" /> hello@bjrmaintenance.com.au</li>
-            <li className="flex gap-2"><MapPin className="h-4 w-4 shrink-0 text-primary" /> Servicing Greater Perth & WA</li>
+            <li className="flex gap-2">
+              <Phone className="h-4 w-4 shrink-0 text-primary" /> 0400 000 000
+            </li>
+            <li className="flex gap-2">
+              <Mail className="h-4 w-4 shrink-0 text-primary" /> hello@bjrmaintenance.com.au
+            </li>
+            <li className="flex gap-2">
+              <MapPin className="h-4 w-4 shrink-0 text-primary" /> Servicing Greater Perth & WA
+            </li>
           </ul>
         </div>
       </div>

@@ -9,7 +9,11 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About — BJ & R Maintenance" },
-      { name: "description", content: "Experienced Australian crew delivering quality artificial grass, construction maintenance and site services with affordable pricing and customer satisfaction." },
+      {
+        name: "description",
+        content:
+          "Experienced Australian crew delivering quality artificial grass, construction maintenance and site services with affordable pricing and customer satisfaction.",
+      },
     ],
   }),
   component: AboutPage,
@@ -33,22 +37,27 @@ function AboutPage() {
       <section className="py-20 md:py-28">
         <div className="container-x grid lg:grid-cols-2 gap-12 items-center">
           <div className="rounded-3xl overflow-hidden shadow-elevated aspect-[4/3]">
-            <img src={about} alt="About BJ & R Maintenance" loading="lazy" className="h-full w-full object-cover" />
+            <img
+              src={about}
+              alt="About BJ & R Maintenance"
+              loading="lazy"
+              className="h-full w-full object-cover"
+            />
           </div>
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold">A trusted local team — residential & commercial</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">
+              A trusted local team — residential & commercial
+            </h2>
             <p className="mt-5 text-muted-foreground text-lg leading-relaxed">
-              BJ & R Maintenance is a hands-on Australian business specialising in
-              premium artificial grass installation and full site services.
-              Whether it's a backyard transformation, a school playground, a
-              rooftop garden, or post-construction site cleanup — we bring the
-              same standard of care to every project.
+              BJ & R Maintenance is a hands-on Australian business specialising in premium
+              artificial grass installation and full site services. Whether it's a backyard
+              transformation, a school playground, a rooftop garden, or post-construction site
+              cleanup — we bring the same standard of care to every project.
             </p>
             <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
-              Our experienced team prides itself on professional workmanship,
-              affordable pricing and customer satisfaction from the first
-              quote to the final clean-up. We're fully insured, safety-focused
-              and committed to leaving every site better than we found it.
+              Our experienced team prides itself on professional workmanship, affordable pricing and
+              customer satisfaction from the first quote to the final clean-up. We're fully insured,
+              safety-focused and committed to leaving every site better than we found it.
             </p>
             <div className="mt-8 grid grid-cols-3 gap-4">
               {[

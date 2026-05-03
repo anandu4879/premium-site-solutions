@@ -7,7 +7,11 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact & Free Quote — BJ & R Maintenance" },
-      { name: "description", content: "Get a free quote for artificial grass, construction maintenance, labour hire, sand removal or handyman services. Call, email or WhatsApp us." },
+      {
+        name: "description",
+        content:
+          "Get a free quote for artificial grass, construction maintenance, labour hire, sand removal or handyman services. Call, email or WhatsApp us.",
+      },
     ],
   }),
   component: ContactPage,
@@ -33,8 +37,18 @@ function ContactPage() {
           <div className="space-y-4">
             {[
               { icon: Phone, label: "Phone", value: "0400 000 000", href: "tel:+61400000000" },
-              { icon: MessageCircle, label: "WhatsApp", value: "Chat with us", href: "https://wa.me/61400000000" },
-              { icon: Mail, label: "Email", value: "hello@bjrmaintenance.com.au", href: "mailto:hello@bjrmaintenance.com.au" },
+              {
+                icon: MessageCircle,
+                label: "WhatsApp",
+                value: "Chat with us",
+                href: "https://wa.me/61400000000",
+              },
+              {
+                icon: Mail,
+                label: "Email",
+                value: "hello@bjrmaintenance.com.au",
+                href: "mailto:hello@bjrmaintenance.com.au",
+              },
               { icon: MapPin, label: "Service Areas", value: "Perth Metro & WA Wide" },
               { icon: Clock, label: "Hours", value: "Mon–Sat · 7am – 6pm" },
             ].map((c) => {
@@ -44,13 +58,23 @@ function ContactPage() {
                     <c.icon className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">{c.label}</p>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">
+                      {c.label}
+                    </p>
                     <p className="font-semibold mt-1">{c.value}</p>
                   </div>
                 </div>
               );
               return c.href ? (
-                <a key={c.label} href={c.href} target={c.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="block">{Inner}</a>
+                <a
+                  key={c.label}
+                  href={c.href}
+                  target={c.href.startsWith("http") ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  {Inner}
+                </a>
               ) : (
                 <div key={c.label}>{Inner}</div>
               );

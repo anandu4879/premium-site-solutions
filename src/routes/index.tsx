@@ -13,7 +13,11 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "BJ & R Maintenance — Artificial Grass & Site Services in Perth, WA" },
-      { name: "description", content: "Premium artificial grass installation, construction maintenance, labour hire, sand removal & handyman services. Free quotes across WA." },
+      {
+        name: "description",
+        content:
+          "Premium artificial grass installation, construction maintenance, labour hire, sand removal & handyman services. Free quotes across WA.",
+      },
     ],
   }),
   component: Index,
@@ -31,13 +35,15 @@ function Index() {
       <section className="py-20 md:py-28 bg-secondary/50">
         <div className="container-x grid lg:grid-cols-2 gap-12 items-start">
           <div>
-            <p className="text-primary font-semibold uppercase tracking-widest text-xs mb-3">Free quote</p>
+            <p className="text-primary font-semibold uppercase tracking-widest text-xs mb-3">
+              Free quote
+            </p>
             <h2 className="text-3xl md:text-5xl font-bold text-balance">
               Get a no-obligation quote in 24 hours
             </h2>
             <p className="mt-4 text-muted-foreground text-lg">
-              Tell us about your project and upload site photos — we'll come
-              back with honest pricing fast.
+              Tell us about your project and upload site photos — we'll come back with honest
+              pricing fast.
             </p>
             <ul className="mt-6 space-y-2 text-sm">
               <li>✓ Free, on-site assessments</li>

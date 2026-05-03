@@ -8,7 +8,11 @@ export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: "Our Services — BJ & R Maintenance" },
-      { name: "description", content: "Artificial grass, construction maintenance, labour hire, sand removal and handyman services for residential and commercial projects." },
+      {
+        name: "description",
+        content:
+          "Artificial grass, construction maintenance, labour hire, sand removal and handyman services for residential and commercial projects.",
+      },
     ],
   }),
   component: ServicesPage,
@@ -24,8 +28,8 @@ function ServicesPage() {
             End-to-end grass, site & trade services
           </h1>
           <p className="mt-4 max-w-2xl text-primary-foreground/90 text-lg">
-            From premium artificial turf installation to construction cleanup
-            and skilled labour hire — one trusted team for every job.
+            From premium artificial turf installation to construction cleanup and skilled labour
+            hire — one trusted team for every job.
           </p>
         </div>
       </section>
@@ -38,7 +42,12 @@ function ServicesPage() {
             className={`grid lg:grid-cols-2 gap-10 items-center ${i % 2 ? "lg:[&>div:first-child]:order-2" : ""}`}
           >
             <div className="rounded-3xl overflow-hidden shadow-elevated aspect-[4/3]">
-              <img src={s.image} alt={s.title} loading="lazy" className="h-full w-full object-cover" />
+              <img
+                src={s.image}
+                alt={s.title}
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
             </div>
             <div>
               <p className="text-primary font-semibold uppercase tracking-widest text-xs mb-3">

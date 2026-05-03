@@ -23,14 +23,17 @@ export function Testimonials() {
     <section className="py-20 md:py-28 bg-foreground text-background">
       <div className="container-x">
         <div className="max-w-2xl mb-14">
-          <p className="text-primary-glow font-semibold uppercase tracking-widest text-xs mb-3">Testimonials</p>
-          <h2 className="text-3xl md:text-5xl font-bold text-balance">
-            What our clients say
-          </h2>
+          <p className="text-primary-glow font-semibold uppercase tracking-widest text-xs mb-3">
+            Testimonials
+          </p>
+          <h2 className="text-3xl md:text-5xl font-bold text-balance">What our clients say</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {reviews.map((r) => (
-            <div key={r.name} className="rounded-2xl bg-background/5 backdrop-blur p-7 border border-background/10 relative">
+            <div
+              key={r.name}
+              className="rounded-2xl bg-background/5 backdrop-blur p-7 border border-background/10 relative"
+            >
               <Quote className="h-8 w-8 text-primary-glow opacity-60" />
               <div className="flex gap-1 mt-3">
                 {Array.from({ length: 5 }).map((_, i) => (

@@ -25,17 +25,24 @@ export function Hero() {
             <span className="text-primary-glow">Premium Artificial Grass</span>
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-white/85 max-w-2xl">
-            Professional installation, labour hire, maintenance, and site
-            services for residential and commercial projects.
+            Professional installation, labour hire, maintenance, and site services for residential
+            and commercial projects.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/contact">
-              <Button size="lg" className="h-12 px-7 bg-gradient-primary text-primary-foreground gap-2 hover:opacity-95">
+              <Button
+                size="lg"
+                className="h-12 px-7 bg-gradient-primary text-primary-foreground gap-2 hover:opacity-95"
+              >
                 Get Free Quote <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
             <a href="tel:+61400000000">
-              <Button size="lg" variant="outline" className="h-12 px-7 gap-2 bg-white/10 text-white border-white/30 hover:bg-white hover:text-primary backdrop-blur">
+              <Button
+                size="lg"
+                variant="outline"
+                className="h-12 px-7 gap-2 bg-white/10 text-white border-white/30 hover:bg-white hover:text-primary backdrop-blur"
+              >
                 <Phone className="h-4 w-4" /> Call Now
               </Button>
             </a>

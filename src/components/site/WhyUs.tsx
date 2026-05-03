@@ -1,5 +1,12 @@
 import {
-  BadgeCheck, Banknote, HardHat, Truck, Zap, Handshake, ShieldCheck, Smile,
+  BadgeCheck,
+  Banknote,
+  HardHat,
+  Truck,
+  Zap,
+  Handshake,
+  ShieldCheck,
+  Smile,
 } from "lucide-react";
 
 const features = [
@@ -18,14 +25,19 @@ export function WhyUs() {
     <section className="py-20 md:py-28 bg-secondary/60">
       <div className="container-x">
         <div className="max-w-2xl mb-14">
-          <p className="text-primary font-semibold uppercase tracking-widest text-xs mb-3">Why choose us</p>
+          <p className="text-primary font-semibold uppercase tracking-widest text-xs mb-3">
+            Why choose us
+          </p>
           <h2 className="text-3xl md:text-5xl font-bold text-balance">
             Built on quality, trust, and old-school craftsmanship
           </h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {features.map((f) => (
-            <div key={f.title} className="rounded-2xl bg-card p-6 border hover:border-primary/40 hover:shadow-card transition-all">
+            <div
+              key={f.title}
+              className="rounded-2xl bg-card p-6 border hover:border-primary/40 hover:shadow-card transition-all"
+            >
               <div className="h-11 w-11 rounded-xl bg-gradient-primary text-primary-foreground grid place-items-center mb-4">
                 <f.icon className="h-5 w-5" />
               </div>

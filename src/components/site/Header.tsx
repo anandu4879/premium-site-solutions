@@ -27,18 +27,20 @@ export function Header() {
   return (
     <header
       className={`sticky top-0 z-50 transition-all ${
-        scrolled
-          ? "bg-background/85 backdrop-blur-lg border-b shadow-sm"
-          : "bg-transparent"
+        scrolled ? "bg-background/85 backdrop-blur-lg border-b shadow-sm" : "bg-transparent"
       }`}
     >
       <div className="container-x flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center gap-2.5 font-display font-bold text-lg">
-          <img src={logo} alt="BJ & R Maintenance" className="h-11 w-11 rounded-xl object-contain bg-foreground/5 p-1" />
+          <img
+            src={logo}
+            alt="BJ & R Maintenance"
+            className="h-11 w-11 rounded-xl object-contain bg-foreground/5 p-1"
+          />
           <span className="leading-tight">
-            BJ & R<span className="text-primary"> Maintenance</span>
+            BJ & R<span className="text-primary"> </span>
             <span className="block text-[10px] font-medium text-muted-foreground tracking-widest uppercase">
-              Grass & Site Services
+              Maintenance
             </span>
           </span>
         </Link>
@@ -49,7 +51,9 @@ export function Header() {
               key={n.to}
               to={n.to}
               className="px-3 py-2 rounded-md text-sm font-medium text-foreground/80 hover:text-primary hover:bg-secondary transition-colors"
-              activeProps={{ className: "px-3 py-2 rounded-md text-sm font-semibold text-primary bg-secondary" }}
+              activeProps={{
+                className: "px-3 py-2 rounded-md text-sm font-semibold text-primary bg-secondary",
+              }}
               activeOptions={{ exact: n.to === "/" }}
             >
               {n.label}
@@ -64,7 +68,10 @@ export function Header() {
             </Button>
           </a>
           <Link to="/contact">
-            <Button size="sm" className="bg-gradient-primary text-primary-foreground hover:opacity-95">
+            <Button
+              size="sm"
+              className="bg-gradient-primary text-primary-foreground hover:opacity-95"
+            >
               Get Free Quote
             </Button>
           </Link>
@@ -88,14 +95,19 @@ export function Header() {
                 to={n.to}
                 onClick={() => setOpen(false)}
                 className="px-3 py-3 rounded-md text-base font-medium hover:bg-secondary"
-                activeProps={{ className: "px-3 py-3 rounded-md text-base font-semibold text-primary bg-secondary" }}
+                activeProps={{
+                  className:
+                    "px-3 py-3 rounded-md text-base font-semibold text-primary bg-secondary",
+                }}
                 activeOptions={{ exact: n.to === "/" }}
               >
                 {n.label}
               </Link>
             ))}
             <Link to="/contact" onClick={() => setOpen(false)} className="mt-2">
-              <Button className="w-full bg-gradient-primary text-primary-foreground">Get Free Quote</Button>
+              <Button className="w-full bg-gradient-primary text-primary-foreground">
+                Get Free Quote
+              </Button>
             </Link>
           </div>
         </div>
