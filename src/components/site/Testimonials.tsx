@@ -4,7 +4,7 @@ const reviews = [
   {
     name: "Sarah M.",
     role: "Homeowner, Perth",
-    text: "GreenLine completely transformed our backyard. The turf looks incredible and the team was punctual, tidy and professional from start to finish.",
+    text: "BJ & R Maintenance completely transformed our backyard. The turf looks incredible and the team was punctual, tidy and professional from start to finish.",
   },
   {
     name: "James R.",

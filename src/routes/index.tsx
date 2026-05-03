@@ -12,7 +12,7 @@ import { QuoteForm } from "@/components/site/QuoteForm";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "GreenLine — Artificial Grass & Site Services in Perth, WA" },
+      { title: "BJ & R Maintenance — Artificial Grass & Site Services in Perth, WA" },
       { name: "description", content: "Premium artificial grass installation, construction maintenance, labour hire, sand removal & handyman services. Free quotes across WA." },
     ],
   }),

@@ -61,14 +61,14 @@ export function Footer() {
           <h4 className="font-semibold mb-4">Contact</h4>
           <ul className="space-y-3 text-sm text-background/70">
             <li className="flex gap-2"><Phone className="h-4 w-4 shrink-0 text-primary" /> 0400 000 000</li>
-            <li className="flex gap-2"><Mail className="h-4 w-4 shrink-0 text-primary" /> hello@greenline.com.au</li>
+            <li className="flex gap-2"><Mail className="h-4 w-4 shrink-0 text-primary" /> hello@bjrmaintenance.com.au</li>
             <li className="flex gap-2"><MapPin className="h-4 w-4 shrink-0 text-primary" /> Servicing Greater Perth & WA</li>
           </ul>
         </div>
       </div>
       <div className="border-t border-background/10">
         <div className="container-x py-5 text-xs text-background/60 flex flex-col md:flex-row gap-2 md:justify-between">
-          <p>© {new Date().getFullYear()} GreenLine Grass & Site Services. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} BJ & R Maintenance. All rights reserved.</p>
           <p>ABN 00 000 000 000 · Fully insured</p>
         </div>
       </div>

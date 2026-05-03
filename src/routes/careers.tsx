@@ -12,8 +12,8 @@ import { MapPin, Briefcase, Clock } from "lucide-react";
 export const Route = createFileRoute("/careers")({
   head: () => ({
     meta: [
-      { title: "Careers — GreenLine | Join Our Team" },
-      { name: "description", content: "Join GreenLine. We're hiring labourers, turf installers, site cleaners and trade workers across WA. Apply now." },
+      { title: "Careers — BJ & R Maintenance | Join Our Team" },
+      { name: "description", content: "Join BJ & R Maintenance. We're hiring labourers, turf installers, site cleaners and trade workers across WA. Apply now." },
     ],
   }),
   component: CareersPage,
@@ -55,7 +55,7 @@ function CareersPage() {
         <div className="container-x">
           <p className="uppercase tracking-widest text-xs font-semibold opacity-80">Careers</p>
           <h1 className="mt-3 text-4xl md:text-6xl font-bold text-balance max-w-3xl">
-            Join the GreenLine crew
+            Join the BJ & R Maintenance crew
           </h1>
           <p className="mt-4 max-w-2xl text-primary-foreground/90 text-lg">
             Reliable, skilled, and ready to work? We're always looking for great people.
