@@ -6,7 +6,7 @@ import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact & Free Quote — GreenLine" },
+      { title: "Contact & Free Quote — BJ & R Maintenance" },
       { name: "description", content: "Get a free quote for artificial grass, construction maintenance, labour hire, sand removal or handyman services. Call, email or WhatsApp us." },
     ],
   }),
@@ -34,7 +34,7 @@ function ContactPage() {
             {[
               { icon: Phone, label: "Phone", value: "0400 000 000", href: "tel:+61400000000" },
               { icon: MessageCircle, label: "WhatsApp", value: "Chat with us", href: "https://wa.me/61400000000" },
-              { icon: Mail, label: "Email", value: "hello@greenline.com.au", href: "mailto:hello@greenline.com.au" },
+              { icon: Mail, label: "Email", value: "hello@bjrmaintenance.com.au", href: "mailto:hello@bjrmaintenance.com.au" },
               { icon: MapPin, label: "Service Areas", value: "Perth Metro & WA Wide" },
               { icon: Clock, label: "Hours", value: "Mon–Sat · 7am – 6pm" },
             ].map((c) => {

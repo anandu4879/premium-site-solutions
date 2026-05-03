@@ -29,10 +29,10 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "GreenLine — Artificial Grass & Site Services in WA" },
+      { title: "BJ & R Maintenance — Artificial Grass & Site Services in WA" },
       { name: "description", content: "Premium artificial grass installation, construction maintenance, labour hire, sand removal & handyman services across Perth & WA. Free quotes, fully insured." },
-      { name: "author", content: "GreenLine" },
-      { property: "og:title", content: "GreenLine — Artificial Grass & Site Services" },
+      { name: "author", content: "BJ & R Maintenance" },
+      { property: "og:title", content: "BJ & R Maintenance — Artificial Grass & Site Services" },
       { property: "og:description", content: "Premium artificial grass, construction cleanup, labour hire & more. Free quotes across WA." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

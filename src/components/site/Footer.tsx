@@ -1,16 +1,15 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Leaf } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 export function Footer() {
   return (
     <footer className="bg-foreground text-background mt-24">
       <div className="container-x py-16 grid gap-10 md:grid-cols-4">
         <div>
-          <Link to="/" className="flex items-center gap-2 font-display font-bold text-lg">
-            <span className="grid place-items-center h-9 w-9 rounded-xl bg-primary text-primary-foreground">
-              <Leaf className="h-5 w-5" />
-            </span>
-            GreenLine
+          <Link to="/" className="flex items-center gap-2.5 font-display font-bold text-lg">
+            <img src={logo} alt="BJ & R Maintenance" className="h-10 w-10 rounded-xl object-contain bg-background/10 p-1" />
+            BJ & R Maintenance
           </Link>
           <p className="mt-4 text-sm text-background/70 leading-relaxed">
             Premium artificial grass installation and trusted construction site
@@ -62,14 +61,14 @@ export function Footer() {
           <h4 className="font-semibold mb-4">Contact</h4>
           <ul className="space-y-3 text-sm text-background/70">
             <li className="flex gap-2"><Phone className="h-4 w-4 shrink-0 text-primary" /> 0400 000 000</li>
-            <li className="flex gap-2"><Mail className="h-4 w-4 shrink-0 text-primary" /> hello@greenline.com.au</li>
+            <li className="flex gap-2"><Mail className="h-4 w-4 shrink-0 text-primary" /> hello@bjrmaintenance.com.au</li>
             <li className="flex gap-2"><MapPin className="h-4 w-4 shrink-0 text-primary" /> Servicing Greater Perth & WA</li>
           </ul>
         </div>
       </div>
       <div className="border-t border-background/10">
         <div className="container-x py-5 text-xs text-background/60 flex flex-col md:flex-row gap-2 md:justify-between">
-          <p>© {new Date().getFullYear()} GreenLine Grass & Site Services. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} BJ & R Maintenance. All rights reserved.</p>
           <p>ABN 00 000 000 000 · Fully insured</p>
         </div>
       </div>

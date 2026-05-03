@@ -8,7 +8,7 @@ import about from "@/assets/gallery-1.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — GreenLine Grass & Site Services" },
+      { title: "About — BJ & R Maintenance" },
       { name: "description", content: "Experienced Australian crew delivering quality artificial grass, construction maintenance and site services with affordable pricing and customer satisfaction." },
     ],
   }),
@@ -33,12 +33,12 @@ function AboutPage() {
       <section className="py-20 md:py-28">
         <div className="container-x grid lg:grid-cols-2 gap-12 items-center">
           <div className="rounded-3xl overflow-hidden shadow-elevated aspect-[4/3]">
-            <img src={about} alt="About GreenLine" loading="lazy" className="h-full w-full object-cover" />
+            <img src={about} alt="About BJ & R Maintenance" loading="lazy" className="h-full w-full object-cover" />
           </div>
           <div>
             <h2 className="text-3xl md:text-4xl font-bold">A trusted local team — residential & commercial</h2>
             <p className="mt-5 text-muted-foreground text-lg leading-relaxed">
-              GreenLine is a hands-on Australian business specialising in
+              BJ & R Maintenance is a hands-on Australian business specialising in
               premium artificial grass installation and full site services.
               Whether it's a backyard transformation, a school playground, a
               rooftop garden, or post-construction site cleanup — we bring the

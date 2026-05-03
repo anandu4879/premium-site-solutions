@@ -6,7 +6,7 @@ import { CTASection } from "@/components/site/CTASection";
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Project Gallery — GreenLine" },
+      { title: "Project Gallery — BJ & R Maintenance" },
       { name: "description", content: "See our recent artificial grass installations, landscaping, construction cleanups and site projects across Perth & WA." },
     ],
   }),
