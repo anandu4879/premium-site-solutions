@@ -7,11 +7,9 @@ export function Footer() {
     <footer className="bg-foreground text-background mt-24">
       <div className="container-x py-16 grid gap-10 md:grid-cols-4">
         <div>
-          <Link to="/" className="flex items-center gap-2 font-display font-bold text-lg">
-            <span className="grid place-items-center h-9 w-9 rounded-xl bg-primary text-primary-foreground">
-              <Leaf className="h-5 w-5" />
-            </span>
-            GreenLine
+          <Link to="/" className="flex items-center gap-2.5 font-display font-bold text-lg">
+            <img src={logo} alt="BJ & R Maintenance" className="h-10 w-10 rounded-xl object-contain bg-background/10 p-1" />
+            BJ & R Maintenance
           </Link>
           <p className="mt-4 text-sm text-background/70 leading-relaxed">
             Premium artificial grass installation and trusted construction site
