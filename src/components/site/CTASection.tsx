@@ -24,7 +24,7 @@ export function CTASection() {
                   Get Free Quote <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
-              <a href='${siteConfig.contact.displayPhone}'>
+              <a href={`tel:${siteConfig.contact.displayPhone}`}>
                 <Button
                   size="lg"
                   variant="outline"
