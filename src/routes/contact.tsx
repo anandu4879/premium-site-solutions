@@ -1,0 +1,83 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { SiteLayout } from "@/components/site/SiteLayout";
+import { QuoteForm } from "@/components/site/QuoteForm";
+import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
+
+export const Route = createFileRoute("/contact")({
+  head: () => ({
+    meta: [
+      { title: "Contact & Free Quote — GreenLine" },
+      { name: "description", content: "Get a free quote for artificial grass, construction maintenance, labour hire, sand removal or handyman services. Call, email or WhatsApp us." },
+    ],
+  }),
+  component: ContactPage,
+});
+
+function ContactPage() {
+  return (
+    <SiteLayout>
+      <section className="pt-16 pb-12 md:pt-24 md:pb-16 bg-gradient-primary text-primary-foreground">
+        <div className="container-x">
+          <p className="uppercase tracking-widest text-xs font-semibold opacity-80">Get in touch</p>
+          <h1 className="mt-3 text-4xl md:text-6xl font-bold text-balance max-w-3xl">
+            Free quotes within 24 hours
+          </h1>
+          <p className="mt-4 max-w-2xl text-primary-foreground/90 text-lg">
+            Tell us about your project. We'll respond fast with honest pricing.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="container-x grid lg:grid-cols-3 gap-10">
+          <div className="space-y-4">
+            {[
+              { icon: Phone, label: "Phone", value: "0400 000 000", href: "tel:+61400000000" },
+              { icon: MessageCircle, label: "WhatsApp", value: "Chat with us", href: "https://wa.me/61400000000" },
+              { icon: Mail, label: "Email", value: "hello@greenline.com.au", href: "mailto:hello@greenline.com.au" },
+              { icon: MapPin, label: "Service Areas", value: "Perth Metro & WA Wide" },
+              { icon: Clock, label: "Hours", value: "Mon–Sat · 7am – 6pm" },
+            ].map((c) => {
+              const Inner = (
+                <div className="flex gap-4 rounded-2xl border bg-card p-5 hover:border-primary/40 hover:shadow-card transition-all">
+                  <div className="h-11 w-11 shrink-0 rounded-xl bg-gradient-primary text-primary-foreground grid place-items-center">
+                    <c.icon className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">{c.label}</p>
+                    <p className="font-semibold mt-1">{c.value}</p>
+                  </div>
+                </div>
+              );
+              return c.href ? (
+                <a key={c.label} href={c.href} target={c.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="block">{Inner}</a>
+              ) : (
+                <div key={c.label}>{Inner}</div>
+              );
+            })}
+          </div>
+
+          <div className="lg:col-span-2 rounded-2xl bg-card border p-6 md:p-10 shadow-card">
+            <h2 className="text-2xl md:text-3xl font-bold">Request a free quote</h2>
+            <p className="text-muted-foreground mt-1">All fields marked are required.</p>
+            <div className="mt-6">
+              <QuoteForm />
+            </div>
+          </div>
+        </div>
+
+        <div className="container-x mt-16">
+          <div className="rounded-3xl overflow-hidden border shadow-card aspect-[16/7]">
+            <iframe
+              title="Service area map"
+              src="https://www.google.com/maps?q=Perth%2C%20WA&output=embed"
+              className="w-full h-full"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+      </section>
+    </SiteLayout>
+  );
+}
