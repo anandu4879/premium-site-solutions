@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
 import { ArrowUpRight, Check } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
@@ -21,12 +20,18 @@ export function ServicesSection({
   const middleIndex = services.length;
 
   const [active, setActive] = useState<number>(middleIndex);
+  const [isMobile, setIsMobile] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const isMobile =
-    typeof window !== "undefined" &&
-    window.innerWidth < 768;
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const updateMobile = () => setIsMobile(mediaQuery.matches);
+    updateMobile();
+    mediaQuery.addEventListener("change", updateMobile);
+    return () => mediaQuery.removeEventListener("change", updateMobile);
+  }, []);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -36,6 +41,9 @@ export function ServicesSection({
     const cards = Array.from(
       container.querySelectorAll(".service-card"),
     ) as HTMLElement[];
+    const firstBoundary = cards[services.length]?.offsetLeft ?? 0;
+    const lastBoundary = cards[services.length * 2]?.offsetLeft ?? 0;
+    const wrapDistance = lastBoundary - firstBoundary;
 
     // Start from middle section
     requestAnimationFrame(() => {
@@ -53,10 +61,6 @@ export function ServicesSection({
 
     const updateActiveCard = () => {
       if (!container) return;
-
-      const cards = Array.from(
-        container.querySelectorAll(".service-card"),
-      ) as HTMLElement[];
 
       const containerCenter =
         container.scrollLeft + container.offsetWidth / 2;
@@ -78,34 +82,29 @@ export function ServicesSection({
         }
       });
 
-      setActive(closestIndex);
-
-      // Smooth infinite repositioning
-      const firstBoundary =
-        cards[services.length]?.offsetLeft ?? 0;
-
-      const lastBoundary =
-        cards[services.length * 2]?.offsetLeft ?? 0;
+      setActive((prev) =>
+        prev === closestIndex ? prev : closestIndex,
+      );
 
       if (
+        wrapDistance > 0 &&
         container.scrollLeft < firstBoundary * 0.4
       ) {
         container.style.scrollBehavior = "auto";
 
-        container.scrollLeft +=
-          lastBoundary - firstBoundary;
+        container.scrollLeft += wrapDistance;
 
         container.style.scrollBehavior = "auto";
       }
 
       if (
+        wrapDistance > 0 &&
         container.scrollLeft >
         lastBoundary + firstBoundary * 0.4
       ) {
         container.style.scrollBehavior = "auto";
 
-        container.scrollLeft -=
-          lastBoundary - firstBoundary;
+        container.scrollLeft -= wrapDistance;
 
         container.style.scrollBehavior = "auto";
       }
@@ -193,37 +192,25 @@ export function ServicesSection({
             const isActive = active === index;
 
             return (
-              <motion.article
+              <article
                 key={`${s.slug}-${index}`}
                 className="
                   service-card
                   shrink-0
                   flex
                   justify-center
+                  transform-gpu
+                  transition-[transform,opacity]
+                  duration-500
+                  ease-out
                 "
                 style={{
-                  willChange: "transform",
-                }}
-                animate={{
-                  scale: isActive
-                    ? 1
-                    : isMobile
-                    ? 0.96
-                    : 0.92,
-
+                  transform: `translateY(${
+                    isActive ? -4 : isMobile ? 2 : 6
+                  }px) scale(${
+                    isActive ? 1 : isMobile ? 0.96 : 0.92
+                  })`,
                   opacity: isActive ? 1 : 0.75,
-
-                  y: isActive
-                    ? -4
-                    : isMobile
-                    ? 2
-                    : 6,
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: isMobile ? 90 : 120,
-                  damping: isMobile ? 20 : 18,
-                  mass: 0.8,
                 }}
               >
                 <div
@@ -236,8 +223,8 @@ export function ServicesSection({
                     border
                     bg-card
                     shadow-card
-                    transition-[width,box-shadow]
-                    duration-700
+                    transition-[width,box-shadow,transform]
+                    duration-500
                     ease-out
                     ${
                       isActive
@@ -259,23 +246,19 @@ export function ServicesSection({
                 >
                   {/* IMAGE */}
                   <div className="relative h-[240px] md:h-[320px] overflow-hidden">
-                    <motion.img
-                      animate={{
-                        scale: isActive ? 1.05 : 1,
-                      }}
-                      transition={{
-                        duration: 0.7,
-                        ease: "easeOut",
-                      }}
+                    <img
                       src={s.image}
                       alt={s.title}
-                      className="
+                      className={`
                         h-full
                         w-full
                         object-cover
-                        will-change-transform
                         transform-gpu
-                      "
+                        transition-transform
+                        duration-500
+                        ease-out
+                        ${isActive ? "scale-105" : "scale-100"}
+                      `}
                     />
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -357,25 +340,24 @@ export function ServicesSection({
 
                   {/* ACTIVE GLOW */}
                   {isActive && (
-                    <motion.div
-                      layoutId="activeGlow"
+                    <div
                       className="
                         absolute
                         -bottom-20
                         left-1/2
-                        h-40
-                        w-40
-                        md:h-60
-                        md:w-60
+                        h-32
+                        w-32
+                        md:h-44
+                        md:w-44
                         -translate-x-1/2
                         rounded-full
-                        bg-primary/20
-                        blur-3xl
+                        bg-primary/15
+                        blur-2xl
                       "
                     />
                   )}
                 </div>
-              </motion.article>
+              </article>
             );
           })}
         </div>
