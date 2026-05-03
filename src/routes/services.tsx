@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { services } from "@/components/site/data";
+import { siteConfig } from "@/config/siteConfig";
 import { Check } from "lucide-react";
 import { CTASection } from "@/components/site/CTASection";
 
@@ -35,7 +35,7 @@ function ServicesPage() {
       </section>
 
       <div className="container-x py-20 grid gap-16">
-        {services.map((s, i) => (
+        {siteConfig.services.map((s, i) => (
           <article
             key={s.slug}
             id={s.slug}
