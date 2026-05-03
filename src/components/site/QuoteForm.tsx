@@ -13,6 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Upload, Send } from "lucide-react";
+import { siteConfig } from "@/config/siteConfig";
 
 const schema = z.object({
   name: z.string().trim().min(2, "Enter your name").max(80),
@@ -22,14 +23,10 @@ const schema = z.object({
   message: z.string().trim().max(1000).optional().default(""),
 });
 
-const services = [
-  "Artificial Grass",
-  "Construction Maintenance",
-  "Labour Hire",
-  "Sand Removal",
-  "Handyman Services",
-  "Other",
-];
+const services =
+  siteConfig.services.map(
+    (service) => service.title,
+  );
 
 export function QuoteForm() {
   const [files, setFiles] = useState<File[]>([]);

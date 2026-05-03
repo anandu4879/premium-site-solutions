@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
+import { siteConfig } from "@/config/siteConfig";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -62,9 +63,9 @@ export function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
-          <a href="tel:+61406183393">
+          <a href={`tel:${siteConfig.contact.phone}`}>
             <Button variant="ghost" size="sm" className="gap-2">
-              <Phone className="h-4 w-4" /> 406183393
+              <Phone className="h-4 w-4" /> {siteConfig.contact.displayPhone}
             </Button>
           </a>
           <Link to="/contact">

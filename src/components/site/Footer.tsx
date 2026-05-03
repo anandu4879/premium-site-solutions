@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { siteConfig } from "@/config/siteConfig";
 
 export function Footer() {
   return (
@@ -53,24 +54,24 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="font-semibold mb-4">Services</h4>
-          <ul className="space-y-2 text-sm text-background/70">
-            <li>Artificial Grass</li>
-            <li>Construction Maintenance</li>
-            <li>Labour Hire</li>
-            <li>Sand Removal</li>
-            <li>Handyman Services</li>
-          </ul>
-        </div>
+  <h4 className="font-semibold mb-4">Services</h4>
+  <ul className="space-y-2 text-sm text-background/70">
+    {siteConfig.services?.map((service) => (
+      <li key={service.slug}>
+        {service.title}
+      </li>
+    ))}
+  </ul>
+</div>
 
         <div>
           <h4 className="font-semibold mb-4">Contact</h4>
           <ul className="space-y-3 text-sm text-background/70">
             <li className="flex gap-2">
-              <Phone className="h-4 w-4 shrink-0 text-primary" /> 0400 000 000
+              <Phone className="h-4 w-4 shrink-0 text-primary" /> {siteConfig.contact.displayPhone}
             </li>
             <li className="flex gap-2">
-              <Mail className="h-4 w-4 shrink-0 text-primary" /> hello@bjrmaintenance.com.au
+              <Mail className="h-4 w-4 shrink-0 text-primary" /> {siteConfig.contact.email}
             </li>
             <li className="flex gap-2">
               <MapPin className="h-4 w-4 shrink-0 text-primary" /> Servicing Greater Perth & WA

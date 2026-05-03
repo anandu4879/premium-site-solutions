@@ -5,14 +5,9 @@ import g4 from "@/assets/gallery-4.jpg";
 import g5 from "@/assets/gallery-5.jpg";
 import g6 from "@/assets/gallery-6.jpg";
 
-const items = [
-  { src: g1, label: "Backyard Lawn Transformation", tall: false },
-  { src: g3, label: "School Playground Turf", tall: true },
-  { src: g5, label: "Commercial Landscaping", tall: false },
-  { src: g2, label: "Rooftop Turf Install", tall: false },
-  { src: g4, label: "Site Prep & Paving", tall: false },
-  { src: g6, label: "Construction Cleanup", tall: false },
-];
+import { siteConfig } from "@/config/siteConfig";
+
+const items = siteConfig.gallery;
 
 export function Gallery({ heading = true }: { heading?: boolean }) {
   return (

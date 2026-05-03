@@ -3,7 +3,9 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Check } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
-import { services } from "./data";
+import { siteConfig } from "@/config/siteConfig";
+
+const services = siteConfig.services;
 
 const loopedServices = [
   ...services,
