@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Phone, ArrowRight, ShieldCheck, Star } from "lucide-react";
 import hero from "@/assets/hero-grass.webp";
+import { siteConfig } from "@/config/siteConfig";
 
 export function Hero() {
   return (
@@ -37,7 +38,7 @@ export function Hero() {
                 Get Free Quote <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
-            <a href="tel:+61400000000">
+            <a href={siteConfig.contact.displayPhone}>
               <Button
                 size="lg"
                 variant="outline"
