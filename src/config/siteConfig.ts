@@ -54,7 +54,7 @@ import construction from "@/assets/service-construction.jpg";
 
 import labour from "@/assets/service-labour.jpg";
 
-import sand from "@/assets/service-sand.jpg";
+import sand from "@/assets/service-sand.webp";
 
 import handyman from "@/assets/service-handyman.jpg";
 
@@ -82,7 +82,7 @@ import g1 from "@/assets/gallery-1.jpg";
 
 import g2 from "@/assets/gallery-2.jpg";
 
-import g3 from "@/assets/gallery-3.jpg";
+import g3 from "@/assets/gallery-3.webp";
 
 import g4 from "@/assets/gallery-4.jpg";
 

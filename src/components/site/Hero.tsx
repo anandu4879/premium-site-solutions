@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Phone, ArrowRight, ShieldCheck, Star } from "lucide-react";
-import hero from "@/assets/hero-grass.jpg";
+import hero from "@/assets/hero-grass.webp";
 
 export function Hero() {
   return (
