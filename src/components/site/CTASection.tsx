@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
+import { siteConfig } from "@/config/siteConfig";
 
 export function CTASection() {
   return (
@@ -23,7 +24,7 @@ export function CTASection() {
                   Get Free Quote <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
-              <a href="tel:+61400000000">
+              <a href={siteConfig.contact.displayPhone}>
                 <Button
                   size="lg"
                   variant="outline"
