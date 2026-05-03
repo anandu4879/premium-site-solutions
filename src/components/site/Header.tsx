@@ -33,12 +33,10 @@ export function Header() {
       }`}
     >
       <div className="container-x flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center gap-2 font-display font-bold text-lg">
-          <span className="grid place-items-center h-9 w-9 rounded-xl bg-gradient-primary text-primary-foreground">
-            <Leaf className="h-5 w-5" />
-          </span>
+        <Link to="/" className="flex items-center gap-2.5 font-display font-bold text-lg">
+          <img src={logo} alt="BJ & R Maintenance" className="h-11 w-11 rounded-xl object-contain bg-foreground/5 p-1" />
           <span className="leading-tight">
-            GreenLine<span className="text-primary">.</span>
+            BJ & R<span className="text-primary"> Maintenance</span>
             <span className="block text-[10px] font-medium text-muted-foreground tracking-widest uppercase">
               Grass & Site Services
             </span>
