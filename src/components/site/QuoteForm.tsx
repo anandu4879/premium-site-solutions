@@ -35,22 +35,114 @@ export function QuoteForm() {
   const [files, setFiles] = useState<File[]>([]);
   const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const fd = new FormData(e.currentTarget);
-    const data = Object.fromEntries(fd.entries());
-    const parsed = schema.safeParse(data);
-    if (!parsed.success) {
-      toast.error(parsed.error.issues[0]?.message ?? "Please check the form");
-      return;
-    }
+ const onSubmit = async (
+  e: React.FormEvent<HTMLFormElement>,
+) => {
+  e.preventDefault();
+
+  const form = e.currentTarget;
+
+  const fd = new FormData(form);
+
+  const data = Object.fromEntries(fd.entries());
+
+  const parsed = schema.safeParse(data);
+
+  if (!parsed.success) {
+    toast.error(
+      parsed.error.issues[0]?.message ??
+        "Please check the form",
+    );
+
+    return;
+  }
+
+  try {
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 800));
-    setSubmitting(false);
-    toast.success("Quote request received! We'll be in touch within 24 hours.");
-    (e.target as HTMLFormElement).reset();
+
+    let uploadedUrls: string[] = [];
+
+    // Upload files to Cloudinary
+    if (files.length > 0) {
+      for (const file of files) {
+        const cloudinaryData =
+          new FormData();
+
+        cloudinaryData.append(
+          "file",
+          file,
+        );
+
+        cloudinaryData.append(
+          "upload_preset",
+          "xyt5y8cg",
+        );
+
+        const uploadRes = await fetch(
+          "https://api.cloudinary.com/v1_1/dhd74hitg/image/upload",
+          {
+            method: "POST",
+            body: cloudinaryData,
+          },
+        );
+
+        const uploadJson =
+          await uploadRes.json();
+
+        uploadedUrls.push(
+          uploadJson.secure_url,
+        );
+      }
+    }
+
+    // Send to FormSubmit
+    fd.append(
+      "_subject",
+      "New Quote Request",
+    );
+
+    fd.append("_captcha", "false");
+
+    fd.append(
+      "_template",
+      "table",
+    );
+
+    fd.append(
+      "uploaded_files",
+      uploadedUrls.join("\n"),
+    );
+
+    const response = await fetch(
+      "https://formsubmit.co/ajax/scmslogin@gmail.com",
+      {
+        method: "POST",
+        body: fd,
+        headers: {
+          Accept: "application/json",
+        },
+      },
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed");
+    }
+
+    toast.success(
+      "Quote request submitted successfully!",
+    );
+
+    form.reset();
+
     setFiles([]);
-  };
+  } catch (error) {
+    toast.error(
+      "Something went wrong.",
+    );
+  } finally {
+    setSubmitting(false);
+  }
+};
 
   return (
     <form onSubmit={onSubmit} className="grid gap-4">

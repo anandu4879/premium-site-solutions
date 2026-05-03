@@ -62,9 +62,9 @@ export function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
-          <a href="tel:+61400000000">
+          <a href="tel:+61406183393">
             <Button variant="ghost" size="sm" className="gap-2">
-              <Phone className="h-4 w-4" /> 0400 000 000
+              <Phone className="h-4 w-4" /> 406183393
             </Button>
           </a>
           <Link to="/contact">

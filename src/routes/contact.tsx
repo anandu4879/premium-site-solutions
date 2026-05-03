@@ -36,12 +36,12 @@ function ContactPage() {
         <div className="container-x grid lg:grid-cols-3 gap-10">
           <div className="space-y-4">
             {[
-              { icon: Phone, label: "Phone", value: "0400 000 000", href: "tel:+61400000000" },
+              { icon: Phone, label: "Phone", value: "+61 406183393 ", href: "tel:+61406183393" },
               {
                 icon: MessageCircle,
                 label: "WhatsApp",
                 value: "Chat with us",
-                href: "https://wa.me/61400000000",
+                href: "https://wa.me/61406183393",
               },
               {
                 icon: Mail,
@@ -49,8 +49,8 @@ function ContactPage() {
                 value: "hello@bjrmaintenance.com.au",
                 href: "mailto:hello@bjrmaintenance.com.au",
               },
-              { icon: MapPin, label: "Service Areas", value: "Perth Metro & WA Wide" },
-              { icon: Clock, label: "Hours", value: "Mon–Sat · 7am – 6pm" },
+              { icon: MapPin, label: "Location", value: "186 Honeywood Avenue, WANDI WA 6167" },
+              { icon: Clock, label: "Hours", value: "Mon–Sat · 7am – 7pm" },
             ].map((c) => {
               const Inner = (
                 <div className="flex gap-4 rounded-2xl border bg-card p-5 hover:border-primary/40 hover:shadow-card transition-all">
@@ -89,18 +89,19 @@ function ContactPage() {
             </div>
           </div>
         </div>
-
-        <div className="container-x mt-16">
-          <div className="rounded-3xl overflow-hidden border shadow-card aspect-[16/7]">
-            <iframe
-              title="Service area map"
-              src="https://www.google.com/maps?q=Perth%2C%20WA&output=embed"
-              className="w-full h-full"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-        </div>
+<div className="container-x mt-16">
+  <div className="rounded-3xl overflow-hidden border shadow-card aspect-[16/7]">
+    <iframe
+      title="Service area map"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3376.7069320110395!2d115.85764157599156!3d-32.1851767338374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a3290a3b039f2eb%3A0xb2f4ebc1d064c9ce!2s186%20Honeywood%20Ave%2C%20Wandi%20WA%206167%2C%20Australia!5e0!3m2!1sen!2sin!4v1777814582235!5m2!1sen!2sin"
+      className="w-full h-full"
+      style={{ border: 0 }}
+      
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+    />
+  </div>
+</div>
       </section>
     </SiteLayout>
   );
