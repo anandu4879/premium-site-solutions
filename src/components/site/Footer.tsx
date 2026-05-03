@@ -74,7 +74,7 @@ export function Footer() {
               <Mail className="h-4 w-4 shrink-0 text-primary" /> {siteConfig.contact.email}
             </li>
             <li className="flex gap-2">
-              <MapPin className="h-4 w-4 shrink-0 text-primary" /> Servicing Greater Perth & WA
+              <MapPin className="h-4 w-4 shrink-0 text-primary" /> {siteConfig.contact.address}
             </li>
           </ul>
         </div>

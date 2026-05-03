@@ -156,7 +156,7 @@ export const siteConfig = {
 
     // Business address
     address:
-      "Servicing Greater Perth & WA",
+      "186 Honeywood Avenue, Wandi 6167",
   },
 
 
