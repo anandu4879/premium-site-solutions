@@ -78,7 +78,7 @@ import handyman from "@/assets/service-handyman.jpg";
 //
 // ==========================================================
 
-import g1 from "@/assets/gallery-1.jpg";
+import g1 from "@/assets/gallery-1.jpeg";
 
 import g2 from "@/assets/gallery-2.jpg";
 
@@ -89,6 +89,8 @@ import g4 from "@/assets/gallery-4.jpg";
 import g5 from "@/assets/gallery-5.jpg";
 
 import g6 from "@/assets/gallery-6.jpg";
+
+import g7 from "@/assets/gallery-7.jpg";
 
 
 
@@ -422,7 +424,7 @@ export const siteConfig = {
   gallery: [
 
     {
-      src: g1,
+      src: g7,
 
       label:
         "Backyard Lawn Transformation",
@@ -458,10 +460,10 @@ export const siteConfig = {
     },
 
     {
-      src: g5,
+      src: g1,
 
       label:
-        "Commercial Landscaping",
+        " Landscaping",
 
       tall: false,
     },
