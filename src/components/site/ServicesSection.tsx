@@ -1,16 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowUpRight, Check } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 import { siteConfig } from "@/config/siteConfig";
 
 const services = siteConfig.services;
-
-const loopedServices = [
-  ...services,
-  ...services,
-  ...services,
-];
 
 export function ServicesSection({
   heading = true,
@@ -21,6 +15,12 @@ export function ServicesSection({
 
   const [active, setActive] = useState<number>(middleIndex);
   const [isMobile, setIsMobile] = useState(false);
+
+  const loopedServices = useMemo(() => {
+    // Reduce loops on mobile for better performance
+    const loops = isMobile ? 2 : 3;
+    return Array.from({ length: loops }, () => services).flat();
+  }, [isMobile]);
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -200,6 +200,7 @@ export function ServicesSection({
                   flex
                   justify-center
                   transform-gpu
+                  will-change-transform
                   transition-[transform,opacity]
                   duration-500
                   ease-out
