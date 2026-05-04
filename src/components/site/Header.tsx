@@ -33,11 +33,13 @@ export function Header() {
     >
       <div className="container-x flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center gap-2.5 font-display font-bold text-lg">
-          <img
-            src={logo}
-            alt="BJ & R Maintenance"
-            className="h-11 w-11 rounded-xl object-contain bg-foreground/5 p-1"
-          />
+          <div className="h-17 w-17 rounded-full bg-white p-2 overflow-hidden shadow-none">
+            <img
+              src={logo}
+              alt="BJ & R Maintenance"
+              className="h-full w-full object-contain"
+            />
+          </div>
           <span className="leading-tight">
             BJ & R<span className="text-primary"> </span>
             <span className="block text-[10px] font-medium text-muted-foreground tracking-widest uppercase">

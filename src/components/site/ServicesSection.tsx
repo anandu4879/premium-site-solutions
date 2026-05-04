@@ -281,7 +281,7 @@ export function ServicesSection({
                     </p>
 
                     <ul className="mt-6 md:mt-8 grid gap-3 md:gap-4">
-                      {s.items.slice(0, 4).map((i) => (
+                      {s.items.map((i) => (
                         <li
                           key={i}
                           className="flex items-center gap-3"

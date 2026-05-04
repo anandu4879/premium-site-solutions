@@ -284,10 +284,13 @@ export const siteConfig = {
 
       items: [
         "Residential lawns",
-
         "Commercial landscaping",
+        "Artificial Grass Supply & Installation",
+        "Playgrounds & Schools",
+        "Pet-Friendly Turf Areas",
+        "Rooftop & Balcony Turf",
+        "Sports & Recreation Areas",
 
-        "Playgrounds",
       ],
     },
 
@@ -305,11 +308,15 @@ export const siteConfig = {
         "Site cleaning & maintenance.",
 
       items: [
-        "Site cleaning",
-
-        "Waste removal",
-
+        "Post-construction site cleaning",
+        "Interior sweep out and clean ",
         "Demolition cleanup",
+        "Land clearing & site preparation",
+        "Rubbish removal & site clearance",
+        "Debris removal & site restoration",
+        "Green waste removal & landscaping",
+        "Waterproofing",
+        "Hazardous waste removal",
       ],
     },
 
@@ -327,8 +334,11 @@ export const siteConfig = {
 
       items: [
         "Construction workers",
-
         "General labourers",
+        "Landscaping Crews",
+        "Site Clean-Up Staff",
+        "Maintenance Support Workers",
+        "Short-Term & Long-Term Hire",
       ],
     },
 
@@ -346,8 +356,11 @@ export const siteConfig = {
 
       items: [
         "Backyard sand removal",
-
-        "Site levelling",
+        "Site Levelling & Compaction ",
+        "Verge Sand Clearing & Clean-Up",
+        "Sand Disposal & Skip Bin Coordination",
+        "Construction Site Sand Removal",
+        " Tight-Access Sand Clearing with Compact Equipment ",
       ],
     },
 
@@ -366,8 +379,8 @@ export const siteConfig = {
 
       items: [
         "Brick patching",
-
         "Paving replacement",
+        "General Handyman Work ",
       ],
     },
   ],
