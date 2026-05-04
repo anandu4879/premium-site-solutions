@@ -276,7 +276,7 @@ export function ServicesSection({
                   </div>
 
                   {/* CONTENT */}
-                  <div className="p-6 md:p-10">
+                  <div className="p-6 md:p-10 min-h-[250px] md:min-h-[350px]">
                     <p className="text-sm md:text-lg text-muted-foreground leading-relaxed">
                       {s.short}
                     </p>
