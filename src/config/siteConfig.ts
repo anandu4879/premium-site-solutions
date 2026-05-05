@@ -260,6 +260,8 @@ export const siteConfig = {
   //
   //   short:
   //     "Professional pressure washing.",
+  //   detail:
+  //     "A longer paragraph for the individual service page only.",
   //
   //   items: [
   //     "Driveways",
@@ -284,6 +286,13 @@ export const siteConfig = {
       short:
         "Premium synthetic turf installation.",
 
+      
+      detail:
+      `Transform your outdoor spaces with high-quality artificial grass designed for beauty, durability, and low maintenance. We specialize in supplying and installing premium synthetic turf for residential, commercial, and landscaping projects. Whether it’s your backyard, front lawn, playground, rooftop, office space, or sports area, we create clean, green spaces that look natural all year round.
+
+Our artificial grass is pet-friendly, child-safe, weather-resistant, and built to handle heavy use while staying fresh and vibrant. Say goodbye to mowing, watering, mud, and ongoing lawn maintenance.
+
+We focus on professional workmanship, affordable pricing, and customer satisfaction from start to finish. From site preparation to final installation, our team ensures every project is completed to the highest standard.`,
       items: [
         "Residential lawns",
         "Commercial landscaping",
@@ -309,6 +318,8 @@ export const siteConfig = {
       short:
         "Site cleaning & maintenance.",
 
+      detail:
+       'Ensure your project site is safe, compliant, and ready for the next phase with our comprehensive site cleaning and preparation services. We specialize in post-construction and demolition cleanup, providing everything from interior sweep-outs to heavy debris and hazardous waste removal. Our team also handles precision preparation tasks, including floor scraping, acid fence cleaning, and paving prep, along with professional waterproofing. Whether its green waste removal or full land clearing, we provide a blank canvas for your construction or landscaping vision.',
       items: [
         "Post-construction site cleaning",
         "Interior sweep out and clean ",
@@ -334,6 +345,11 @@ export const siteConfig = {
       short:
         "Skilled labour solutions.",
 
+      detail:
+        `We provide skilled and dependable labour hire for residential, commercial, and industrial projects. Whether you need short-term workers, long-term staff, or urgent site support, we supply labourers ready to get the job done safely and efficiently.
+Our team can assist with construction, landscaping, site cleaning, general labour, maintenance, moving materials, demolition support, and more. We understand the importance of punctuality, productivity, and safety on every job site.
+We work closely with businesses, contractors, and project managers to deliver flexible workforce solutions tailored to your needs.`,
+
       items: [
         "Construction workers",
         "General labourers",
@@ -356,6 +372,8 @@ export const siteConfig = {
       short:
         "Professional sand removal.",
 
+      detail:
+        'Professional sand removal and site preparation services for residential and commercial properties. We specialize in clearing excess sand from backyards, verges, and construction sites, using compact equipment for tight-access areas. From complete waste disposal and skip bin coordination to precision leveling and compaction, we ensure your ground is perfectly prepped for paving, landscaping, or new construction. We focus on efficiency, cleanliness, and leaving your site ready for its next transformation.',
       items: [
         "Backyard sand removal",
         "Site Levelling & Compaction ",
@@ -379,6 +397,8 @@ export const siteConfig = {
       short:
         "General property maintenance.",
 
+      detail:
+        'Maintain the integrity and aesthetics of your property with our professional brick and paving repair services. We specialize in seamless brick patching to restore structural strength, along with paving replacements to fix sunken or hazardous surfaces in driveways and patios. Beyond masonry, we offer general handyman services to tackle those essential small repairs and maintenance tasks that keep your home or business in top condition. Our focus is on precision, safety, and high-quality finishes for every minor or major touch-up.',
       items: [
         "Brick patching",
         "Paving replacement",

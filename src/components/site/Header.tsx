@@ -1,13 +1,12 @@
-import { Link } from "@tanstack/react-router";
+import { Link, linkOptions } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 import { siteConfig } from "@/config/siteConfig";
 
 const nav = [
   { to: "/", label: "Home" },
-  { to: "/services", label: "Services" },
   { to: "/gallery", label: "Gallery" },
   { to: "/about", label: "About" },
   { to: "/careers", label: "Careers" },
@@ -16,6 +15,18 @@ const nav = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (!(e.target as Element).closest('.services-dropdown')) {
+        setServicesOpen(false);
+      }
+    };
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-lg border-b shadow-sm transition-all">
@@ -50,6 +61,29 @@ export function Header() {
               {n.label}
             </Link>
           ))}
+          <div className="relative services-dropdown">
+            <button
+              onClick={() => setServicesOpen(!servicesOpen)}
+              className="px-3 py-2 rounded-md text-sm font-medium text-foreground/80 hover:text-primary hover:bg-secondary transition-colors flex items-center gap-1"
+            >
+              Services
+              <ChevronDown className={`h-4 w-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {servicesOpen && (
+              <div className="absolute top-full left-0 mt-1 w-64 bg-background border border-border rounded-lg shadow-lg py-2 z-50">
+                {siteConfig.services.map((s) => (
+                  <Link
+                    key={s.slug}
+                    {...linkOptions({ to: "/services/$slug", params: { slug: s.slug } })}
+                    onClick={() => setServicesOpen(false)}
+                    className="block px-4 py-2 text-sm text-foreground/80 hover:bg-secondary hover:text-primary"
+                  >
+                    {s.title}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
@@ -95,6 +129,34 @@ export function Header() {
                 {n.label}
               </Link>
             ))}
+            <div className="border-t border-border mt-2 pt-2">
+              <button
+                type="button"
+                onClick={() => setMobileServicesOpen((value) => !value)}
+                className="w-full flex items-center justify-between px-3 py-2 text-sm font-semibold text-foreground/80 hover:text-primary hover:bg-secondary rounded-md transition-colors"
+                aria-expanded={mobileServicesOpen}
+              >
+                Services
+                <ChevronDown className={`h-4 w-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {mobileServicesOpen && (
+                <div className="mt-1 space-y-1">
+                  {siteConfig.services.map((s) => (
+                    <Link
+                      key={s.slug}
+                      {...linkOptions({ to: "/services/$slug", params: { slug: s.slug } })}
+                      onClick={() => {
+                        setOpen(false);
+                        setMobileServicesOpen(false);
+                      }}
+                      className="block px-6 py-2 text-sm hover:bg-secondary"
+                    >
+                      {s.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
             <Link to="/contact" onClick={() => setOpen(false)} className="mt-2">
               <Button className="w-full bg-gradient-primary text-primary-foreground">
                 Get Free Quote
