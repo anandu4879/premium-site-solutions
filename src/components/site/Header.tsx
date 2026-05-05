@@ -15,22 +15,10 @@ const nav = [
 ] as const;
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
-    onScroll();
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all ${
-        scrolled ? "bg-background/85 backdrop-blur-lg border-b shadow-sm" : "bg-transparent"
-      }`}
-    >
+    <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-lg border-b shadow-sm transition-all">
       <div className="container-x flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center gap-2.5 font-display font-bold text-lg">
           <div className="h-14 w-14 rounded-full bg-white p-2 overflow-hidden shadow-none">
