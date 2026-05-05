@@ -51,17 +51,17 @@ export function Header() {
         isHeaderHidden ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <div className="container-x flex items-center justify-between h-24 md:h-28 lg:h-32">
+      <div className="container-x flex items-center justify-between h-16 md:h-20 lg:h-24">
         <Link
           to="/"
           className="flex items-center h-full transition-transform duration-200 hover:scale-[1.02]"
           aria-label="BJ & R Maintenance PTY. LTD"
         >
-          <div className="h-full w-[14rem] md:w-[16rem] lg:w-[18rem] overflow-hidden">
+          <div className="flex h-16 w-[13rem] items-center justify-center overflow-visible md:h-20 md:w-[16rem] lg:h-24 lg:w-[19rem]">
             <img
               src={logo}
               alt="BJ & R Maintenance"
-              className="h-full w-full object-contain"
+              className="h-full w-full scale-125 object-contain"
             />
           </div>
         </Link>

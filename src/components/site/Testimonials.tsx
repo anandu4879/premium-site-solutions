@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { Star, Quote } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 
 const reviews = [
   {
@@ -33,61 +33,121 @@ const reviews = [
 ];
 
 export function Testimonials() {
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const swipeStartRef = useRef<{ x: number; y: number } | null>(null);
 
   useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
+    const timer = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % reviews.length);
+    }, 6000);
 
-    const scrollSpeed = 0.8;
-    let direction = 1;
-    let animationId: number;
-
-    const autoScroll = () => {
-      if (!container) return;
-
-      if (container.scrollLeft >= container.scrollWidth - container.clientWidth - 1) {
-        direction = -1;
-      } else if (container.scrollLeft <= 0) {
-        direction = 1;
-      }
-
-      container.scrollLeft += direction * scrollSpeed;
-      animationId = requestAnimationFrame(autoScroll);
-    };
-
-    animationId = requestAnimationFrame(autoScroll);
-    return () => cancelAnimationFrame(animationId);
+    return () => window.clearInterval(timer);
   }, []);
+
+  const activeReview = reviews[activeIndex];
+
+  const showPreviousReview = () => {
+    setActiveIndex((current) => (current - 1 + reviews.length) % reviews.length);
+  };
+
+  const showNextReview = () => {
+    setActiveIndex((current) => (current + 1) % reviews.length);
+  };
+
+  const handleSwipeEnd = (x: number, y: number) => {
+    const start = swipeStartRef.current;
+    swipeStartRef.current = null;
+
+    if (!start) return;
+
+    const deltaX = x - start.x;
+    const deltaY = y - start.y;
+    const isHorizontalSwipe = Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY);
+
+    if (!isHorizontalSwipe) return;
+
+    if (deltaX < 0) {
+      showNextReview();
+    } else {
+      showPreviousReview();
+    }
+  };
 
   return (
     <section className="py-20 md:py-28 bg-foreground text-background">
-      <div className="container-x">
-        <div className="max-w-2xl mb-14">
+      <div className="container-x grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div className="max-w-2xl">
           <p className="text-primary-glow font-semibold uppercase tracking-widest text-xs mb-3">
             Testimonials
           </p>
           <h2 className="text-3xl md:text-5xl font-bold text-balance">What our clients say</h2>
+          <p className="mt-4 text-background/70 text-lg">
+            Real feedback from builders, supervisors and project teams who trust BJ & R on site.
+          </p>
         </div>
-        <div ref={scrollRef} className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide">
-          {reviews.map((r) => (
-            <div
-              key={r.name}
-              className="shrink-0 w-[85vw] md:w-[400px] rounded-2xl bg-background/5 backdrop-blur p-7 border border-background/10 relative"
-            >
-              <Quote className="h-8 w-8 text-primary-glow opacity-60" />
-              <div className="flex gap-1 mt-3">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-primary-glow text-primary-glow" />
-                ))}
-              </div>
-              <p className="mt-4 text-background/90 leading-relaxed">"{r.text}"</p>
-              <div className="mt-6 pt-4 border-t border-background/10">
-                <p className="font-semibold">{r.name}</p>
-                <p className="text-xs text-background/60">{r.role}</p>
-              </div>
+
+        <div
+          className="mx-auto w-full max-w-2xl touch-pan-y"
+          onPointerDown={(event) => {
+            swipeStartRef.current = {
+              x: event.clientX,
+              y: event.clientY,
+            };
+          }}
+          onPointerUp={(event) => handleSwipeEnd(event.clientX, event.clientY)}
+          onPointerCancel={() => {
+            swipeStartRef.current = null;
+          }}
+        >
+          <article
+            className="min-h-[460px] rounded-2xl border border-background/10 bg-background/5 p-7 shadow-2xl backdrop-blur transition-colors duration-300 md:min-h-[430px] md:p-8"
+          >
+            <Quote className="h-8 w-8 text-primary-glow opacity-60" />
+            <div className="flex gap-1 mt-3">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="h-4 w-4 fill-primary-glow text-primary-glow" />
+              ))}
             </div>
-          ))}
+            <p className="mt-5 text-background/90 leading-relaxed">"{activeReview.text}"</p>
+            <div className="mt-6 pt-4 border-t border-background/10">
+              <p className="font-semibold">{activeReview.name}</p>
+              <p className="text-xs text-background/60">{activeReview.role}</p>
+            </div>
+          </article>
+
+          <div className="mt-6 flex items-center justify-center gap-4">
+            <button
+              type="button"
+              onClick={showPreviousReview}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-background/15 bg-background/5 text-background transition hover:bg-background/10"
+              aria-label="Show previous review"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+
+            <div className="flex justify-center gap-2">
+              {reviews.map((review, index) => (
+                <button
+                  key={review.name}
+                  type="button"
+                  onClick={() => setActiveIndex(index)}
+                  className={`h-2.5 rounded-full transition-all ${
+                    index === activeIndex ? "w-8 bg-primary-glow" : "w-2.5 bg-background/25"
+                  }`}
+                  aria-label={`Show review from ${review.name}`}
+                />
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={showNextReview}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-background/15 bg-background/5 text-background transition hover:bg-background/10"
+              aria-label="Show next review"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
