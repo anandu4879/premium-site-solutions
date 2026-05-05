@@ -22,12 +22,10 @@ export function Hero() {
             Trusted by Builders & Homeowners across WA
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.05] text-balance">
-            Transform Your Outdoor Space with{" "}
-            <span className="text-primary-glow">Premium Artificial Grass</span>
+            Your Trusted Partner for Site Maintenance and Property Care
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-white/85 max-w-2xl">
-            Professional installation, labour hire, maintenance, and site services for residential
-            and commercial projects.
+            Whether you need skilled labour, site levelling, or professional property repairs, our team ensures your project is completed to the highest standard.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/contact">

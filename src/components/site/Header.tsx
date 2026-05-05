@@ -8,8 +8,8 @@ import { siteConfig } from "@/config/siteConfig";
 const nav = [
   { to: "/", label: "Home" },
   { to: "/gallery", label: "Gallery" },
+  { to: "/careers", label: "Career" },
   { to: "/about", label: "About" },
-  { to: "/careers", label: "Careers" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -29,7 +29,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-lg border-b shadow-sm transition-all">
+    <header className="sticky top-0 z-50 bg-white border-b shadow-sm transition-all">
       <div className="container-x flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center gap-2.5 font-display font-bold text-lg">
           <div className="h-14 w-14 rounded-full bg-white p-2 overflow-hidden shadow-none">
@@ -48,7 +48,7 @@ export function Header() {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
-          {nav.map((n) => (
+          {nav.slice(0, 1).map((n) => (
             <Link
               key={n.to}
               to={n.to}
@@ -66,7 +66,7 @@ export function Header() {
               onClick={() => setServicesOpen(!servicesOpen)}
               className="px-3 py-2 rounded-md text-sm font-medium text-foreground/80 hover:text-primary hover:bg-secondary transition-colors flex items-center gap-1"
             >
-              Services
+              Service
               <ChevronDown className={`h-4 w-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
             </button>
             {servicesOpen && (
@@ -84,6 +84,19 @@ export function Header() {
               </div>
             )}
           </div>
+          {nav.slice(1).map((n) => (
+            <Link
+              key={n.to}
+              to={n.to}
+              className="px-3 py-2 rounded-md text-sm font-medium text-foreground/80 hover:text-primary hover:bg-secondary transition-colors"
+              activeProps={{
+                className: "px-3 py-2 rounded-md text-sm font-semibold text-primary bg-secondary",
+              }}
+              activeOptions={{ exact: n.to === "/" }}
+            >
+              {n.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
@@ -114,7 +127,7 @@ export function Header() {
       {open && (
         <div className="lg:hidden border-t bg-background animate-fade-in">
           <div className="container-x py-4 flex flex-col gap-1">
-            {nav.map((n) => (
+            {nav.slice(0, 1).map((n) => (
               <Link
                 key={n.to}
                 to={n.to}
@@ -133,7 +146,7 @@ export function Header() {
               <button
                 type="button"
                 onClick={() => setMobileServicesOpen((value) => !value)}
-                className="w-full flex items-center justify-between px-3 py-2 text-sm font-semibold text-foreground/80 hover:text-primary hover:bg-secondary rounded-md transition-colors"
+                className="w-full flex items-center justify-between px-3 py-3 text-base font-medium text-foreground/80 hover:text-primary hover:bg-secondary rounded-md transition-colors"
                 aria-expanded={mobileServicesOpen}
               >
                 Services
@@ -157,6 +170,21 @@ export function Header() {
                 </div>
               )}
             </div>
+            {nav.slice(1).map((n) => (
+              <Link
+                key={n.to}
+                to={n.to}
+                onClick={() => setOpen(false)}
+                className="px-3 py-3 rounded-md text-base font-medium hover:bg-secondary"
+                activeProps={{
+                  className:
+                    "px-3 py-3 rounded-md text-base font-semibold text-primary bg-secondary",
+                }}
+                activeOptions={{ exact: n.to === "/" }}
+              >
+                {n.label}
+              </Link>
+            ))}
             <Link to="/contact" onClick={() => setOpen(false)} className="mt-2">
               <Button className="w-full bg-gradient-primary text-primary-foreground">
                 Get Free Quote
