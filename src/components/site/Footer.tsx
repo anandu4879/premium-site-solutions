@@ -12,7 +12,7 @@ export function Footer() {
             <img
               src={logo}
               alt="BJ & R Maintenance"
-              className="h-10 w-10 rounded-xl object-contain bg-background/10 p-1"
+              className="h-10 w-10 rounded-xl bg-white object-contain p-1"
             />
             BJ & R Maintenance
           </Link>
