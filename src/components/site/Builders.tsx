@@ -43,7 +43,7 @@ export function Builders() {
 
         <div
           ref={scrollRef}
-          className="relative overflow-x-auto overflow-y-hidden pb-3"
+          className="relative overflow-x-auto overflow-y-hidden scroll-smooth pb-3 [-webkit-overflow-scrolling:touch]"
           onMouseEnter={() => {
             pausedRef.current = true;
           }}
