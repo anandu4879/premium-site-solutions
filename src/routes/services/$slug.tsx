@@ -35,7 +35,7 @@ function ServicePage() {
       <section className="pt-16 pb-12 md:pt-24 md:pb-16 bg-gradient-primary text-primary-foreground">
         <div className="container-x">
           <Link
-            to="/services"
+            to="/"
             className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground mb-4"
           >
             <ArrowLeft className="h-4 w-4" />

@@ -1,12 +1,6 @@
-const builders = [
-  "BuildCo",
-  "UrbanWorks",
-  "Coastal Group",
-  "Stratton Homes",
-  "Northline Constructions",
-  "Apex Builders",
-  "Greenfield Co",
-];
+import { siteConfig } from "@/config/siteConfig";
+
+const builders = siteConfig.builders;
 
 export function Builders() {
   return (
@@ -17,22 +11,36 @@ export function Builders() {
         </p>
 
         <div className="relative overflow-hidden">
-          <div className="flex whitespace-nowrap animate-marquee gap-14">
-            {[...builders, ...builders].map((b, index) => (
-              <span
+          <div className="flex items-center whitespace-nowrap animate-marquee gap-10 md:gap-14">
+            {[...builders, ...builders].map((builder, index) => (
+              <div
                 key={index}
                 className="
-                  font-display
-                  font-bold
-                  text-lg
-                  md:text-2xl
-                  text-foreground/40
-                  hover:text-primary
-                  transition-colors
+                  flex
+                  h-16
+                  w-36
+                  md:h-20
+                  md:w-44
+                  shrink-0
+                  items-center
+                  justify-center
+                  rounded-md
+                  border
+                  bg-background/80
+                  px-5
+                  py-3
+                  opacity-80
+                  transition
+                  hover:opacity-100
                 "
               >
-                {b}
-              </span>
+                <img
+                  src={builder.image}
+                  alt={builder.name}
+                  loading="lazy"
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
             ))}
           </div>
         </div>

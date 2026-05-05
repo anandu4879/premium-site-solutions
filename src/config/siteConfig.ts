@@ -92,6 +92,35 @@ import g6 from "@/assets/gallery-6.jpg";
 
 import g7 from "@/assets/gallery-8.jpg";
 
+import g8 from "@/assets/101.png";
+import g9 from "@/assets/averna.png";
+import g10 from "@/assets/vicore.png";
+import g11 from "@/assets/cu.png";
+import g12 from "@/assets/Shelford.png";
+import g13 from "@/assets/trendseter.png";
+import g14 from "@/assets/res.png";
+import g15 from "@/assets/before.png";
+
+// ==========================================================
+// BUILDER LOGO IMAGES
+// ==========================================================
+//
+// TO ADD BUILDER LOGOS:
+//
+// 1. Add logo image inside:
+//    src/assets/
+//
+// 2. Import image below
+//
+// 3. Add it inside the "builders" array
+//
+// Example:
+// import buildCoLogo from "@/assets/builder-buildco.png";
+//
+// ==========================================================
+
+import builderLogo from "@/assets/logo.png";
+
 
 
 // ==========================================================
@@ -410,6 +439,80 @@ We work closely with businesses, contractors, and project managers to deliver fl
 
 
   // ========================================================
+  // BUILDER LOGOS
+  // ========================================================
+  //
+  // These appear in:
+  // ✅ Trusted by Builders & Contractors section
+  //
+  // TO ADD / CHANGE A BUILDER LOGO:
+  //
+  // 1. Add the logo image inside:
+  //    src/assets/
+  //
+  // 2. Import it near "BUILDER LOGO IMAGES" above
+  //
+  // 3. Replace "builderLogo" below with your imported image
+  //
+  // Example:
+  //
+  // {
+  //   name: "BuildCo",
+  //   image: buildCoLogo,
+  // },
+  //
+  // ========================================================
+
+ 
+
+  builders: [
+
+    {
+      name: "101 Residentails",
+
+      image: g8,
+    },
+
+    {
+      name: "Averna Homes",
+
+      image: g9,
+    },
+
+    {
+      name: " Vicore Constructions",
+
+      image: g10,
+    },
+
+    {
+      name: " CU Building Group",
+
+      image: g11,
+    },
+
+    {
+      name: " Shelford Constructions",
+
+      image: g12,
+    },
+
+    {
+      name: "Trendsetter Homes",
+
+      image: g13,
+    },
+
+    {
+      name: "Residential Attitude",
+
+      image: g14,
+    },
+  ],
+
+
+
+  // ========================================================
   // GALLERY IMAGES
   // ========================================================
   //
@@ -433,11 +536,19 @@ We work closely with businesses, contractors, and project managers to deliver fl
   //   label:
   //     "Pressure Cleaning Project",
   //
-  //   tall: false,
+  //   size: "medium",
   // },
   //
-  // tall: true
-  // makes image taller
+  // size options:
+  // "small"  = compact square image
+  // "medium" = regular gallery image
+  // "large"  = bigger image across 2 columns
+  //
+  // Extra options:
+  // "normal" = same as medium
+  // "square" = square image
+  // "tall"   = taller portrait image
+  // "wide"   = stretched image across 2 columns
   //
   // ========================================================
 
@@ -449,16 +560,16 @@ We work closely with businesses, contractors, and project managers to deliver fl
       label:
         "Backyard Lawn Transformation",
 
-      tall: false,
+      size: "small",
     },
 
     {
-      src: g2,
+      src: g15,
 
       label:
-        "Rooftop Turf Install",
+        "Before and After - Artificial Grass",
 
-      tall: false,
+      size: "wide",
     },
 
     {
@@ -467,7 +578,7 @@ We work closely with businesses, contractors, and project managers to deliver fl
       label:
         "School Playground Turf",
 
-      tall: true,
+      size: "tall",
     },
 
     {
@@ -476,7 +587,7 @@ We work closely with businesses, contractors, and project managers to deliver fl
       label:
         "Site Prep & Paving",
 
-      tall: false,
+      size: "large",
     },
 
     {
@@ -485,7 +596,7 @@ We work closely with businesses, contractors, and project managers to deliver fl
       label:
         " Landscaping",
 
-      tall: false,
+      size: "large",
     },
 
     {
@@ -494,7 +605,7 @@ We work closely with businesses, contractors, and project managers to deliver fl
       label:
         "Construction Cleanup",
 
-      tall: false,
+      size: "tall",
     },
   ],
 };

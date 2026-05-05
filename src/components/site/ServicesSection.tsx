@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowUpRight, Check, X } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 
 import { siteConfig } from "@/config/siteConfig";
 
@@ -15,7 +15,7 @@ export function ServicesSection({
 
   const [active, setActive] = useState<number>(middleIndex);
   const [isMobile, setIsMobile] = useState(false);
-  const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
+  const navigate = useNavigate();
 
   const loopedServices = useMemo(() => {
     // Reduce loops on mobile for better performance
@@ -217,7 +217,7 @@ export function ServicesSection({
                 }}
                 onClick={() => {
                   if (isMobile) {
-                    setSelectedService(s);
+                    navigate({ to: "/services/$slug", params: { slug: s.slug } });
                   } else {
                     setActive(index);
                   }
@@ -375,59 +375,6 @@ export function ServicesSection({
         </div>
       </div>
 
-      {/* MOBILE MODAL */}
-      {selectedService && isMobile && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <div className="relative max-h-[90vh] w-full max-w-md overflow-y-auto rounded-[32px] bg-card p-6 shadow-elevated">
-            <button
-              onClick={() => setSelectedService(null)}
-              className="absolute right-4 top-4 z-10 rounded-full bg-white/90 p-3 shadow-lg hover:bg-white transition-colors"
-            >
-              <X className="h-6 w-6 text-foreground" />
-            </button>
-
-            <div className="relative h-[200px] overflow-hidden rounded-2xl">
-              <img
-                src={selectedService.image}
-                alt={selectedService.title}
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              <div className="absolute bottom-4 left-4">
-                <h3 className="text-2xl font-bold text-white">
-                  {selectedService.title}
-                </h3>
-              </div>
-            </div>
-
-            <div className="mt-6">
-              <p className="text-muted-foreground leading-relaxed">
-                {selectedService.short}
-              </p>
-
-              <ul className="mt-6 grid gap-3">
-                {selectedService.items.map((i) => (
-                  <li key={i} className="flex items-center gap-3">
-                    <div className="h-7 w-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <Check className="h-3.5 w-3.5 text-primary" />
-                    </div>
-                    <span className="text-sm">{i}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <Link
-                to="/contact"
-                onClick={() => setSelectedService(null)}
-                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:gap-4"
-              >
-                Get Free Quote
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
