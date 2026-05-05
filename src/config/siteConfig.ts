@@ -151,14 +151,14 @@ export const siteConfig = {
     displayPhone: "0406 183 393",
 
     // WhatsApp number
-    whatsapp: "61406183393",
+    whatsapp: "61476448093",
 
     // Business email
     email: "hello@bjrmaintenance.com.au",
 
     // Business address
     address:
-      "186 Honeywood Avenue, Wandi 6167",
+      "Honeywood Avenue, Wandi 6167",
   },
 
 
@@ -214,7 +214,7 @@ export const siteConfig = {
       type: "Full-time",
 
       location:
-        "Honeywood avenue",
+        "Perth",
     },
 
     {
@@ -224,7 +224,7 @@ export const siteConfig = {
       type: "Full-time",
 
       location:
-        "Honeywood avenue",
+        "Perth",
     },
   ],
 
@@ -319,7 +319,7 @@ We focus on professional workmanship, affordable pricing, and customer satisfact
         "Site cleaning & maintenance.",
 
       detail:
-       'Ensure your project site is safe, compliant, and ready for the next phase with our comprehensive site cleaning and preparation services. We specialize in post-construction and demolition cleanup, providing everything from interior sweep-outs to heavy debris and hazardous waste removal. Our team also handles precision preparation tasks, including floor scraping, acid fence cleaning, and paving prep, along with professional waterproofing. Whether its green waste removal or full land clearing, we provide a blank canvas for your construction or landscaping vision.',
+       'Ensure your project site is safe, compliant, and ready for the next phase with our comprehensive site cleaning and preparation services. We specialize in post-construction and demolition cleanup, providing everything from interior sweep-outs to heavy debris and hazardous waste removal. Our team also handles precision preparation tasks, including floor scraping, acid fence cleaning, and paving prep, along with professional waterproofing. Whether its green waste removal or full land clearing, we provide a blank canvas for your construction or landscaping vision.We offer ute-based transport for construction materials, including site-to-site delivery, supplier pickups, and quick drop-offs—fast, reliable, and hassle-free.',
       items: [
         "Post-construction site cleaning",
         "Interior sweep out and clean ",
@@ -329,7 +329,7 @@ We focus on professional workmanship, affordable pricing, and customer satisfact
         "Debris removal & site restoration",
         "Green waste removal & landscaping",
         "Waterproofing",
-        "Hazardous waste removal",
+        "Ute Transport & Delivery Services",
       ],
     },
 

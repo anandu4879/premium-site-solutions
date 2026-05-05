@@ -17,7 +17,7 @@ export function Footer() {
             BJ & R Maintenance
           </Link>
           <p className="mt-4 text-sm text-background/70 leading-relaxed">
-            Premium artificial grass installation and trusted construction site services across
+            Premium artificial grass installation and trusted construction site services across Western
             Australia. Residential & commercial.
           </p>
           <div className="flex gap-3 mt-5">

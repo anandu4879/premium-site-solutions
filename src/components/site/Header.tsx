@@ -1,5 +1,5 @@
 import { Link, linkOptions } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
@@ -17,6 +17,23 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [isHeaderHidden, setIsHeaderHidden] = useState(false);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+        setIsHeaderHidden(true);
+      } else {
+        setIsHeaderHidden(false);
+      }
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -29,22 +46,24 @@ export function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b shadow-sm transition-all">
-      <div className="container-x flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center gap-2.5 font-display font-bold text-lg">
-          <div className="h-14 w-14 rounded-full bg-white p-2 overflow-hidden shadow-none">
+    <header
+      className={`sticky top-0 z-50 bg-white border-b shadow-sm transition-transform duration-300 ${
+        isHeaderHidden ? "-translate-y-full" : "translate-y-0"
+      }`}
+    >
+      <div className="container-x flex items-center justify-between h-24 md:h-28 lg:h-32">
+        <Link
+          to="/"
+          className="flex items-center h-full transition-transform duration-200 hover:scale-[1.02]"
+          aria-label="BJ & R Maintenance PTY. LTD"
+        >
+          <div className="h-full w-[14rem] md:w-[16rem] lg:w-[18rem] overflow-hidden">
             <img
               src={logo}
               alt="BJ & R Maintenance"
               className="h-full w-full object-contain"
             />
           </div>
-          <span className="leading-tight">
-            BJ & R<span className="text-primary"> </span>
-            <span className="block text-[10px] font-medium text-muted-foreground tracking-widest uppercase">
-              Maintenance
-            </span>
-          </span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
