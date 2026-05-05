@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Star, Quote } from "lucide-react";
 
 const reviews = [
@@ -19,6 +20,29 @@ const reviews = [
 ];
 
 export function Testimonials() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const scrollSpeed = 1; // pixels per frame
+    let animationId: number;
+
+    const autoScroll = () => {
+      if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+        container.scrollLeft = 0; // Loop back
+      } else {
+        container.scrollLeft += scrollSpeed;
+      }
+      animationId = requestAnimationFrame(autoScroll);
+    };
+
+    animationId = requestAnimationFrame(autoScroll);
+
+    return () => cancelAnimationFrame(animationId);
+  }, []);
+
   return (
     <section className="py-20 md:py-28 bg-foreground text-background">
       <div className="container-x">
@@ -28,11 +52,11 @@ export function Testimonials() {
           </p>
           <h2 className="text-3xl md:text-5xl font-bold text-balance">What our clients say</h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div ref={scrollRef} className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide">
           {reviews.map((r) => (
             <div
               key={r.name}
-              className="rounded-2xl bg-background/5 backdrop-blur p-7 border border-background/10 relative"
+              className="shrink-0 w-[85vw] md:w-[400px] rounded-2xl bg-background/5 backdrop-blur p-7 border border-background/10 relative"
             >
               <Quote className="h-8 w-8 text-primary-glow opacity-60" />
               <div className="flex gap-1 mt-3">
