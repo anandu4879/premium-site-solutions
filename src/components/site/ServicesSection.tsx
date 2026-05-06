@@ -153,19 +153,19 @@ export function ServicesSection({
   }, [isMobile, middleIndex]);
 
   return (
-    <section className="py-20 md:py-32 overflow-hidden bg-secondary/20">
+    <section className="py-20 md:py-32 overflow-hidden bg-gray-100">
       <div className="container-x">
         {heading && (
           <div className="max-w-3xl mx-auto text-center mb-14 md:mb-20">
-            <p className="text-primary font-semibold uppercase tracking-[0.3em] text-xs mb-4">
+            <p className="text-black font-semibold uppercase tracking-[0.3em] text-xs mb-4">
               What we do
             </p>
 
-            <h2 className="text-3xl md:text-6xl font-bold leading-tight text-balance">
+            <h2 className="text-3xl md:text-6xl font-bold leading-tight text-balance text-black">
              Complete grass, site & trade services under one trusted team
             </h2>
 
-            <p className="mt-4 md:mt-5 text-base md:text-lg text-muted-foreground">
+            <p className="mt-4 md:mt-5 text-base md:text-lg text-gray-600">
             From premium artificial turf to construction site cleanup, our experienced crew delivers a job done right — the first time.
             </p>
           </div>
@@ -231,7 +231,7 @@ export function ServicesSection({
                     rounded-[32px]
                     md:rounded-[40px]
                     border
-                    bg-card
+                    bg-white border-gray-200
                     shadow-card
                     transition-[width,box-shadow,transform]
                     duration-500
@@ -305,14 +305,14 @@ export function ServicesSection({
                                   md:h-8
                                   md:w-8
                                   rounded-full
-                                  bg-primary/10
+                                  bg-black/10
                                   flex
                                   items-center
                                   justify-center
                                   shrink-0
                                 "
                               >
-                                <Check className="h-3.5 w-3.5 md:h-4 md:w-4 text-primary" />
+                                <Check className="h-3.5 w-3.5 md:h-4 md:w-4 text-black" />
                               </div>
 
                               <span className="text-sm md:text-base">
@@ -334,7 +334,7 @@ export function ServicesSection({
                             justify-center
                             gap-2
                             rounded-full
-                            bg-primary
+                            bg-black hover:bg-gray-800
                             px-4
                             md:px-5
                             py-2
@@ -342,7 +342,7 @@ export function ServicesSection({
                             text-xs
                             md:text-sm
                             font-semibold
-                            text-primary-foreground
+                            text-white
                             transition-all
                             duration-300
                             hover:shadow-card
@@ -360,7 +360,7 @@ export function ServicesSection({
                             justify-center
                             gap-2
                             rounded-full
-                            bg-gradient-primary
+                            bg-gray-800 hover:bg-black text-white
                             px-4
                             md:px-5
                             py-2
@@ -368,7 +368,7 @@ export function ServicesSection({
                             text-xs
                             md:text-sm
                             font-semibold
-                            text-primary-foreground
+                            text-white
                             transition-all
                             duration-300
                           "
@@ -393,7 +393,7 @@ export function ServicesSection({
                         md:w-44
                         -translate-x-1/2
                         rounded-full
-                        bg-primary/15
+                        bg-black/15
                         blur-2xl
                       "
                     />

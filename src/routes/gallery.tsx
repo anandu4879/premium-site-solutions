@@ -20,7 +20,7 @@ export const Route = createFileRoute("/gallery")({
 function GalleryPage() {
   return (
     <SiteLayout>
-      <section className="pt-16 pb-12 md:pt-24 md:pb-16 bg-gradient-primary text-primary-foreground">
+      <section className="pt-16 pb-12 md:pt-24 md:pb-16 bg-gray-900 text-white">
         <div className="container-x">
           <p className="uppercase tracking-widest text-xs font-semibold opacity-80">Gallery</p>
           <h1 className="mt-3 text-4xl md:text-6xl font-bold text-balance max-w-3xl">

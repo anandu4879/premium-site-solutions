@@ -71,9 +71,9 @@ export function Header() {
             <Link
               key={n.to}
               to={n.to}
-              className="px-3 py-2 rounded-md text-sm font-medium text-foreground/80 hover:text-primary hover:bg-secondary transition-colors"
+              className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition-colors"
               activeProps={{
-                className: "px-3 py-2 rounded-md text-sm font-semibold text-primary bg-secondary",
+                className: "px-3 py-2 rounded-md text-sm font-semibold text-black bg-gray-100",
               }}
               activeOptions={{ exact: n.to === "/" }}
             >
@@ -83,19 +83,19 @@ export function Header() {
           <div className="relative services-dropdown">
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
-              className="px-3 py-2 rounded-md text-sm font-medium text-foreground/80 hover:text-primary hover:bg-secondary transition-colors flex items-center gap-1"
+              className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition-colors flex items-center gap-1"
             >
               Service
               <ChevronDown className={`h-4 w-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
             </button>
             {servicesOpen && (
-              <div className="absolute top-full left-0 mt-1 w-64 bg-background border border-border rounded-lg shadow-lg py-2 z-50">
+              <div className="absolute top-full left-0 mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50">
                 {siteConfig.services.map((s) => (
                   <Link
                     key={s.slug}
                     {...linkOptions({ to: "/services/$slug", params: { slug: s.slug } })}
                     onClick={() => setServicesOpen(false)}
-                    className="block px-4 py-2 text-sm text-foreground/80 hover:bg-secondary hover:text-primary"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-black"
                   >
                     {s.title}
                   </Link>
@@ -107,9 +107,9 @@ export function Header() {
             <Link
               key={n.to}
               to={n.to}
-              className="px-3 py-2 rounded-md text-sm font-medium text-foreground/80 hover:text-primary hover:bg-secondary transition-colors"
+              className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition-colors"
               activeProps={{
-                className: "px-3 py-2 rounded-md text-sm font-semibold text-primary bg-secondary",
+                className: "px-3 py-2 rounded-md text-sm font-semibold text-black bg-gray-100",
               }}
               activeOptions={{ exact: n.to === "/" }}
             >
@@ -120,14 +120,14 @@ export function Header() {
 
         <div className="hidden md:flex items-center gap-2">
           <a href={`tel:${siteConfig.contact.phone}`}>
-            <Button variant="ghost" size="sm" className="gap-2">
+            <Button variant="ghost" size="sm" className="gap-2 text-gray-700 hover:bg-gray-100 hover:text-black">
               <Phone className="h-4 w-4" /> {siteConfig.contact.displayPhone}
             </Button>
           </a>
           <Link to="/contact">
             <Button
               size="sm"
-              className="bg-gradient-primary text-primary-foreground hover:opacity-95"
+              className="bg-black text-white hover:bg-gray-800"
             >
               Get Free Quote
             </Button>
@@ -135,7 +135,7 @@ export function Header() {
         </div>
 
         <button
-          className="lg:hidden p-2 rounded-md hover:bg-secondary"
+          className="lg:hidden p-2 rounded-md hover:bg-gray-100"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -144,28 +144,28 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t bg-background animate-fade-in">
+        <div className="lg:hidden border-t bg-white animate-fade-in">
           <div className="container-x py-4 flex flex-col gap-1">
             {nav.slice(0, 1).map((n) => (
               <Link
                 key={n.to}
                 to={n.to}
                 onClick={() => setOpen(false)}
-                className="px-3 py-3 rounded-md text-base font-medium hover:bg-secondary"
+                className="px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-black"
                 activeProps={{
                   className:
-                    "px-3 py-3 rounded-md text-base font-semibold text-primary bg-secondary",
+                    "px-3 py-3 rounded-md text-base font-semibold text-black bg-gray-100",
                 }}
                 activeOptions={{ exact: n.to === "/" }}
               >
                 {n.label}
               </Link>
             ))}
-            <div className="border-t border-border mt-2 pt-2">
+            <div className="border-t border-gray-200 mt-2 pt-2">
               <button
                 type="button"
                 onClick={() => setMobileServicesOpen((value) => !value)}
-                className="w-full flex items-center justify-between px-3 py-3 text-base font-medium text-foreground/80 hover:text-primary hover:bg-secondary rounded-md transition-colors"
+                className="w-full flex items-center justify-between px-3 py-3 text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 rounded-md transition-colors"
                 aria-expanded={mobileServicesOpen}
               >
                 Services
@@ -181,7 +181,7 @@ export function Header() {
                         setOpen(false);
                         setMobileServicesOpen(false);
                       }}
-                      className="block px-6 py-2 text-sm hover:bg-secondary"
+                      className="block px-6 py-2 text-sm hover:bg-gray-100"
                     >
                       {s.title}
                     </Link>
@@ -194,10 +194,10 @@ export function Header() {
                 key={n.to}
                 to={n.to}
                 onClick={() => setOpen(false)}
-                className="px-3 py-3 rounded-md text-base font-medium hover:bg-secondary"
+                className="px-3 py-3 rounded-md text-base font-medium hover:bg-gray-100 hover:text-black"
                 activeProps={{
                   className:
-                    "px-3 py-3 rounded-md text-base font-semibold text-primary bg-secondary",
+                    "px-3 py-3 rounded-md text-base font-semibold text-black bg-gray-100",
                 }}
                 activeOptions={{ exact: n.to === "/" }}
               >
@@ -205,7 +205,7 @@ export function Header() {
               </Link>
             ))}
             <Link to="/contact" onClick={() => setOpen(false)} className="mt-2">
-              <Button className="w-full bg-gradient-primary text-primary-foreground">
+              <Button className="w-full bg-black text-white hover:bg-gray-800">
                 Get Free Quote
               </Button>
             </Link>

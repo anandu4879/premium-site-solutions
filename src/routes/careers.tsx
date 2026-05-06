@@ -160,7 +160,7 @@ function CareersPage() {
   return (
     <SiteLayout>
       {/* HERO */}
-      <section className="pt-16 pb-12 md:pt-24 md:pb-16 bg-gradient-primary text-primary-foreground">
+      <section className="pt-16 pb-12 md:pt-24 md:pb-16 bg-gray-900 text-white">
         <div className="container-x">
           <p className="uppercase tracking-widest text-xs font-semibold opacity-80">
             Careers
@@ -176,7 +176,7 @@ function CareersPage() {
             crew
           </h1>
 
-          <p className="mt-4 max-w-2xl text-primary-foreground/90 text-lg">
+          <p className="mt-4 max-w-2xl text-white/90 text-lg">
             Reliable, skilled,
             and ready to work?
             We're always looking
@@ -201,8 +201,8 @@ function CareersPage() {
                     key={j.title}
                     className="
                       rounded-2xl
-                      border
-                      bg-card
+                      border border-gray-200
+                      bg-white
                       p-6
                       hover:shadow-card
                       hover:-translate-y-0.5
@@ -213,7 +213,7 @@ function CareersPage() {
                       {j.title}
                     </h3>
 
-                    <div className="mt-2 flex flex-wrap gap-3 text-xs text-muted-foreground">
+                    <div className="mt-2 flex flex-wrap gap-3 text-xs text-gray-600">
                       <span className="flex items-center gap-1">
                         <Briefcase className="h-3 w-3" />
                         {j.type}
@@ -232,7 +232,7 @@ function CareersPage() {
 
                     <Button
                       size="sm"
-                      className="mt-5 bg-gradient-primary text-primary-foreground"
+                      className="mt-5 bg-black text-white hover:bg-gray-800"
                       onClick={() => {
                         setSelected(
                           j.title,
@@ -275,7 +275,7 @@ function CareersPage() {
               Apply now
             </h3>
 
-            <p className="text-sm text-muted-foreground mt-1">
+            <p className="text-sm text-gray-600 mt-1">
               Fill in your
               details — we'll be
               in touch.
@@ -365,7 +365,7 @@ function CareersPage() {
                 disabled={
                   loading
                 }
-                className="bg-gradient-primary text-primary-foreground"
+                className="bg-black text-white hover:bg-gray-800"
               >
                 {loading
                   ? "Submitting..."

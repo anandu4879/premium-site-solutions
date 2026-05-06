@@ -22,13 +22,13 @@ const features = [
 
 export function WhyUs() {
   return (
-    <section className="py-20 md:py-28 bg-secondary/60">
+    <section className="py-20 md:py-28 bg-gray-100">
       <div className="container-x">
         <div className="max-w-2xl mb-14">
-          <p className="text-primary font-semibold uppercase tracking-widest text-xs mb-3">
+          <p className="text-black font-semibold uppercase tracking-widest text-xs mb-3">
             Why choose us
           </p>
-          <h2 className="text-3xl md:text-5xl font-bold text-balance">
+          <h2 className="text-3xl md:text-5xl font-bold text-balance text-black">
             Built on quality, trust, and old-school craftsmanship
           </h2>
         </div>
@@ -36,13 +36,13 @@ export function WhyUs() {
           {features.map((f) => (
             <div
               key={f.title}
-              className="rounded-lg md:rounded-2xl bg-card p-4 md:p-6 border hover:border-primary/40 hover:shadow-card transition-all"
+              className="rounded-lg md:rounded-2xl bg-white border border-gray-200 p-4 md:p-6 hover:border-gray-400 hover:shadow-card transition-all"
             >
-              <div className="h-10 w-10 md:h-11 md:w-11 rounded-lg md:rounded-xl bg-gradient-primary text-primary-foreground grid place-items-center mb-3 md:mb-4">
+              <div className="h-10 w-10 md:h-11 md:w-11 rounded-lg md:rounded-xl bg-black text-white grid place-items-center mb-3 md:mb-4">
                 <f.icon className="h-5 w-5" />
               </div>
               <h3 className="font-semibold text-sm md:text-lg line-clamp-2">{f.title}</h3>
-              <p className="text-xs md:text-sm text-muted-foreground mt-2">{f.desc}</p>
+              <p className="text-xs md:text-sm text-gray-600 mt-2">{f.desc}</p>
             </div>
           ))}
         </div>

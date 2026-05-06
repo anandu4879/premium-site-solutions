@@ -84,10 +84,10 @@ export function Gallery({ heading = true }: { heading?: boolean }) {
       <div className="container-x">
         {heading && (
           <div className="max-w-2xl mb-12">
-            <p className="text-primary font-semibold uppercase tracking-widest text-xs mb-3">
+            <p className="text-black font-semibold uppercase tracking-widest text-xs mb-3">
               Our work
             </p>
-            <h2 className="text-3xl md:text-5xl font-bold text-balance">
+            <h2 className="text-3xl md:text-5xl font-bold text-balance text-black">
               Recent projects across Perth & WA
             </h2>
           </div>
@@ -134,7 +134,7 @@ export function Gallery({ heading = true }: { heading?: boolean }) {
           <button
             type="button"
             onClick={() => setSelectedItem(null)}
-            className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+            className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-gray-800 text-white transition hover:bg-gray-700"
             aria-label="Close fullscreen image"
           >
             <X className="h-6 w-6" />

@@ -74,14 +74,14 @@ export function Testimonials() {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-foreground text-background">
+    <section className="py-20 md:py-28 bg-gray-900 text-white">
       <div className="container-x grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div className="max-w-2xl">
-          <p className="text-primary-glow font-semibold uppercase tracking-widest text-xs mb-3">
+          <p className="text-gray-400 font-semibold uppercase tracking-widest text-xs mb-3">
             Testimonials
           </p>
           <h2 className="text-3xl md:text-5xl font-bold text-balance">What our clients say</h2>
-          <p className="mt-4 text-background/70 text-lg">
+          <p className="mt-4 text-white/70 text-lg">
             Real feedback from builders, supervisors and project teams who trust BJ & R on site.
           </p>
         </div>
@@ -100,23 +100,23 @@ export function Testimonials() {
           }}
         >
           <article
-            className="min-h-[460px] rounded-2xl border border-background/10 bg-background/5 p-7 shadow-2xl backdrop-blur md:min-h-[430px] md:p-8"
+            className="min-h-[460px] rounded-2xl border border-gray-700 bg-gray-800 p-7 shadow-2xl backdrop-blur md:min-h-[430px] md:p-8"
           >
-            <Quote className="h-8 w-8 text-primary-glow opacity-60" />
+            <Quote className="h-8 w-8 text-gray-400 opacity-60" />
             <div className="flex gap-1 mt-3">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-primary-glow text-primary-glow" />
+                <Star key={i} className="h-4 w-4 fill-gray-400 text-gray-400" />
               ))}
             </div>
             <p
               key={`review-${activeIndex}`}
-              className="mt-5 text-background/90 leading-relaxed animate-fade-in"
+              className="mt-5 text-white leading-relaxed animate-fade-in"
             >
               "{activeReview.text}"
             </p>
-            <div className="mt-6 pt-4 border-t border-background/10">
+            <div className="mt-6 pt-4 border-t border-gray-700">
               <p className="font-semibold">{activeReview.name}</p>
-              <p className="text-xs text-background/60">{activeReview.role}</p>
+              <p className="text-xs text-gray-400">{activeReview.role}</p>
             </div>
           </article>
 
@@ -124,7 +124,7 @@ export function Testimonials() {
             <button
               type="button"
               onClick={showPreviousReview}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-background/15 bg-background/5 text-background transition hover:bg-background/10"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-600 bg-gray-800 text-white transition hover:bg-gray-700"
               aria-label="Show previous review"
             >
               <ChevronLeft className="h-5 w-5" />
@@ -137,7 +137,7 @@ export function Testimonials() {
                   type="button"
                   onClick={() => setActiveIndex(index)}
                   className={`h-2.5 rounded-full transition-all ${
-                    index === activeIndex ? "w-8 bg-primary-glow" : "w-2.5 bg-background/25"
+                    index === activeIndex ? "w-8 bg-gray-400" : "w-2.5 bg-gray-600"
                   }`}
                   aria-label={`Show review from ${review.name}`}
                 />
@@ -147,7 +147,7 @@ export function Testimonials() {
             <button
               type="button"
               onClick={showNextReview}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-background/15 bg-background/5 text-background transition hover:bg-background/10"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-600 bg-gray-800 text-white transition hover:bg-gray-700"
               aria-label="Show next review"
             >
               <ChevronRight className="h-5 w-5" />

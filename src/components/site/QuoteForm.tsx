@@ -185,10 +185,10 @@ export function QuoteForm() {
         <Label htmlFor="files">Upload Images (optional)</Label>
         <label
           htmlFor="files"
-          className="mt-1 flex items-center gap-3 border-2 border-dashed rounded-lg px-4 py-4 cursor-pointer hover:bg-secondary transition-colors"
+          className="mt-1 flex items-center gap-3 border-2 border-dashed border-gray-300 rounded-lg px-4 py-4 cursor-pointer hover:bg-gray-50 transition-colors"
         >
-          <Upload className="h-5 w-5 text-muted-foreground" />
-          <span className="text-sm text-muted-foreground">
+          <Upload className="h-5 w-5 text-gray-500" />
+          <span className="text-sm text-gray-600">
             {files.length ? `${files.length} file(s) selected` : "Click to upload site photos"}
           </span>
           <input
@@ -205,7 +205,7 @@ export function QuoteForm() {
         type="submit"
         size="lg"
         disabled={submitting}
-        className="bg-gradient-primary text-primary-foreground gap-2 w-full sm:w-auto"
+        className="bg-black text-white hover:bg-gray-800 gap-2 w-full sm:w-auto"
       >
         <Send className="h-4 w-4" /> {submitting ? "Sending..." : "Request Free Quote"}
       </Button>
