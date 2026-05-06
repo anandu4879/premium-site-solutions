@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className="bg-foreground text-background mt-24">
       <div className="container-x py-16 grid gap-10 md:grid-cols-4">
-        <div>
+        <div className="md:col-span-3">
           <Link to="/" className="flex items-center gap-2.5 font-display font-bold text-lg">
             <img
               src={logo}
@@ -20,7 +20,9 @@ export function Footer() {
             Premium artificial grass installation and trusted construction site services across Western
             Australia. Residential & commercial.
           </p>
-          <div className="flex gap-3 mt-5">
+        </div>
+        <div>
+          <div className="flex gap-3 mt-5 justify-end">
             {[Facebook, Instagram, Linkedin].map((Icon, i) => (
               <a
                 key={i}
