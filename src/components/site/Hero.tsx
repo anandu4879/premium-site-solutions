@@ -15,8 +15,9 @@ export function Hero() {
         height={1080}
       />
       <div className="absolute inset-0 bg-gradient-hero" />
-      <div className="container-x relative z-10 py-20 grid lg:grid-cols-12 gap-10 items-center">
-        <div className="lg:col-span-8 text-white animate-fade-up">
+      <div className="w-full px-4 md:px-6 lg:px-8 relative z-10 py-20 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-8 text-white animate-fade-up">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-4 py-1.5 text-xs font-medium mb-6 border border-white/15">
             <ShieldCheck className="h-3.5 w-3.5 text-primary-glow" />
             Trusted by Builders & Homeowners across WA

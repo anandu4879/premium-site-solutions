@@ -180,9 +180,9 @@ export function ServicesSection({
             md:gap-8
             overflow-x-auto
             overflow-y-hidden
-            px-[6vw]
-            md:px-[12vw]
-            lg:px-[20vw]
+            px-4
+            md:px-6
+            lg:px-8
             pb-8
             scrollbar-hide
             services-mask
@@ -286,67 +286,97 @@ export function ServicesSection({
 
                   {/* CONTENT */}
                   {!isMobile && (
-                    <div className="p-6 md:p-10 min-h-[250px] md:min-h-[350px]">
-                      <p className="text-sm md:text-lg text-muted-foreground leading-relaxed">
-                        {s.short}
-                      </p>
+                    <div className="p-6 md:p-10 min-h-[250px] md:min-h-[350px] flex flex-col">
+                      <div className="flex-1">
+                        <p className="text-sm md:text-lg text-muted-foreground leading-relaxed">
+                          {s.short}
+                        </p>
 
-                      <ul className="mt-6 md:mt-8 grid gap-3 md:gap-4">
-                        {s.items.map((i) => (
-                          <li
-                            key={i}
-                            className="flex items-center gap-3"
-                          >
-                            <div
-                              className="
-                                h-7
-                                w-7
-                                md:h-8
-                                md:w-8
-                                rounded-full
-                                bg-primary/10
-                                flex
-                                items-center
-                                justify-center
-                                shrink-0
-                              "
+                        <ul className="mt-6 md:mt-8 grid gap-3 md:gap-4">
+                          {s.items.map((i) => (
+                            <li
+                              key={i}
+                              className="flex items-center gap-3"
                             >
-                              <Check className="h-3.5 w-3.5 md:h-4 md:w-4 text-primary" />
-                            </div>
+                              <div
+                                className="
+                                  h-7
+                                  w-7
+                                  md:h-8
+                                  md:w-8
+                                  rounded-full
+                                  bg-primary/10
+                                  flex
+                                  items-center
+                                  justify-center
+                                  shrink-0
+                                "
+                              >
+                                <Check className="h-3.5 w-3.5 md:h-4 md:w-4 text-primary" />
+                              </div>
 
-                            <span className="text-sm md:text-base">
-                              {i}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
+                              <span className="text-sm md:text-base">
+                                {i}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
 
-                      <Link
-                        to="/contact"
-                        className="
-                          mt-8
-                          md:mt-10
-                          inline-flex
-                          items-center
-                          gap-2
-                          rounded-full
-                          bg-gradient-primary
-                          px-5
-                          md:px-6
-                          py-2.5
-                          md:py-3
-                          text-xs
-                          md:text-sm
-                          font-semibold
-                          text-primary-foreground
-                          transition-all
-                          duration-300
-                          hover:gap-4
-                        "
-                      >
-                        Get Free Quote
-                        <ArrowUpRight className="h-4 w-4" />
-                      </Link>
+                      <div className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-3">
+                        <Link
+                          to="/services/$slug"
+                          params={{ slug: s.slug }}
+                          className="
+                            flex-1
+                            inline-flex
+                            items-center
+                            justify-center
+                            gap-2
+                            rounded-full
+                            bg-primary
+                            px-4
+                            md:px-5
+                            py-2
+                            md:py-2.5
+                            text-xs
+                            md:text-sm
+                            font-semibold
+                            text-primary-foreground
+                            transition-all
+                            duration-300
+                            hover:shadow-card
+                          "
+                        >
+                          View More
+                          <ArrowUpRight className="h-3.5 w-3.5" />
+                        </Link>
+                        <Link
+                          to="/contact"
+                          className="
+                            flex-1
+                            inline-flex
+                            items-center
+                            justify-center
+                            gap-2
+                            rounded-full
+                            bg-gradient-primary
+                            px-4
+                            md:px-5
+                            py-2
+                            md:py-2.5
+                            text-xs
+                            md:text-sm
+                            font-semibold
+                            text-primary-foreground
+                            transition-all
+                            duration-300
+                          "
+                        >
+                          Get Free Quote
+                          <ArrowUpRight className="h-3.5 w-3.5" />
+                        </Link>
+                      </div>
                     </div>
                   )}
 

@@ -1,6 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { siteConfig } from "@/config/siteConfig";
+import logo from "@/assets/logo.png";
 
 const builders = siteConfig.builders;
 
@@ -8,32 +9,38 @@ export function Builders() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
   const resumeTimerRef = useRef<number | null>(null);
+  const animationIdRef = useRef<number | null>(null);
 
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
 
-    let animationId: number;
-    const scrollSpeed = 0.45;
+    const scrollSpeed = 0.5;
+    const contentWidth = container.querySelector(".scrollable-content") as HTMLElement;
+    
+    if (!contentWidth) return;
 
     const autoScroll = () => {
-      if (!pausedRef.current) {
-        const halfwayPoint = container.scrollWidth / 2;
+      if (!pausedRef.current && container) {
+        const scrollWidth = contentWidth.scrollWidth;
+        const halfwayPoint = scrollWidth / 2;
 
-        if (container.scrollLeft >= halfwayPoint) {
+        if (container.scrollLeft >= halfwayPoint - 10) {
           container.scrollLeft = 0;
         } else {
           container.scrollLeft += scrollSpeed;
         }
       }
 
-      animationId = requestAnimationFrame(autoScroll);
+      animationIdRef.current = requestAnimationFrame(autoScroll);
     };
 
-    animationId = requestAnimationFrame(autoScroll);
+    animationIdRef.current = requestAnimationFrame(autoScroll);
 
     return () => {
-      cancelAnimationFrame(animationId);
+      if (animationIdRef.current) {
+        cancelAnimationFrame(animationIdRef.current);
+      }
 
       if (resumeTimerRef.current) {
         window.clearTimeout(resumeTimerRef.current);
@@ -64,15 +71,29 @@ export function Builders() {
   };
 
   return (
-    <section className="py-16 border-y bg-secondary/40 overflow-hidden">
+    <section className="py-16 border-y bg-secondary/40 overflow-x-hidden">
       <div className="container-x">
-        <p className="text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground mb-8">
-          Trusted by Builders & Contractors
-        </p>
+        <div className="mb-10">
+          <div className="flex flex-col items-center justify-center gap-3 md:gap-5 mb-10">
+            <div className="flex items-center justify-center h-16 md:h-24 w-auto">
+              <img
+                src={logo}
+                alt="BJ & R Maintenance"
+                className="h-full w-auto object-contain max-w-xs md:max-w-sm"
+              />
+            </div>
+            <p className="text-center text-xs md:text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+              BJ & R Maintenance
+            </p>
+          </div>
+          <p className="text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+            Trusted by Builders & Contractors
+          </p>
+        </div>
 
         <div
           ref={scrollRef}
-          className="relative overflow-x-auto overflow-y-hidden pb-3 [-webkit-overflow-scrolling:touch]"
+          className="relative overflow-x-auto overflow-y-hidden pb-3 [-webkit-overflow-scrolling:touch] scrollbar-hide"
           onMouseEnter={() => {
             pausedRef.current = true;
           }}
@@ -83,7 +104,7 @@ export function Builders() {
           onTouchEnd={resumeAfterTouch}
           onTouchCancel={resumeAfterTouch}
         >
-          <div className="flex w-max items-center whitespace-nowrap gap-10 md:gap-14">
+          <div className="scrollable-content flex w-max items-center whitespace-nowrap gap-10 md:gap-14">
             {[...builders, ...builders].map((builder, index) => (
               <div
                 key={index}

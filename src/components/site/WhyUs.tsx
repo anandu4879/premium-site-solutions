@@ -32,17 +32,17 @@ export function WhyUs() {
             Built on quality, trust, and old-school craftsmanship
           </h2>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-5">
           {features.map((f) => (
             <div
               key={f.title}
-              className="rounded-2xl bg-card p-6 border hover:border-primary/40 hover:shadow-card transition-all"
+              className="rounded-lg md:rounded-2xl bg-card p-4 md:p-6 border hover:border-primary/40 hover:shadow-card transition-all"
             >
-              <div className="h-11 w-11 rounded-xl bg-gradient-primary text-primary-foreground grid place-items-center mb-4">
+              <div className="h-10 w-10 md:h-11 md:w-11 rounded-lg md:rounded-xl bg-gradient-primary text-primary-foreground grid place-items-center mb-3 md:mb-4">
                 <f.icon className="h-5 w-5" />
               </div>
-              <h3 className="font-semibold text-lg">{f.title}</h3>
-              <p className="text-sm text-muted-foreground mt-1">{f.desc}</p>
+              <h3 className="font-semibold text-sm md:text-lg line-clamp-2">{f.title}</h3>
+              <p className="text-xs md:text-sm text-muted-foreground mt-2">{f.desc}</p>
             </div>
           ))}
         </div>

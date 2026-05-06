@@ -100,7 +100,7 @@ export function Testimonials() {
           }}
         >
           <article
-            className="min-h-[460px] rounded-2xl border border-background/10 bg-background/5 p-7 shadow-2xl backdrop-blur transition-colors duration-300 md:min-h-[430px] md:p-8"
+            className="min-h-[460px] rounded-2xl border border-background/10 bg-background/5 p-7 shadow-2xl backdrop-blur md:min-h-[430px] md:p-8"
           >
             <Quote className="h-8 w-8 text-primary-glow opacity-60" />
             <div className="flex gap-1 mt-3">
@@ -108,7 +108,12 @@ export function Testimonials() {
                 <Star key={i} className="h-4 w-4 fill-primary-glow text-primary-glow" />
               ))}
             </div>
-            <p className="mt-5 text-background/90 leading-relaxed">"{activeReview.text}"</p>
+            <p
+              key={`review-${activeIndex}`}
+              className="mt-5 text-background/90 leading-relaxed animate-fade-in"
+            >
+              "{activeReview.text}"
+            </p>
             <div className="mt-6 pt-4 border-t border-background/10">
               <p className="font-semibold">{activeReview.name}</p>
               <p className="text-xs text-background/60">{activeReview.role}</p>

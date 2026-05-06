@@ -3,6 +3,7 @@ import { siteConfig } from "@/config/siteConfig";
 import { Check, ArrowLeft } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { CTASection } from "@/components/site/CTASection";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/services/$slug")({
   head: (ctx) => {
@@ -36,10 +37,15 @@ function ServicePage() {
         <div className="container-x">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground mb-4"
+            asChild
           >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Services
+            <Button
+              variant="ghost"
+              className="mb-4 text-primary-foreground/90 hover:text-primary-foreground hover:bg-primary-foreground/10 gap-2"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Home
+            </Button>
           </Link>
           <p className="uppercase tracking-widest text-xs font-semibold opacity-80">Service Detail</p>
           <h1 className="mt-3 text-4xl md:text-6xl font-bold text-balance max-w-3xl">

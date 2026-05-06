@@ -97,12 +97,14 @@
   }
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
   h1,
   h2,
@@ -132,8 +134,13 @@
   .container-x {
     width: 100%;
     margin-inline: auto;
-    padding-inline: 1.25rem;
+    padding-inline: 1rem;
     max-width: 1200px;
+  }
+  @media (min-width: 640px) {
+    .container-x {
+      padding-inline: 1.5rem;
+    }
   }
   @media (min-width: 768px) {
     .container-x {

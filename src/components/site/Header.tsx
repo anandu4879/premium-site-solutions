@@ -8,7 +8,7 @@ import { siteConfig } from "@/config/siteConfig";
 const nav = [
   { to: "/", label: "Home" },
   { to: "/gallery", label: "Gallery" },
-  { to: "/careers", label: "Career" },
+  { to: "/careers", label: "Careers" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;
@@ -51,17 +51,17 @@ export function Header() {
         isHeaderHidden ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <div className="container-x flex items-center justify-between h-16 md:h-20 lg:h-24">
+      <div className="flex items-center justify-between h-16 md:h-20 lg:h-24 px-4 md:px-6 lg:px-8 max-w-full">
         <Link
           to="/"
-          className="flex items-center h-full transition-transform duration-200 hover:scale-[1.02]"
+          className="flex items-center h-full transition-transform duration-200 hover:scale-[1.02] shrink-0"
           aria-label="BJ & R Maintenance PTY. LTD"
         >
-          <div className="flex h-16 w-[13rem] items-center justify-center overflow-visible md:h-20 md:w-[16rem] lg:h-24 lg:w-[19rem]">
+          <div className="flex h-16 w-[11rem] items-center justify-start overflow-visible md:h-20 md:w-[13rem] lg:h-24 lg:w-[15rem]">
             <img
               src={logo}
               alt="BJ & R Maintenance"
-              className="h-full w-full scale-125 object-contain"
+              className="h-full w-full scale-110 object-contain"
             />
           </div>
         </Link>
