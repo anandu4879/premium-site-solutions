@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 import { siteConfig } from "@/config/siteConfig";
@@ -6,69 +7,26 @@ import logo from "@/assets/logo.png";
 const builders = siteConfig.builders;
 
 export function Builders() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const pausedRef = useRef(false);
-  const resumeTimerRef = useRef<number | null>(null);
-  const animationIdRef = useRef<number | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Calculate total width for smooth infinite loop
+  const itemWidth = 200; // approximate width including gap
+  const totalItems = builders.length;
+  const totalWidth = itemWidth * (totalItems * 2);
+
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-
-    const scrollSpeed = 0.5;
-    const contentWidth = container.querySelector(".scrollable-content") as HTMLElement;
-    
-    if (!contentWidth) return;
-
-    const autoScroll = () => {
-      if (!pausedRef.current && container) {
-        const scrollWidth = contentWidth.scrollWidth;
-        const halfwayPoint = scrollWidth / 2;
-
-        if (container.scrollLeft >= halfwayPoint - 10) {
-          container.scrollLeft = 0;
-        } else {
-          container.scrollLeft += scrollSpeed;
-        }
-      }
-
-      animationIdRef.current = requestAnimationFrame(autoScroll);
-    };
-
-    animationIdRef.current = requestAnimationFrame(autoScroll);
-
-    return () => {
-      if (animationIdRef.current) {
-        cancelAnimationFrame(animationIdRef.current);
-      }
-
-      if (resumeTimerRef.current) {
-        window.clearTimeout(resumeTimerRef.current);
+    const handleVisibilityChange = () => {
+      // Resume animation when page becomes visible
+      if (!document.hidden) {
+        setIsPaused(false);
       }
     };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, []);
-
-  const pauseForTouch = () => {
-    pausedRef.current = true;
-
-    if (resumeTimerRef.current) {
-      window.clearTimeout(resumeTimerRef.current);
-    }
-
-    resumeTimerRef.current = window.setTimeout(() => {
-      pausedRef.current = false;
-    }, 1200);
-  };
-
-  const resumeAfterTouch = () => {
-    if (resumeTimerRef.current) {
-      window.clearTimeout(resumeTimerRef.current);
-    }
-
-    resumeTimerRef.current = window.setTimeout(() => {
-      pausedRef.current = false;
-    }, 500);
-  };
 
   return (
     <section className="py-16 border-y bg-secondary/40 overflow-x-hidden">
@@ -92,19 +50,31 @@ export function Builders() {
         </div>
 
         <div
-          ref={scrollRef}
-          className="relative overflow-x-auto overflow-y-hidden pb-3 [-webkit-overflow-scrolling:touch] scrollbar-hide"
-          onMouseEnter={() => {
-            pausedRef.current = true;
+          ref={containerRef}
+          className="relative overflow-hidden"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => {
+            // Resume after 1 second of inactivity
+            setTimeout(() => setIsPaused(false), 1000);
           }}
-          onMouseLeave={() => {
-            pausedRef.current = false;
-          }}
-          onTouchStart={pauseForTouch}
-          onTouchEnd={resumeAfterTouch}
-          onTouchCancel={resumeAfterTouch}
         >
-          <div className="scrollable-content flex w-max items-center whitespace-nowrap gap-10 md:gap-14">
+          <motion.div
+            className="flex items-center gap-10 md:gap-14 w-max"
+            animate={{ x: isPaused ? undefined : [0, -totalWidth / 2] }}
+            transition={{
+              duration: 40,
+              repeat: Infinity,
+              ease: "linear",
+              repeatType: "loop",
+            }}
+            style={{
+              willChange: "transform",
+              backfaceVisibility: "hidden",
+              WebkitFontSmoothing: "antialiased",
+            }}
+          >
             {[...builders, ...builders].map((builder, index) => (
               <div
                 key={index}
@@ -135,7 +105,7 @@ export function Builders() {
                 />
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
