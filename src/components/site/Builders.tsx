@@ -32,18 +32,6 @@ export function Builders() {
     <section className="py-16 border-y bg-secondary/40 overflow-x-hidden">
       <div className="container-x">
         <div className="mb-10">
-          <div className="flex flex-col items-center justify-center gap-3 md:gap-5 mb-10">
-            <div className="flex items-center justify-center h-16 md:h-24 w-auto">
-              <img
-                src={logo}
-                alt="BJ & R Maintenance"
-                className="h-full w-auto object-contain max-w-xs md:max-w-sm"
-              />
-            </div>
-            <p className="text-center text-xs md:text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-              BJ & R Maintenance
-            </p>
-          </div>
           <p className="text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground">
             Trusted by Builders & Contractors
           </p>
