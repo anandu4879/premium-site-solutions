@@ -74,16 +74,29 @@ export function Testimonials() {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-gray-900 text-white">
-      <div className="container-x grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <div className="max-w-2xl">
-          <p className="text-gray-400 font-semibold uppercase tracking-widest text-xs mb-3">
-            Testimonials
+    <section className="relative py-20 lg:py-28 bg-gradient-to-br from-[#0B0B0B] via-[#111111] to-[#1A1A1A] text-white overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#D8C2A0]/5 to-transparent" />
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:items-center">
+        <div className="max-w-xl">
+          <p className="text-[#D8C2A0] font-semibold uppercase tracking-widest text-sm mb-4">
+            Client Testimonials
           </p>
-          <h2 className="text-3xl md:text-5xl font-bold text-balance">What our clients say</h2>
-          <p className="mt-4 text-white/70 text-lg">
-            Real feedback from builders, supervisors and project teams who trust BJ & R on site.
+          <h2 className="text-4xl lg:text-6xl font-bold leading-[1.1] text-balance mb-6">
+            What Our <span className="text-[#D8C2A0]">Clients Say</span>
+          </h2>
+          <p className="text-white/75 text-lg leading-relaxed">
+            Real feedback from builders, supervisors and project teams who trust BJ & R Maintenance on site.
           </p>
+          <div className="mt-8 flex items-center gap-8">
+            <div className="flex items-center gap-2">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="h-5 w-5 fill-[#D8C2A0] text-[#D8C2A0]" />
+              ))}
+            </div>
+            <span className="text-white/60 font-medium">5.0 Average Rating</span>
+          </div>
         </div>
 
         <div
@@ -100,34 +113,39 @@ export function Testimonials() {
           }}
         >
           <article
-            className="min-h-[460px] rounded-2xl border border-gray-700 bg-gray-800 p-7 shadow-2xl backdrop-blur md:min-h-[430px] md:p-8"
+            className="relative min-h-[480px] rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl p-8 shadow-2xl md:min-h-[420px] overflow-hidden"
           >
-            <Quote className="h-8 w-8 text-gray-400 opacity-60" />
-            <div className="flex gap-1 mt-3">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-gray-400 text-gray-400" />
-              ))}
-            </div>
-            <p
-              key={`review-${activeIndex}`}
-              className="mt-5 text-white leading-relaxed animate-fade-in"
-            >
-              "{activeReview.text}"
-            </p>
-            <div className="mt-6 pt-4 border-t border-gray-700">
-              <p className="font-semibold">{activeReview.name}</p>
-              <p className="text-xs text-gray-400">{activeReview.role}</p>
+            {/* Glow Effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#D8C2A0]/10 to-transparent opacity-50" />
+            
+            <div className="relative z-10">
+              <Quote className="h-10 w-10 text-[#D8C2A0]/30 mb-4" />
+              <div className="flex gap-1 mb-6">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-[#D8C2A0] text-[#D8C2A0]" />
+                ))}
+              </div>
+              <p
+                key={`review-${activeIndex}`}
+                className="text-white/90 leading-relaxed text-lg animate-fade-in font-light"
+              >
+                "{activeReview.text}"
+              </p>
+              <div className="mt-8 pt-6 border-t border-white/10">
+                <p className="font-bold text-white">{activeReview.name}</p>
+                <p className="text-sm text-[#D8C2A0]/80 mt-1">{activeReview.role}</p>
+              </div>
             </div>
           </article>
 
-          <div className="mt-6 flex items-center justify-center gap-4">
+          <div className="mt-8 flex items-center justify-center gap-6">
             <button
               type="button"
               onClick={showPreviousReview}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-600 bg-gray-800 text-white transition hover:bg-gray-700"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/5 backdrop-blur text-white transition-all duration-300 hover:bg-[#D8C2A0]/10 hover:border-[#D8C2A0]/30 group"
               aria-label="Show previous review"
             >
-              <ChevronLeft className="h-5 w-5" />
+              <ChevronLeft className="h-5 w-5 group-hover:text-[#D8C2A0] transition-colors" />
             </button>
 
             <div className="flex justify-center gap-2">
@@ -136,8 +154,8 @@ export function Testimonials() {
                   key={review.name}
                   type="button"
                   onClick={() => setActiveIndex(index)}
-                  className={`h-2.5 rounded-full transition-all ${
-                    index === activeIndex ? "w-8 bg-gray-400" : "w-2.5 bg-gray-600"
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    index === activeIndex ? "w-8 bg-[#D8C2A0]" : "w-2.5 bg-white/30 hover:bg-white/50"
                   }`}
                   aria-label={`Show review from ${review.name}`}
                 />
@@ -147,10 +165,10 @@ export function Testimonials() {
             <button
               type="button"
               onClick={showNextReview}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-600 bg-gray-800 text-white transition hover:bg-gray-700"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/5 backdrop-blur text-white transition-all duration-300 hover:bg-[#D8C2A0]/10 hover:border-[#D8C2A0]/30 group"
               aria-label="Show next review"
             >
-              <ChevronRight className="h-5 w-5" />
+              <ChevronRight className="h-5 w-5 group-hover:text-[#D8C2A0] transition-colors" />
             </button>
           </div>
         </div>

@@ -20,12 +20,20 @@ export const Route = createFileRoute("/gallery")({
 function GalleryPage() {
   return (
     <SiteLayout>
-      <section className="pt-16 pb-12 md:pt-24 md:pb-16 bg-gray-900 text-white">
-        <div className="container-x">
-          <p className="uppercase tracking-widest text-xs font-semibold opacity-80">Gallery</p>
-          <h1 className="mt-3 text-4xl md:text-6xl font-bold text-balance max-w-3xl">
-            Recent projects & transformations
+      <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-20 bg-gradient-to-br from-[#0B0B0B] via-[#111111] to-[#1A1A1A] text-white overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#D8C2A0]/5 to-transparent" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+          <p className="text-[#D8C2A0] font-semibold uppercase tracking-widest text-sm mb-4">
+            Gallery
+          </p>
+          <h1 className="mt-4 text-4xl lg:text-7xl font-bold leading-[1.1] text-balance max-w-4xl">
+            Recent <span className="text-[#D8C2A0]">Projects</span> & Transformations
           </h1>
+          <p className="mt-6 max-w-3xl text-white/80 text-xl leading-relaxed">
+            See our recent artificial grass installations, landscaping, construction cleanups and site projects across Perth & WA.
+          </p>
         </div>
       </section>
       <Gallery heading={false} />

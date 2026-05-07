@@ -22,52 +22,66 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
   return (
     <SiteLayout>
-      <section className="pt-16 pb-12 md:pt-24 md:pb-16 bg-gray-900 text-white">
-        <div className="container-x">
-          <p className="uppercase tracking-widest text-xs font-semibold opacity-80">About us</p>
-          <h1 className="mt-3 text-4xl md:text-6xl font-bold text-balance max-w-3xl">
-            Australian-owned, ground-up reliable
+      <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-20 bg-gradient-to-br from-[#0B0B0B] via-[#111111] to-[#1A1A1A] text-white overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#D8C2A0]/5 to-transparent" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+          <p className="text-[#D8C2A0] font-semibold uppercase tracking-widest text-sm mb-4">About Us</p>
+          <h1 className="mt-4 text-4xl lg:text-7xl font-bold leading-[1.1] text-balance max-w-4xl">
+            <span className="text-[#D8C2A0]">Australian-Owned</span>, Ground-Up Reliable
           </h1>
-          <p className="mt-4 max-w-2xl text-white/90 text-lg">
+          <p className="mt-6 max-w-3xl text-white/80 text-xl leading-relaxed">
             Built on quality workmanship, fair pricing, and showing up when we say we will.
           </p>
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
-        <div className="container-x grid lg:grid-cols-2 gap-12 items-center">
-          <div className="rounded-3xl overflow-hidden shadow-elevated aspect-[4/3]">
-            <img
-              src={about}
-              alt="About BJ & R Maintenance"
-              loading="lazy"
-              className="h-full w-full object-cover"
-            />
+      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-[#F8F6F3] to-[#F0F0F0] overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#D8C2A0]/5 to-transparent" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
+          <div className="relative group">
+            <div className="rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] border border-white/50">
+              <img
+                src={about}
+                alt="About BJ & R Maintenance"
+                loading="lazy"
+                className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+            {/* Hover Glow */}
+            <div className="absolute inset-0 rounded-3xl bg-[#D8C2A0]/10 scale-0 group-hover:scale-100 transition-all duration-500 blur-xl opacity-0 group-hover:opacity-100" />
           </div>
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-black">
-              A trusted local team — residential & commercial
+            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 leading-[1.2] mb-6">
+              A Trusted <span className="text-[#D8C2A0]">Local Team</span> — Residential & Commercial
             </h2>
-            <p className="mt-5 text-gray-700 font-semibold text-lg leading-relaxed">
+            <p className="mt-6 text-gray-700 font-medium text-lg leading-relaxed">
               BJ & R Maintenance is a hands-on Australian business specialising in premium
               artificial grass installation and full site services. Whether it's a backyard
               transformation, a school playground, a rooftop garden, or post-construction site
               cleanup — we bring the same standard of care to every project.
             </p>
-            <p className="mt-4 text-gray-700 font-semibold text-lg leading-relaxed">
+            <p className="mt-4 text-gray-700 font-medium text-lg leading-relaxed">
               Our experienced team prides itself on professional workmanship, affordable pricing and
               customer satisfaction from the first quote to the final clean-up. We're fully insured,
               safety-focused and committed to leaving every site better than we found it.
             </p>
-            <div className="mt-8 grid grid-cols-3 gap-4">
+            <div className="mt-10 grid grid-cols-3 gap-6">
               {[
-                ["10+", "Years experience"],
-                ["500+", "Projects done"],
+                ["10+", "Years Experience"],
+                ["500+", "Projects Done"],
                 ["100%", "Satisfaction"],
               ].map(([n, l]) => (
-                <div key={l} className="rounded-2xl bg-gray-900 p-5 text-center">
-                  <div className="text-3xl font-bold text-white">{n}</div>
-                  <div className="text-xs text-gray-300 mt-1">{l}</div>
+                <div key={l} className="group relative rounded-2xl bg-gradient-to-br from-[#0B0B0B] to-[#1A1A1A] p-6 text-center border border-white/10 hover:border-[#D8C2A0]/30 transition-all duration-300">
+                  {/* Hover Glow */}
+                  <div className="absolute inset-0 rounded-2xl bg-[#D8C2A0]/10 scale-0 group-hover:scale-100 transition-all duration-500 opacity-0 group-hover:opacity-100" />
+                  <div className="relative z-10">
+                    <div className="text-3xl font-bold text-white">{n}</div>
+                    <div className="text-xs text-white/80 mt-2 font-medium">{l}</div>
+                  </div>
                 </div>
               ))}
             </div>

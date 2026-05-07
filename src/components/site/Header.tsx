@@ -47,17 +47,19 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-white border-b shadow-sm transition-transform duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isHeaderHidden ? "-translate-y-full" : "translate-y-0"
+      } ${
+        lastScrollY.current > 50 ? "bg-black/80 backdrop-blur-lg border-b border-white/10" : "bg-transparent"
       }`}
     >
-      <div className="flex items-center justify-between h-16 md:h-20 lg:h-24 px-4 md:px-6 lg:px-8 max-w-full">
+      <div className="flex items-center justify-between h-20 px-6 lg:px-12 max-w-7xl mx-auto">
         <Link
           to="/"
-          className="flex items-center h-full transition-transform duration-200 hover:scale-[1.02] shrink-0"
+          className="flex items-center transition-transform duration-200 hover:scale-[1.02] shrink-0"
           aria-label="BJ & R Maintenance PTY. LTD"
         >
-          <div className="flex h-16 w-[11rem] items-center justify-start overflow-visible md:h-20 md:w-[13rem] lg:h-24 lg:w-[15rem]">
+          <div className="flex h-12 w-32 items-center justify-start overflow-visible">
             <img
               src={logo}
               alt="BJ & R Maintenance"
@@ -66,36 +68,38 @@ export function Header() {
           </div>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center justify-center flex-1 mx-8">
           {nav.slice(0, 1).map((n) => (
             <Link
               key={n.to}
               to={n.to}
-              className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition-colors"
+              className="px-4 py-2 rounded-lg text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 transition-all duration-300 relative group"
               activeProps={{
-                className: "px-3 py-2 rounded-md text-sm font-semibold text-black bg-gray-100",
+                className: "px-4 py-2 rounded-lg text-sm font-medium text-white bg-white/10",
               }}
               activeOptions={{ exact: n.to === "/" }}
             >
               {n.label}
+              <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[#D8C2A0] transition-all duration-300 group-hover:w-full group-hover:left-0" />
             </Link>
           ))}
           <div className="relative services-dropdown">
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
-              className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition-colors flex items-center gap-1"
+              className="px-4 py-2 rounded-lg text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 transition-all duration-300 flex items-center gap-2 relative group"
             >
-              Service
+              Services
               <ChevronDown className={`h-4 w-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+              <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[#D8C2A0] transition-all duration-300 group-hover:w-full group-hover:left-0" />
             </button>
             {servicesOpen && (
-              <div className="absolute top-full left-0 mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50">
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-64 bg-black/90 backdrop-blur-lg border border-white/20 rounded-lg shadow-xl py-2 z-50">
                 {siteConfig.services.map((s) => (
                   <Link
                     key={s.slug}
                     {...linkOptions({ to: "/services/$slug", params: { slug: s.slug } })}
                     onClick={() => setServicesOpen(false)}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-black"
+                    className="block px-4 py-3 text-sm text-white/80 hover:bg-white/10 hover:text-white transition-colors"
                   >
                     {s.title}
                   </Link>
@@ -107,27 +111,28 @@ export function Header() {
             <Link
               key={n.to}
               to={n.to}
-              className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition-colors"
+              className="px-4 py-2 rounded-lg text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 transition-all duration-300 relative group"
               activeProps={{
-                className: "px-3 py-2 rounded-md text-sm font-semibold text-black bg-gray-100",
+                className: "px-4 py-2 rounded-lg text-sm font-medium text-white bg-white/10",
               }}
               activeOptions={{ exact: n.to === "/" }}
             >
               {n.label}
+              <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[#D8C2A0] transition-all duration-300 group-hover:w-full group-hover:left-0" />
             </Link>
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden md:flex items-center gap-3">
           <a href={`tel:${siteConfig.contact.phone}`}>
-            <Button variant="ghost" size="sm" className="gap-2 text-gray-700 hover:bg-gray-100 hover:text-black">
+            <Button variant="ghost" size="sm" className="gap-2 text-white/80 hover:bg-white/10 hover:text-white transition-all duration-300">
               <Phone className="h-4 w-4" /> {siteConfig.contact.displayPhone}
             </Button>
           </a>
           <Link to="/contact">
             <Button
               size="sm"
-              className="bg-black text-white hover:bg-gray-800"
+              className="bg-[#D8C2A0] hover:bg-[#C4B090] text-black font-semibold transition-all duration-300 hover:scale-105 shadow-lg"
             >
               Get Free Quote
             </Button>
@@ -135,37 +140,36 @@ export function Header() {
         </div>
 
         <button
-          className="lg:hidden p-2 rounded-md hover:bg-gray-100"
+          className="lg:hidden p-3 rounded-lg hover:bg-white/10 transition-colors"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
         >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {open ? <X className="h-6 w-6 text-white" /> : <Menu className="h-6 w-6 text-white" />}
         </button>
       </div>
 
       {open && (
-        <div className="lg:hidden border-t bg-white animate-fade-in">
-          <div className="container-x py-4 flex flex-col gap-1">
+        <div className="lg:hidden border-t border-white/10 bg-black/95 backdrop-blur-lg animate-fade-in">
+          <div className="px-6 py-4 flex flex-col gap-2">
             {nav.slice(0, 1).map((n) => (
               <Link
                 key={n.to}
                 to={n.to}
                 onClick={() => setOpen(false)}
-                className="px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-black"
+                className="px-4 py-3 rounded-lg text-base font-medium text-white/80 hover:bg-white/10 hover:text-white transition-colors"
                 activeProps={{
-                  className:
-                    "px-3 py-3 rounded-md text-base font-semibold text-black bg-gray-100",
+                  className: "px-4 py-3 rounded-lg text-base font-medium text-white bg-white/10",
                 }}
                 activeOptions={{ exact: n.to === "/" }}
               >
                 {n.label}
               </Link>
             ))}
-            <div className="border-t border-gray-200 mt-2 pt-2">
+            <div className="border-t border-white/10 mt-2 pt-2">
               <button
                 type="button"
                 onClick={() => setMobileServicesOpen((value) => !value)}
-                className="w-full flex items-center justify-between px-3 py-3 text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 rounded-md transition-colors"
+                className="w-full flex items-center justify-between px-4 py-3 text-base font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
                 aria-expanded={mobileServicesOpen}
               >
                 Services
@@ -181,7 +185,7 @@ export function Header() {
                         setOpen(false);
                         setMobileServicesOpen(false);
                       }}
-                      className="block px-6 py-2 text-sm hover:bg-gray-100"
+                      className="block px-6 py-2 text-sm text-white/80 hover:bg-white/10 hover:text-white"
                     >
                       {s.title}
                     </Link>
@@ -194,21 +198,27 @@ export function Header() {
                 key={n.to}
                 to={n.to}
                 onClick={() => setOpen(false)}
-                className="px-3 py-3 rounded-md text-base font-medium hover:bg-gray-100 hover:text-black"
+                className="px-4 py-3 rounded-lg text-base font-medium text-white/80 hover:bg-white/10 hover:text-white transition-colors"
                 activeProps={{
-                  className:
-                    "px-3 py-3 rounded-md text-base font-semibold text-black bg-gray-100",
+                  className: "px-4 py-3 rounded-lg text-base font-medium text-white bg-white/10",
                 }}
                 activeOptions={{ exact: n.to === "/" }}
               >
                 {n.label}
               </Link>
             ))}
-            <Link to="/contact" onClick={() => setOpen(false)} className="mt-2">
-              <Button className="w-full bg-black text-white hover:bg-gray-800">
-                Get Free Quote
-              </Button>
-            </Link>
+            <div className="mt-4 space-y-3">
+              <a href={`tel:${siteConfig.contact.phone}`} className="block">
+                <Button variant="ghost" className="w-full gap-2 text-white/80 hover:bg-white/10 hover:text-white justify-start">
+                  <Phone className="h-4 w-4" /> {siteConfig.contact.displayPhone}
+                </Button>
+              </a>
+              <Link to="/contact" onClick={() => setOpen(false)}>
+                <Button className="w-full bg-[#D8C2A0] hover:bg-[#C4B090] text-black font-semibold">
+                  Get Free Quote
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       )}

@@ -11,22 +11,27 @@ export function FloatingWhatsApp() {
       aria-label="Chat on WhatsApp"
       className="
         fixed
-        bottom-5
-        right-5
+        bottom-6
+        right-6
         z-50
         grid
         place-items-center
-        h-14
-        w-14
+        h-16
+        w-16
         rounded-full
-        bg-whatsapp
+        bg-[#25D366]
         text-white
-        shadow-elevated
+        shadow-2xl
         hover:scale-110
-        transition-transform
+        transition-all duration-300
+        hover:shadow-[#25D366]/50
+        group
+        border-2 border-white/20
       "
     >
-      <MessageCircle className="h-6 w-6" />
+      <MessageCircle className="h-7 w-7 group-hover:scale-110 transition-transform duration-300" />
+      {/* Glow effect on hover */}
+      <div className="absolute inset-0 rounded-full bg-[#25D366]/20 scale-0 group-hover:scale-150 transition-all duration-500 blur-xl" />
     </a>
   );
 }

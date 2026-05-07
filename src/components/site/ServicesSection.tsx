@@ -153,20 +153,24 @@ export function ServicesSection({
   }, [isMobile, middleIndex]);
 
   return (
-    <section className="py-20 md:py-32 overflow-hidden bg-gray-100">
-      <div className="container-x">
+    <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-[#0B0B0B] via-[#111111] to-[#1A1A1A]">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#D8C2A0]/5 to-transparent" />
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {heading && (
-          <div className="max-w-3xl mx-auto text-center mb-14 md:mb-20">
-            <p className="text-black font-semibold uppercase tracking-[0.3em] text-xs mb-4">
-              What we do
+          <div className="max-w-4xl mx-auto text-center mb-16 lg:mb-20">
+            <p className="text-[#D8C2A0] font-semibold uppercase tracking-widest text-sm mb-4">
+              What We Do
             </p>
 
-            <h2 className="text-3xl md:text-6xl font-bold leading-tight text-balance text-black">
-             Complete grass, site & trade services under one trusted team
+            <h2 className="text-4xl lg:text-7xl font-bold leading-[1.1] text-balance text-white mb-6">
+              Complete <span className="text-[#D8C2A0]">Artificial 
+                Grass</span>, <span className="text-[#D8C2A0]">Site</span> & <span className="text-[#D8C2A0]">Trade</span> Services Under One Trusted Team
             </h2>
 
-            <p className="mt-4 md:mt-5 text-base md:text-lg text-gray-600">
-            From premium artificial turf to construction site cleanup, our experienced crew delivers a job done right — the first time.
+            <p className="text-lg lg:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
+              From premium artificial turf to construction site cleanup, our experienced crew delivers a job done right — the first time.
             </p>
           </div>
         )}
@@ -231,8 +235,8 @@ export function ServicesSection({
                     rounded-[32px]
                     md:rounded-[40px]
                     border
-                    bg-white border-gray-200
-                    shadow-card
+                    bg-black/40 backdrop-blur-xl border-white/10
+                    shadow-2xl
                     transition-[width,box-shadow,transform]
                     duration-500
                     ease-out
@@ -243,7 +247,7 @@ export function ServicesSection({
                           sm:w-[78vw]
                           md:w-[620px]
                           lg:w-[640px]
-                          shadow-elevated
+                          shadow-2xl border-[#D8C2A0]/30
                         `
                         : `
                           w-[58vw]
@@ -271,10 +275,15 @@ export function ServicesSection({
                       `}
                     />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                    
+                    {/* Gold Accent Overlay */}
+                    {isActive && (
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#D8C2A0]/10 to-transparent opacity-50" />
+                    )}
 
                     <div className="absolute bottom-6 md:bottom-8 left-6 md:left-8">
-                      <span className="text-white/50 text-xs md:text-sm tracking-[0.3em] uppercase">
+                      <span className="text-[#D8C2A0]/80 text-xs md:text-sm tracking-widest uppercase font-semibold">
                         0{(index % services.length) + 1}
                       </span>
 
@@ -288,7 +297,7 @@ export function ServicesSection({
                   {!isMobile && (
                     <div className="p-6 md:p-10 min-h-[250px] md:min-h-[350px] flex flex-col">
                       <div className="flex-1">
-                        <p className="text-sm md:text-lg text-muted-foreground leading-relaxed">
+                        <p className="text-white/80 text-sm md:text-lg leading-relaxed">
                           {s.short}
                         </p>
 
@@ -305,17 +314,18 @@ export function ServicesSection({
                                   md:h-8
                                   md:w-8
                                   rounded-full
-                                  bg-black/10
+                                  bg-[#D8C2A0]/20
                                   flex
                                   items-center
                                   justify-center
                                   shrink-0
+                                  border border-[#D8C2A0]/30
                                 "
                               >
-                                <Check className="h-3.5 w-3.5 md:h-4 md:w-4 text-black" />
+                                <Check className="h-3.5 w-3.5 md:h-4 md:w-4 text-[#D8C2A0]" />
                               </div>
 
-                              <span className="text-sm md:text-base">
+                              <span className="text-white/90 text-sm md:text-base">
                                 {i}
                               </span>
                             </li>
@@ -334,7 +344,7 @@ export function ServicesSection({
                             justify-center
                             gap-2
                             rounded-full
-                            bg-black hover:bg-gray-800
+                            bg-[#D8C2A0] hover:bg-[#C4B090]
                             px-4
                             md:px-5
                             py-2
@@ -342,10 +352,10 @@ export function ServicesSection({
                             text-xs
                             md:text-sm
                             font-semibold
-                            text-white
+                            text-black
                             transition-all
                             duration-300
-                            hover:shadow-card
+                            hover:scale-105 shadow-lg hover:shadow-xl
                           "
                         >
                           View More
@@ -360,7 +370,7 @@ export function ServicesSection({
                             justify-center
                             gap-2
                             rounded-full
-                            bg-gray-800 hover:bg-black text-white
+                            bg-transparent border border-[#D8C2A0] text-[#D8C2A0] hover:bg-[#D8C2A0] hover:text-black
                             px-4
                             md:px-5
                             py-2
@@ -368,9 +378,9 @@ export function ServicesSection({
                             text-xs
                             md:text-sm
                             font-semibold
-                            text-white
                             transition-all
                             duration-300
+                            hover:scale-105
                           "
                         >
                           Get Free Quote
@@ -393,7 +403,7 @@ export function ServicesSection({
                         md:w-44
                         -translate-x-1/2
                         rounded-full
-                        bg-black/15
+                        bg-[#D8C2A0]/20
                         blur-2xl
                       "
                     />
