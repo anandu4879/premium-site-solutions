@@ -39,7 +39,7 @@ export function Hero() {
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.05] text-balance text-black">
                 Your Trusted Partner for Site Maintenance and Property Care
               </h1>
-              <p className="mt-6 text-lg sm:text-xl text-gray-700 max-w-2xl">
+              <p className="mt-6 text-lg sm:text-xl text-gray-800 font-medium max-w-2xl rounded-lg border border-gray-300/60 backdrop-blur-sm bg-white/20 px-4 py-3">
                 Whether you need skilled labour, site levelling, or professional property repairs, our team ensures your project is completed to the highest standard.
               </p>
             </div>
@@ -52,16 +52,16 @@ export function Hero() {
                   Get Free Quote <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
-              <a href={`tel:${siteConfig.contact.displayPhone}`}>
+              <a href={`tel:${siteConfig.contact.phone}`}>
                 <Button
                   size="lg"
-                  className="h-12 px-7 gap-2 bg-white text-black border-gray-300 hover:bg-gray-100 transition-colors"
+                  className="gap-2 bg-white text-black border-gray-300 hover:bg-gray-100 transition-colors"
                 >
                   <Phone className="h-4 w-4" /> Call Now
                 </Button>
               </a>
             </div>
-            <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-white/80">
+            <div className="mt-2 flex flex-wrap items-center gap-6 text-sm text-white/80">
               <div className="flex items-center gap-1.5">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-gray-700 text-gray-700" />

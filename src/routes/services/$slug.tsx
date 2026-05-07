@@ -123,24 +123,26 @@ function ServiceDetailPage() {
                   <Phone className="h-4 w-4" /> Get Free Quote
                 </Button>
               </Link>
-              <Button
-                size="lg"
-                variant="outline"
-                className="gap-2 transition-all hover:scale-105"
-                style={{ 
-                  backgroundColor: colors.primary,
-                  color: "white",
-                  border: `2px solid ${colors.primary}`
-                }}
-                onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => {
-                  e.currentTarget.style.backgroundColor = colors.primaryHover;
-                }}
-                onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => {
-                  e.currentTarget.style.backgroundColor = colors.primary;
-                }}
-              >
-                Call Now
-              </Button>
+              <a href={`tel:${siteConfig.contact.phone}`}>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="gap-2 transition-all hover:scale-105"
+                  style={{ 
+                    backgroundColor: colors.primary,
+                    color: "white",
+                    border: `2px solid ${colors.primary}`
+                  }}
+                  onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => {
+                    e.currentTarget.style.backgroundColor = colors.primaryHover;
+                  }}
+                  onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => {
+                    e.currentTarget.style.backgroundColor = colors.primary;
+                  }}
+                >
+                  Call Now
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -268,18 +270,20 @@ function ServiceDetailPage() {
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
-              <Button
-                size="lg"
-                variant="outline"
-                className="gap-2 transition-all hover:scale-105"
-                style={{ 
-                  backgroundColor: "transparent",
-                  color: "white",
-                  borderColor: "white"
-                }}
-              >
-                Call Us
-              </Button>
+              <a href={`tel:${siteConfig.contact.phone}`}>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="gap-2 transition-all hover:scale-105"
+                  style={{ 
+                    backgroundColor: "transparent",
+                    color: "white",
+                    borderColor: "white"
+                  }}
+                >
+                  Call Us
+                </Button>
+              </a>
             </div>
           </div>
         </div>

@@ -23,16 +23,25 @@ export function Footer() {
         </div>
         <div>
           <div className="flex gap-3 mt-5 justify-end">
-            {[Facebook, Instagram, Linkedin].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="h-9 w-9 grid place-items-center rounded-full bg-white/10 hover:bg-gray-700 transition-colors"
-                aria-label="Social link"
-              >
-                <Icon className="h-4 w-4" />
-              </a>
-            ))}
+            {[Facebook, Instagram, Linkedin].map((Icon, i) => {
+              const socialUrls = {
+                0: siteConfig.socials.facebook,
+                1: siteConfig.socials.instagram,
+                2: siteConfig.socials.linkedin
+              };
+              return (
+                <a
+                  key={i}
+                  href={socialUrls[i as keyof typeof socialUrls] || "#"}
+                  className="h-9 w-9 grid place-items-center rounded-full bg-white/10 hover:bg-gray-700 transition-colors"
+                  aria-label="Social link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              );
+            })}
           </div>
         </div>
 
@@ -60,7 +69,9 @@ export function Footer() {
   <ul className="space-y-2 text-sm text-white/70">
     {siteConfig.services?.map((service) => (
       <li key={service.slug}>
-        {service.title}
+        <Link to="/services/$slug" params={{ slug: service.slug }} className="hover:text-gray-300 transition-colors">
+          {service.title}
+        </Link>
       </li>
     ))}
   </ul>
@@ -70,13 +81,27 @@ export function Footer() {
           <h4 className="font-semibold mb-4">Contact</h4>
           <ul className="space-y-3 text-sm text-white/70">
             <li className="flex gap-2">
-              <Phone className="h-4 w-4 shrink-0 text-gray-400" /> {siteConfig.contact.displayPhone}
+              <Phone className="h-4 w-4 shrink-0 text-gray-400" /> 
+              <a href={`tel:${siteConfig.contact.phone}`} className="hover:text-gray-300 transition-colors">
+                {siteConfig.contact.displayPhone}
+              </a>
             </li>
             <li className="flex gap-2">
-              <Mail className="h-4 w-4 shrink-0 text-gray-400" /> {siteConfig.contact.email}
+              <Mail className="h-4 w-4 shrink-0 text-gray-400" /> 
+              <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-gray-300 transition-colors">
+                {siteConfig.contact.email}
+              </a>
             </li>
             <li className="flex gap-2">
-              <MapPin className="h-4 w-4 shrink-0 text-gray-400" /> {siteConfig.contact.address}
+              <MapPin className="h-4 w-4 shrink-0 text-gray-400" /> 
+              <a 
+                href={`https://maps.google.com/?q=${encodeURIComponent(siteConfig.contact.address)}`} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-gray-300 transition-colors"
+              >
+                {siteConfig.contact.address}
+              </a>
             </li>
           </ul>
         </div>
