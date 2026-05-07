@@ -18,9 +18,13 @@ export function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
+    // Initialize scrolled state on mount
+    setScrolled(window.scrollY > 0);
+    
     const onScroll = () => {
       const currentScrollY = window.scrollY;
       if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
@@ -29,6 +33,7 @@ export function Header() {
         setIsHeaderHidden(false);
       }
       lastScrollY.current = currentScrollY;
+      setScrolled(currentScrollY > 0);
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -50,7 +55,7 @@ export function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isHeaderHidden ? "-translate-y-full" : "translate-y-0"
       } ${
-        lastScrollY.current > 50 ? "bg-black/80 backdrop-blur-lg border-b border-white/10" : "bg-transparent"
+        scrolled ? "bg-black/80 backdrop-blur-lg border-b border-white/10" : "bg-transparent"
       }`}
     >
       <div className="flex items-center justify-between h-20 px-6 lg:px-12 max-w-7xl mx-auto">
@@ -149,8 +154,8 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-white/10 bg-black/95 backdrop-blur-lg animate-fade-in">
-          <div className="px-6 py-4 flex flex-col gap-2">
+        <div className="lg:hidden border-t border-white/10 bg-black/95 backdrop-blur-lg">
+          <div className="px-6 py-4 flex flex-col gap-2 animate-slide-down">
             {nav.slice(0, 1).map((n) => (
               <Link
                 key={n.to}

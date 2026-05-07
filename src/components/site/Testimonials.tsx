@@ -125,15 +125,17 @@ export function Testimonials() {
                   <Star key={i} className="h-4 w-4 fill-[#D8C2A0] text-[#D8C2A0]" />
                 ))}
               </div>
-              <p
-                key={`review-${activeIndex}`}
-                className="text-white/90 leading-relaxed text-lg animate-fade-in font-light"
-              >
-                "{activeReview.text}"
-              </p>
-              <div className="mt-8 pt-6 border-t border-white/10">
-                <p className="font-bold text-white">{activeReview.name}</p>
-                <p className="text-sm text-[#D8C2A0]/80 mt-1">{activeReview.role}</p>
+              <div className="transition-all duration-500 ease-in-out">
+                <p
+                  key={`review-${activeIndex}`}
+                  className="text-white/90 leading-relaxed text-lg font-light opacity-0 animate-fade-in"
+                >
+                  "{activeReview.text}"
+                </p>
+                <div className="mt-8 pt-6 border-t border-white/10 transition-opacity duration-300">
+                  <p className="font-bold text-white">{activeReview.name}</p>
+                  <p className="text-sm text-[#D8C2A0]/80 mt-1">{activeReview.role}</p>
+                </div>
               </div>
             </div>
           </article>

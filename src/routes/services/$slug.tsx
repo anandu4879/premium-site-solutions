@@ -22,39 +22,39 @@ function ServiceDetailPage() {
   // Define color themes for each service
   const serviceThemes = {
     "artificial-grass": {
-      primary: "#10B981", // Green
-      primaryHover: "#0A7F4F", // Darker green
-      secondary: "#059669", // Medium green
-      background: "#F0FDF4", // Light green background
-      accent: "#34D399", // Accent green
+      primary: "#D8C2A0", // Gold
+      primaryHover: "#C4B090", // Darker gold
+      secondary: "#0B0B0B", // Dark black
+      background: "#0B0B0B", // Dark black background
+      accent: "#D8C2A0", // Gold accent
     },
     "construction-maintenance": {
-      primary: "#54626F", // Black Coral
-      primaryHover: "#4A3A5C", // Darker Black Coral
-      secondary: "#6B5B5E", // Medium Black Coral
-      background: "#F8F4F3", // Light Black Coral background
-      accent: "#7A6B6B", // Accent Black Coral
+      primary: "#D8C2A0", // Gold
+      primaryHover: "#C4B090", // Darker gold
+      secondary: "#0B0B0B", // Dark black
+      background: "#0B0B0B", // Dark black background
+      accent: "#D8C2A0", // Gold accent
     },
     "labour-hire": {
-      primary: "#98817B", // Cinereous
-      primaryHover: "#7A6B6B", // Darker Cinereous
-      secondary: "#B8A39C", // Medium Cinereous
-      background: "#F5E6D6", // Light Cinereous background
-      accent: "#C7A582", // Accent Cinereous
+      primary: "#D8C2A0", // Gold
+      primaryHover: "#C4B090", // Darker gold
+      secondary: "#0B0B0B", // Dark black
+      background: "#0B0B0B", // Dark black background
+      accent: "#D8C2A0", // Gold accent
     },
     "sand-removal": {
-      primary: "#848482", // Old Silver
-      primaryHover: "#6B6B6B", // Darker Old Silver
-      secondary: "#A8A39C", // Medium Old Silver
-      background: "#F4F4F4", // Light Old Silver background
-      accent: "#B8A39C", // Accent Old Silver
+      primary: "#D8C2A0", // Gold
+      primaryHover: "#C4B090", // Darker gold
+      secondary: "#0B0B0B", // Dark black
+      background: "#0B0B0B", // Dark black background
+      accent: "#D8C2A0", // Gold accent
     },
     "handyman": {
-      primary: "#8B8589", // Taupe Gray
-      primaryHover: "#7A6B6B", // Darker Taupe Gray
-      secondary: "#9B8B8B", // Medium Taupe Gray
-      background: "#F4E8E8", // Light Taupe Gray background
-      accent: "#A8A39C", // Accent Taupe Gray
+      primary: "#D8C2A0", // Gold
+      primaryHover: "#C4B090", // Darker gold
+      secondary: "#0B0B0B", // Dark black
+      background: "#0B0B0B", // Dark black background
+      accent: "#D8C2A0", // Gold accent
     },
   };
 
@@ -65,41 +65,41 @@ function ServiceDetailPage() {
     <div className="min-h-screen flex flex-col bg-background">
       {/* HERO SECTION */}
       <section 
-        className="pt-16 pb-12 md:pt-24 md:pb-16 relative overflow-hidden"
+        className="pt-24 pb-16 lg:pt-32 lg:pb-20 relative overflow-hidden"
         style={{ backgroundColor: colors.background }}
       >
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#D8C2A0]/5 to-transparent" />
+        
         <div className="absolute inset-0">
           <img
             src={service.image}
             alt={service.title}
-            className="h-full w-full object-cover opacity-30"
+            className="h-full w-full object-cover opacity-40"
             loading="lazy"
           />
           <div 
             className="absolute inset-0"
             style={{ 
               background: `linear-gradient(135deg, ${colors.background} 0%, ${colors.secondary} 100%)`,
-              opacity: 0.9
+              opacity: 0.85
             }}
           />
         </div>
-        <div className="relative z-10 container-x">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
           <div className="max-w-4xl mx-auto text-center">
             <p 
-              className="uppercase tracking-widest text-xs font-semibold mb-4"
-              style={{ color: colors.primary }}
+              className="text-[#D8C2A0] font-semibold uppercase tracking-widest text-sm mb-4"
             >
               {service.title}
             </p>
             <h1 
-              className="text-4xl md:text-6xl font-bold text-balance max-w-3xl"
-              style={{ color: colors.primary }}
+              className="text-4xl lg:text-7xl font-bold leading-[1.1] text-balance max-w-4xl text-white mb-6"
             >
-              {service.title}
+              Premium <span style={{ color: colors.primary }}>{service.title}</span>
             </h1>
             <p 
-              className="max-w-3xl text-lg leading-relaxed mb-8"
-              style={{ color: colors.secondary }}
+              className="max-w-3xl text-lg lg:text-xl text-white/80 leading-relaxed mb-8"
             >
               {service.short}
             </p>
@@ -107,18 +107,7 @@ function ServiceDetailPage() {
               <Link to="/contact">
                 <Button
                   size="lg"
-                  className="gap-2 transition-all hover:scale-105"
-                  style={{ 
-                    backgroundColor: colors.primary,
-                    color: "white",
-                    border: `2px solid ${colors.primary}`
-                  }}
-                  onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => {
-                    e.currentTarget.style.backgroundColor = colors.primaryHover;
-                  }}
-                  onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => {
-                    e.currentTarget.style.backgroundColor = colors.primary;
-                  }}
+                  className="gap-2 transition-all hover:scale-105 bg-[#D8C2A0] hover:bg-[#C4B090] text-black font-semibold shadow-lg hover:shadow-xl px-8 py-4"
                 >
                   <Phone className="h-4 w-4" /> Get Free Quote
                 </Button>
@@ -127,18 +116,7 @@ function ServiceDetailPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="gap-2 transition-all hover:scale-105"
-                  style={{ 
-                    backgroundColor: colors.primary,
-                    color: "white",
-                    border: `2px solid ${colors.primary}`
-                  }}
-                  onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => {
-                    e.currentTarget.style.backgroundColor = colors.primaryHover;
-                  }}
-                  onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => {
-                    e.currentTarget.style.backgroundColor = colors.primary;
-                  }}
+                  className="gap-2 transition-all hover:scale-105 bg-transparent border-[#D8C2A0] text-[#D8C2A0] hover:bg-[#D8C2A0] hover:text-black font-semibold"
                 >
                   Call Now
                 </Button>
@@ -149,87 +127,87 @@ function ServiceDetailPage() {
       </section>
 
       {/* CONTENT SECTION */}
-      <section className="py-20">
-        <div className="container-x">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-[#F8F6F3] to-[#F0F0F0] overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#D8C2A0]/5 to-transparent" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* SERVICE DETAILS */}
             <div className="space-y-8">
               <h2 
-                className="text-3xl md:text-4xl font-bold mb-6"
-                style={{ color: colors.primary }}
+                className="text-3xl lg:text-5xl font-bold mb-8 text-gray-900"
               >
-                Service Overview
+                Service <span style={{ color: colors.primary }}>Overview</span>
               </h2>
               
               <div 
-                className="rounded-2xl p-6 border-2 shadow-lg"
-                style={{ 
-                  backgroundColor: colors.background,
-                  borderColor: colors.accent,
-                  color: colors.primary
-                }}
+                className="relative rounded-3xl p-8 border border-white/50 shadow-2xl overflow-hidden bg-white"
               >
-                <h3 
-                  className="text-xl font-semibold mb-4"
-                  style={{ color: colors.primary }}
-                >
-                  What We Offer
-                </h3>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  {service.detail}
-                </p>
+                {/* Hover Glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#D8C2A0]/10 to-transparent opacity-50" />
+                
+                <div className="relative z-10">
+                  <h3 
+                    className="text-2xl font-bold mb-4 text-gray-900"
+                  >
+                    What We <span style={{ color: colors.primary }}>Offer</span>
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed text-lg mb-6">
+                    {service.detail}
+                  </p>
+                </div>
               </div>
 
               <div 
-                className="rounded-2xl p-6 border-2 shadow-lg"
-                style={{ 
-                  backgroundColor: colors.background,
-                  borderColor: colors.accent,
-                  color: colors.primary
-                }}
+                className="relative rounded-3xl p-8 border border-white/50 shadow-2xl overflow-hidden bg-white"
               >
-                <h3 
-                  className="text-xl font-semibold mb-4"
-                  style={{ color: colors.primary }}
-                >
-                  Service Areas
-                </h3>
-                <ul className="space-y-3">
-                  {service.items.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div 
-                        className="h-6 w-6 rounded-full flex items-center justify-center shrink-0"
-                        style={{ backgroundColor: colors.primary }}
-                      >
-                        <Check className="h-3 w-3 text-white" />
-                      </div>
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Hover Glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#D8C2A0]/10 to-transparent opacity-50" />
+                
+                <div className="relative z-10">
+                  <h3 
+                    className="text-2xl font-bold mb-6 text-gray-900"
+                  >
+                    Service <span style={{ color: colors.primary }}>Areas</span>
+                  </h3>
+                  <ul className="space-y-4">
+                    {service.items.map((item, index) => (
+                      <li key={index} className="flex items-start gap-4">
+                        <div 
+                          className="h-8 w-8 rounded-full flex items-center justify-center shrink-0 border border-[#D8C2A0]/30 bg-[#D8C2A0]/20"
+                        >
+                          <Check className="h-4 w-4 text-[#D8C2A0]" />
+                        </div>
+                        <span className="text-gray-700 font-medium text-lg">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
 
             {/* IMAGE GALLERY */}
             <div className="lg:col-span-1">
-              <div className="rounded-3xl overflow-hidden shadow-2xl aspect-4/3">
+              <div className="relative group rounded-3xl overflow-hidden shadow-2xl aspect-4/3 border border-white/50">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-96 object-cover"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />
+                {/* Hover Glow */}
+                <div className="absolute inset-0 bg-[#D8C2A0]/10 scale-0 group-hover:scale-100 transition-all duration-500 blur-xl opacity-0 group-hover:opacity-100" />
+                
                 <div 
-                  className="p-6 text-center"
-                  style={{ backgroundColor: colors.secondary }}
+                  className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent"
                 >
                   <h3 
-                    className="text-xl font-semibold mb-2"
-                    style={{ color: colors.primary }}
+                    className="text-2xl font-bold mb-2 text-white"
                   >
-                    Premium Quality
+                    Premium <span style={{ color: colors.primary }}>Quality</span>
                   </h3>
-                  <p className="text-white leading-relaxed">
+                  <p className="text-white/90 leading-relaxed text-lg">
                     Expert installation with warranty-backed quality
                   </p>
                 </div>
@@ -240,50 +218,44 @@ function ServiceDetailPage() {
       </section>
 
       {/* CTA SECTION */}
-      <section className="py-20">
-        <div className="container-x">
+      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-[#0B0B0B] via-[#111111] to-[#1A1A1A] overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#D8C2A0]/5 to-transparent" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
           <div 
-            className="rounded-3xl p-10 text-center shadow-2xl"
-            style={{ 
-              background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.accent} 100%)`,
-              color: "white"
-            }}
+            className="relative rounded-3xl p-12 lg:p-16 text-center shadow-2xl overflow-hidden bg-black/40 backdrop-blur-xl border border-white/10"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Transform Your Space?
-            </h2>
-            <p className="text-lg mb-8 opacity-90">
-              Contact us today for a free consultation and quote
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
-                <Button
-                  size="lg"
-                  className="gap-2 transition-all hover:scale-105"
-                  style={{ 
-                    backgroundColor: "white",
-                    color: colors.primary,
-                    border: `2px solid ${colors.primary}`
-                  }}
-                >
-                  Get Free Quote
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
-              <a href={`tel:${siteConfig.contact.phone}`}>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="gap-2 transition-all hover:scale-105"
-                  style={{ 
-                    backgroundColor: "transparent",
-                    color: "white",
-                    borderColor: "white"
-                  }}
-                >
-                  Call Us
-                </Button>
-              </a>
+            {/* Inner Glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#D8C2A0]/10 to-transparent opacity-50" />
+            
+            <div className="relative z-10">
+              <h2 className="text-3xl lg:text-5xl font-bold mb-6 text-white">
+                Ready to <span style={{ color: colors.primary }}>Transform</span> Your Space?
+              </h2>
+              <p className="text-lg lg:text-xl text-white/80 mb-8 leading-relaxed">
+                Contact us today for a free consultation and quote
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/contact">
+                  <Button
+                    size="lg"
+                    className="gap-2 transition-all hover:scale-105 bg-[#D8C2A0] hover:bg-[#C4B090] text-black font-semibold shadow-lg hover:shadow-xl px-8 py-4"
+                  >
+                    Get Free Quote
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+                <a href={`tel:${siteConfig.contact.phone}`}>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="gap-2 transition-all hover:scale-105 bg-transparent border-[#D8C2A0] text-[#D8C2A0] hover:bg-[#D8C2A0] hover:text-black font-semibold"
+                  >
+                    Call Us
+                  </Button>
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -19,19 +19,19 @@ export function FloatingWhatsApp() {
         h-16
         w-16
         rounded-full
-        bg-[#25D366]
-        text-white
+        bg-[#D8C2A0]
+        text-black
         shadow-2xl
         hover:scale-110
         transition-all duration-300
-        hover:shadow-[#25D366]/50
+        hover:shadow-[#D8C2A0]/50
         group
         border-2 border-white/20
       "
     >
       <MessageCircle className="h-7 w-7 group-hover:scale-110 transition-transform duration-300" />
       {/* Glow effect on hover */}
-      <div className="absolute inset-0 rounded-full bg-[#25D366]/20 scale-0 group-hover:scale-150 transition-all duration-500 blur-xl" />
+      <div className="absolute inset-0 rounded-full bg-[#D8C2A0]/20 scale-0 group-hover:scale-150 transition-all duration-500 blur-xl" />
     </a>
   );
 }

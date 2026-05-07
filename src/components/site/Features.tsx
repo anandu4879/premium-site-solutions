@@ -27,7 +27,7 @@ export function Features() {
   return (
     <section className="relative bg-[#F8F6F3] py-20 lg:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-0">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (

@@ -38,7 +38,7 @@ export function WhyUs() {
             We deliver exceptional service with attention to detail that sets us apart from the rest.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
           {features.map((f, index) => (
             <div
               key={f.title}
