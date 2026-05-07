@@ -58,18 +58,23 @@ export function Header() {
         scrolled ? "bg-black/80 backdrop-blur-lg border-b border-white/10" : "bg-transparent"
       }`}
     >
-      <div className="flex items-center justify-between h-20 px-6 lg:px-12 max-w-7xl mx-auto">
+      <div className="flex items-center justify-between h-30 px-6 lg:px-12 max-w-7xl mx-auto">
         <Link
           to="/"
           className="flex items-center transition-transform duration-200 hover:scale-[1.02] shrink-0"
           aria-label="BJ & R Maintenance PTY. LTD"
         >
-          <div className="flex h-48 w-96 items-center justify-center overflow-visible">
+          <div className="flex items-center gap-1 h-auto">
             <img
               src={logo}
               alt="BJ & R Maintenance"
-              className="h-full w-full object-contain"
+              className="h-20 w-20 md:h-24 md:w-24 lg:h-28 lg:w-28 object-contain"
             />
+            <div className="flex flex-col leading-none gap-0">
+              <span className="text-white font-bold text-xl md:text-2xl lg:text-3xl">BJ <span className="text-gray-400">&</span> R</span>
+              <span className="text-[#D8C2A0] text-lg md:text-xl lg:text-2xl font-medium">MAINTENANCE</span>
+              <span className="text-white text-sm md:text-base opacity-80">PTY.LTD</span>
+            </div>
           </div>
         </Link>
 
