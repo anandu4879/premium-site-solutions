@@ -64,11 +64,11 @@ export function Header() {
           className="flex items-center transition-transform duration-200 hover:scale-[1.02] shrink-0"
           aria-label="BJ & R Maintenance PTY. LTD"
         >
-          <div className="flex h-12 w-32 items-center justify-start overflow-visible">
+          <div className="flex h-48 w-96 items-center justify-center overflow-visible">
             <img
               src={logo}
               alt="BJ & R Maintenance"
-              className="h-full w-full scale-110 object-contain"
+              className="h-full w-full object-contain"
             />
           </div>
         </Link>
