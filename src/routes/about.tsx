@@ -27,7 +27,7 @@ function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#D8C2A0]/5 to-transparent" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
-          <p className="text-[#D8C2A0] font-semibold uppercase tracking-widest text-sm mb-4">About Us</p>
+          <p className="text-[#D8C2A0] font-semibold uppercase tracking-widest text-sm mb-4 mt-4">About Us</p>
           <h1 className="mt-4 text-4xl lg:text-7xl font-bold leading-[1.1] text-balance max-w-4xl">
             <span className="text-[#D8C2A0]">Australian-Owned</span>, Ground-Up Reliable
           </h1>
@@ -69,18 +69,18 @@ function AboutPage() {
               customer satisfaction from the first quote to the final clean-up. We're fully insured,
               safety-focused and committed to leaving every site better than we found it.
             </p>
-            <div className="mt-10 grid grid-cols-3 gap-4 sm:gap-6">
+            <div className="mt-10 grid grid-cols-3 gap-4 sm:gap-6 items-stretch">
               {[
                 ["10+", "Years Experience"],
                 ["500+", "Projects Done"],
                 ["100%", "Satisfaction"],
               ].map(([n, l]) => (
-                <div key={l} className="group relative rounded-2xl bg-gradient-to-br from-[#0B0B0B] to-[#1A1A1A] p-6 text-center border border-white/10 hover:border-[#D8C2A0]/30 transition-all duration-300">
+                <div key={l} className="group relative rounded-2xl bg-gradient-to-br from-[#0B0B0B] to-[#1A1A1A] p-6 text-center border border-white/10 hover:border-[#D8C2A0]/30 transition-all duration-300 flex flex-col items-center justify-center min-h-[160px]">
                   {/* Hover Glow */}
                   <div className="absolute inset-0 rounded-2xl bg-[#D8C2A0]/10 scale-0 group-hover:scale-100 transition-all duration-500 opacity-0 group-hover:opacity-100" />
-                  <div className="relative z-10">
-                    <div className="text-3xl font-bold text-white">{n}</div>
-                    <div className="text-xs text-white/80 mt-2 font-medium">{l}</div>
+                  <div className="relative z-10 flex flex-col items-center justify-center text-center">
+                    <div className="text-3xl font-bold text-white leading-none tracking-tight">{n}</div>
+                    <div className="text-xs text-white/80 mt-2 font-medium leading-snug">{l}</div>
                   </div>
                 </div>
               ))}

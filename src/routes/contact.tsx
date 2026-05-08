@@ -99,7 +99,7 @@ function ContactPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#D8C2A0]/5 to-transparent" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
-          <p className="text-[#D8C2A0] font-semibold uppercase tracking-widest text-sm mb-4">
+          <p className="text-[#D8C2A0] font-semibold uppercase tracking-widest text-sm mb-4 mt-4">
             Get In Touch
           </p>
 
