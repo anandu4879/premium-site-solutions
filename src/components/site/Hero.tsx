@@ -7,7 +7,7 @@ import { siteConfig } from "@/config/siteConfig";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden -webkit-overflow-scrolling:touch">
       {/* Hero Background Image - Full Screen */}
       <div 
         className="absolute inset-0"
@@ -28,7 +28,7 @@ export function Hero() {
         }}
       />
       
-      <div className="relative z-10 w-full px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="relative z-20 w-full px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-3 gap-8 items-center min-h-screen">
           {/* Left Side - Content */}
           <div className="lg:col-span-2 text-white animate-fade-up">
