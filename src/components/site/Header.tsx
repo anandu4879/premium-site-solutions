@@ -68,7 +68,7 @@ export function Header() {
             <img
               src={logo}
               alt="BJ & R Maintenance"
-              className="h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 object-contain"
+              className="h-16 w-16 md:h-20 md:w-20 lg:h-20 lg:w-20 object-contain"
             />
             <div className="flex flex-col leading-none gap-0">
               <span className="text-white font-bold text-xl md:text-2xl lg:text-2xl">BJ <span className="text-[#D8C2A0]">&</span> R</span>
