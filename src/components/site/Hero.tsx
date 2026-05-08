@@ -31,7 +31,7 @@ export function Hero() {
       <div className="relative z-20 w-full px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-3 gap-8 items-center min-h-screen">
           {/* Left Side - Content */}
-          <div className="lg:col-span-2 text-white animate-fade-up">
+          <div className="lg:col-span-2 text-white animate-fade-up translate-y-[8px]">
             {/* Trust Badge */}
             <div className="inline-flex items-center gap-2 rounded-full bg-white/5 backdrop-blur-md px-4 py-2 text-xs font-medium border border-[#D8C2A0]/20 mb-0">
               <ShieldCheck className="h-3.5 w-3.5 text-[#D8C2A0]" />

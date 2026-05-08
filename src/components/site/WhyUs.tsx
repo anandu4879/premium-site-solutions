@@ -51,8 +51,8 @@ export function WhyUs() {
               <div className="absolute inset-0 rounded-2xl bg-[#D8C2A0]/5 scale-0 group-hover:scale-100 transition-all duration-500 opacity-0 group-hover:opacity-100" />
               
               <div className="relative z-10">
-                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#D8C2A0] to-[#C4B090] text-white grid place-items-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <f.icon className="h-6 w-6" />
+                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#D8C2A0] to-[#C4B090] text-white flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                  <f.icon className="h-6 w-6 flex-shrink-0" />
                 </div>
                 <h3 className="font-bold text-lg text-gray-900 mb-2 group-hover:text-[#D8C2A0] transition-colors duration-300">
                   {f.title}
