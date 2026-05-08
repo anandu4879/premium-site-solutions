@@ -113,7 +113,7 @@ export function Testimonials() {
           }}
         >
           <article
-            className="relative h-[600px] rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl p-8 shadow-2xl overflow-hidden"
+            className="relative min-h-[420px] sm:min-h-[500px] lg:h-[600px] rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl p-6 sm:p-8 shadow-2xl overflow-hidden"
           >
             {/* Glow Effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#D8C2A0]/10 to-transparent opacity-50" />
@@ -126,7 +126,7 @@ export function Testimonials() {
                 ))}
               </div>
               <div className="relative h-full flex flex-col">
-                <div className="flex-1 overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent touch-pan-y max-h-[400px]">
+                <div className="flex-1 overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent touch-pan-y max-h-[260px] sm:max-h-[340px] lg:max-h-[400px]">
                   <p
                     key={`review-text-${activeIndex}`}
                     className="text-white/90 leading-relaxed text-lg font-light pr-4"

@@ -65,8 +65,8 @@ export function ServicesSection({
             gap-4
             md:gap-8
             overflow-x-auto
-            overflow-y-auto
-            touch-pan-y
+            overflow-y-hidden
+            touch-pan-x
             px-4
             md:px-6
             lg:px-8
@@ -95,7 +95,7 @@ export function ServicesSection({
                   hover:scale-105
                   hover:shadow-2xl
                   hover:brightness-110
-                  ${isMobile ? 'cursor-pointer hover:scale-105 hover:shadow-2xl hover:brightness-110' : ''}
+                  ${isMobile ? 'cursor-pointer' : ''}
                 "
                 style={{
                   transform: `translateY(${
@@ -241,7 +241,7 @@ export function ServicesSection({
                             justify-center
                             gap-2
                             rounded-full
-                            bg-[#D8C2A0] hover:bg-[#C4B090] hover:scale-105 hover:shadow-lg hover:shadow-xl
+                            bg-[#D8C2A0] hover:bg-[#C4B090] hover:scale-105 hover:shadow-xl
                             px-4
                             md:px-5
                             py-2
@@ -252,7 +252,6 @@ export function ServicesSection({
                             text-black
                             transition-all
                             duration-300
-                            hover:scale-105 shadow-lg hover:shadow-xl
                           "
                         >
                           View More
