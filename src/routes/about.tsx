@@ -79,8 +79,8 @@ function AboutPage() {
                   {/* Hover Glow */}
                   <div className="absolute inset-0 rounded-2xl bg-[#D8C2A0]/10 scale-0 group-hover:scale-100 transition-all duration-500 opacity-0 group-hover:opacity-100" />
                   <div className="relative z-10 flex flex-col items-center justify-center text-center">
-                    <div className="text-3xl font-bold text-white leading-none tracking-tight">{n}</div>
-                    <div className="text-xs text-white/80 mt-2 font-medium leading-snug">{l}</div>
+                    <div className="text-2xl sm:text-3xl font-bold text-white leading-none tracking-tight">{n}</div>
+                    <div className="text-xs sm:text-xs text-white/80 mt-2 font-medium leading-snug">{l}</div>
                   </div>
                 </div>
               ))}
