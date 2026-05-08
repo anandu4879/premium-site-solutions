@@ -65,7 +65,7 @@ function ServiceDetailPage() {
     <div className="min-h-screen flex flex-col bg-background">
       {/* HERO SECTION */}
       <section 
-        className="pt-24 pb-16 lg:pt-32 lg:pb-20 relative overflow-hidden"
+      className="pt-20 pb-10 lg:pt-24 lg:pb-12 relative overflow-hidden flex items-center"
         style={{ backgroundColor: colors.background }}
       >
         {/* Background Pattern */}
@@ -86,41 +86,45 @@ function ServiceDetailPage() {
             }}
           />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="max-w-4xl mx-auto text-center">
-            <p 
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-center min-h-[45vh]">
+  <div className="max-w-4xl mx-auto text-center flex flex-col items-center justify-center">
+            {/* <p 
               className="text-[#D8C2A0] font-semibold uppercase tracking-widest text-sm mb-4"
             >
               {service.title}
-            </p>
+            </p> */}
             <h1 
-              className="text-4xl lg:text-7xl font-bold leading-[1.1] text-balance max-w-4xl text-white mb-6"
+              className="text-4xl lg:text-7xl font-bold leading-[1.1] text-balance max-w-4xl text-white mb-6 text-center mx-auto"
             >
-              Premium <span style={{ color: colors.primary }}>{service.title}</span>
+              <span style={{ color: colors.primary }}>{service.title}</span>
             </h1>
             <p 
-              className="max-w-3xl text-lg lg:text-xl text-white/80 leading-relaxed mb-8"
+              className="max-w-3xl mx-auto text-lg lg:text-xl text-white/80 leading-relaxed mb-8 text-center"
             >
               {service.short}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link to="/contact">
-                <Button
-                  size="lg"
-                  className="gap-2 transition-all hover:scale-105 bg-[#D8C2A0] hover:bg-[#C4B090] text-black font-semibold shadow-lg hover:shadow-xl px-8 py-4"
-                >
-                  <Phone className="h-4 w-4" /> Get Free Quote
-                </Button>
-              </Link>
-              <a href={`tel:${siteConfig.contact.phone}`}>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="gap-2 transition-all hover:scale-105 bg-transparent border-[#D8C2A0] text-[#D8C2A0] hover:bg-[#D8C2A0] hover:text-black font-semibold"
-                >
-                  Call Now
-                </Button>
-              </a>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center items-center w-full mx-auto">
+              <div className="flex justify-center">
+                <Link to="/contact">
+                  <Button
+                    size="lg"
+                    className="gap-2 transition-all hover:scale-105 bg-[#D8C2A0] hover:bg-[#C4B090] text-black font-semibold shadow-lg hover:shadow-xl px-8 py-4"
+                  >
+                    <Phone className="h-4 w-4" /> Get Free Quote
+                  </Button>
+                </Link>
+              </div>
+              <div className="flex justify-center">
+                <a href={`tel:${siteConfig.contact.phone}`}>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="gap-2 transition-all hover:scale-105 bg-transparent border-[#D8C2A0] text-[#D8C2A0] hover:bg-[#D8C2A0] hover:text-black font-semibold"
+                  >
+                    Call Now
+                  </Button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -132,7 +136,7 @@ function ServiceDetailPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#D8C2A0]/5 to-transparent" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center justify-items-center">
             {/* SERVICE DETAILS */}
             <div className="space-y-8">
               <h2 
@@ -236,25 +240,29 @@ function ServiceDetailPage() {
               <p className="text-lg lg:text-xl text-white/80 mb-8 leading-relaxed">
                 Contact us today for a free consultation and quote
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/contact">
-                  <Button
-                    size="lg"
-                    className="gap-2 transition-all hover:scale-105 bg-[#D8C2A0] hover:bg-[#C4B090] text-black font-semibold shadow-lg hover:shadow-xl px-8 py-4"
-                  >
-                    Get Free Quote
-                    <ArrowRight className="h-4 w-4" />
-                  </Button>
-                </Link>
-                <a href={`tel:${siteConfig.contact.phone}`}>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="gap-2 transition-all hover:scale-105 bg-transparent border-[#D8C2A0] text-[#D8C2A0] hover:bg-[#D8C2A0] hover:text-black font-semibold"
-                  >
-                    Call Us
-                  </Button>
-                </a>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
+                <div className="flex justify-center">
+                  <Link to="/contact">
+                    <Button
+                      size="lg"
+                      className="gap-2 transition-all hover:scale-105 bg-[#D8C2A0] hover:bg-[#C4B090] text-black font-semibold shadow-lg hover:shadow-xl px-8 py-4"
+                    >
+                      Get Free Quote
+                      <ArrowRight className="h-4 w-4" />
+                    </Button>
+                  </Link>
+                </div>
+                <div className="flex justify-center">
+                  <a href={`tel:${siteConfig.contact.phone}`}>
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="gap-2 transition-all hover:scale-105 bg-transparent border-[#D8C2A0] text-[#D8C2A0] hover:bg-[#D8C2A0] hover:text-black font-semibold"
+                    >
+                      Call Us
+                    </Button>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
