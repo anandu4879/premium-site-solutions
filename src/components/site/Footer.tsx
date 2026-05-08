@@ -6,8 +6,8 @@ import { siteConfig } from "@/config/siteConfig";
 export function Footer() {
   return (
     <footer className="bg-gradient-to-br from-[#0B0B0B] via-[#111111] to-[#1A1A1A] text-white mt-24 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 grid gap-12 lg:grid-cols-4">
-        <div className="lg:col-span-2">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 sm:py-16 grid gap-8 sm:gap-12 lg:grid-cols-4">
+        <div className="lg:col-span-2 space-y-6 sm:space-y-0">
           <Link to="/" className="flex items-center gap-3 font-display font-bold text-xl group">
             <div className="h-12 w-12 rounded-xl bg-[#D8C2A0]/10 flex items-center justify-center group-hover:bg-[#D8C2A0]/20 transition-all duration-300">
               <img
@@ -18,11 +18,11 @@ export function Footer() {
             </div>
             <span className="bg-gradient-to-r from-white to-[#D8C2A0] bg-clip-text text-transparent">BJ & R Maintenance</span>
           </Link>
-          <p className="mt-6 text-sm text-white/75 leading-relaxed max-w-md">
+          <p className="mt-4 sm:mt-6 text-sm text-white/75 leading-relaxed max-w-md">
             Premium artificial grass installation and trusted construction site services across Western
             Australia. Residential & commercial excellence delivered with precision.
           </p>
-          <div className="flex gap-3 mt-8">
+          <div className="flex gap-3 mt-4 sm:mt-8">
             {[Facebook, Instagram, Linkedin].map((Icon, i) => {
               const socialUrls = {
                 0: siteConfig.socials.facebook,
@@ -45,9 +45,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div>
-          <h4 className="font-semibold mb-6 text-[#D8C2A0]">Quick Links</h4>
-          <ul className="space-y-3 text-sm">
+        <div className="space-y-4 sm:space-y-0">
+          <h4 className="font-semibold mb-4 sm:mb-6 text-[#D8C2A0]">Quick Links</h4>
+          <ul className="space-y-2 sm:space-y-3 text-sm">
             {[
               ["/", "Home"],
               ["/about", "About"],
@@ -65,9 +65,9 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
-          <h4 className="font-semibold mb-6 text-[#D8C2A0]">Services</h4>
-          <ul className="space-y-3 text-sm">
+        <div className="space-y-4 sm:space-y-0">
+          <h4 className="font-semibold mb-4 sm:mb-6 text-[#D8C2A0]">Services</h4>
+          <ul className="space-y-2 sm:space-y-3 text-sm">
             {siteConfig.services?.map((service) => (
               <li key={service.slug}>
                 <Link to="/services/$slug" params={{ slug: service.slug }} className="text-white/70 hover:text-[#D8C2A0] transition-all duration-300 relative group">
@@ -81,12 +81,12 @@ export function Footer() {
       </div>
       
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-6">
-          <div className="flex flex-col lg:flex-row gap-4 lg:items-center lg:justify-between">
-            <div className="text-sm text-white/60">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-4 sm:py-6">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div className="text-sm text-white/60 text-center lg:text-left">
               <p>© {new Date().getFullYear()} BJ & R Maintenance. All rights reserved.</p>
             </div>
-            <div className="flex items-center gap-6 text-sm text-white/60">
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-sm text-white/60">
               <a href={`tel:${siteConfig.contact.phone}`} className="hover:text-[#D8C2A0] transition-colors flex items-center gap-2">
                 <Phone className="h-4 w-4" />
                 {siteConfig.contact.displayPhone}
@@ -95,8 +95,8 @@ export function Footer() {
                 <Mail className="h-4 w-4" />
                 {siteConfig.contact.email}
               </a>
-              <span className="hidden lg:block w-px h-4 bg-white/20" />
-              <p>ABN 00 000 000 000 · Fully insured</p>
+              <span className="hidden sm:block w-px h-4 bg-white/20" />
+              <p className="text-center sm:text-left">ABN 00 000 000 000 · Fully insured</p>
             </div>
           </div>
         </div>
