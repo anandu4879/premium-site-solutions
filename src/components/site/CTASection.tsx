@@ -21,7 +21,7 @@ export function CTASection() {
           
           <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl lg:text-6xl font-bold leading-[1.1] text-balance mb-6 text-white">
+              <h2 className="text-3xl lg:text-5xl font-bold leading-[1.1] text-balance mb-6 text-white">
                 Ready to Get <span className="text-[#D8C2A0]">Started</span>?
               </h2>
               <p className="text-xl text-white/80 leading-relaxed mb-8">

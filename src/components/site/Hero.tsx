@@ -7,7 +7,7 @@ import { siteConfig } from "@/config/siteConfig";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden -webkit-overflow-scrolling:touch">
+    <section className="relative min-h-[100svh] flex items-center overflow-hidden overflow-x-hidden -webkit-overflow-scrolling:touch">
       {/* Hero Background Image - Full Screen */}
       <div 
         className="absolute inset-0"
@@ -39,7 +39,7 @@ export function Hero() {
             </div>
             
             {/* Hero Heading */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] text-balance mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] text-balance mb-6">
               Your Trusted Partner for <span className="text-[#D8C2A0]">Site Maintenance</span> and <span className="text-[#D8C2A0]">Property Care</span>
             </h1>
             

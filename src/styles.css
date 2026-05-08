@@ -98,6 +98,7 @@
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
   }
   body {
     background-color: var(--color-background);
@@ -105,6 +106,8 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
   }
   h1,
   h2,

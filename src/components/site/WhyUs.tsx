@@ -31,7 +31,7 @@ export function WhyUs() {
           <p className="text-[#D8C2A0] font-semibold uppercase tracking-widest text-sm mb-4">
             Why Choose Us
           </p>
-          <h2 className="text-4xl lg:text-6xl font-bold leading-[1.1] text-balance text-gray-900">
+          <h2 className="text-3xl lg:text-5xl font-bold leading-[1.1] text-balance text-gray-900">
             Built on <span className="text-[#D8C2A0]">Quality</span>, Trust, and <span className="text-[#D8C2A0]">Craftsmanship</span>
           </h2>
           <p className="mt-6 text-gray-600 text-lg leading-relaxed">

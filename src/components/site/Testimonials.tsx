@@ -83,7 +83,7 @@ export function Testimonials() {
           <p className="text-[#D8C2A0] font-semibold uppercase tracking-widest text-sm mb-4">
             Client Testimonials
           </p>
-          <h2 className="text-4xl lg:text-6xl font-bold leading-[1.1] text-balance mb-6">
+          <h2 className="text-3xl lg:text-5xl font-bold leading-[1.1] text-balance mb-6">
             What Our <span className="text-[#D8C2A0]">Clients Say</span>
           </h2>
           <p className="text-white/75 text-lg leading-relaxed">

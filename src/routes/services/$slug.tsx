@@ -62,7 +62,7 @@ function ServiceDetailPage() {
   const colors = theme;
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-[100svh] flex flex-col bg-background overflow-x-hidden">
       {/* HERO SECTION */}
       <section 
       className="pt-20 pb-10 lg:pt-24 lg:pb-12 relative overflow-hidden flex items-center"
