@@ -113,7 +113,7 @@ export function Testimonials() {
           }}
         >
           <article
-            className="relative min-h-[480px] rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl p-8 shadow-2xl md:min-h-[420px] overflow-hidden"
+            className="relative h-[600px] rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl p-8 shadow-2xl overflow-hidden"
           >
             {/* Glow Effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#D8C2A0]/10 to-transparent opacity-50" />
@@ -125,14 +125,16 @@ export function Testimonials() {
                   <Star key={i} className="h-4 w-4 fill-[#D8C2A0] text-[#D8C2A0]" />
                 ))}
               </div>
-              <div className="transition-all duration-500 ease-in-out">
-                <p
-                  key={`review-${activeIndex}`}
-                  className="text-white/90 leading-relaxed text-lg font-light opacity-0 animate-fade-in"
-                >
-                  "{activeReview.text}"
-                </p>
-                <div className="mt-8 pt-6 border-t border-white/10 transition-opacity duration-300">
+              <div className="relative h-full flex flex-col">
+                <div className="flex-1 overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent touch-pan-y max-h-[400px]">
+                  <p
+                    key={`review-text-${activeIndex}`}
+                    className="text-white/90 leading-relaxed text-lg font-light pr-4"
+                  >
+                    "{activeReview.text}"
+                  </p>
+                </div>
+                <div className="mt-8 pt-6 border-t border-white/10 flex-shrink-0">
                   <p className="font-bold text-white">{activeReview.name}</p>
                   <p className="text-sm text-[#D8C2A0]/80 mt-1">{activeReview.role}</p>
                 </div>

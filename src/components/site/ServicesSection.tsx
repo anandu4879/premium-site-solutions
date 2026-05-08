@@ -121,35 +121,7 @@ export function ServicesSection({
       }
     };
 
-    // Desktop mouse wheel → horizontal scroll
-    const handleWheel = (e: WheelEvent) => {
-      if (
-        !isMobile &&
-        Math.abs(e.deltaY) > Math.abs(e.deltaX)
-      ) {
-        e.preventDefault();
-
-        container.scrollLeft += e.deltaY;
-      }
-    };
-
-    container.addEventListener("scroll", handleScroll);
-
-    container.addEventListener("wheel", handleWheel, {
-      passive: false,
-    });
-
-    return () => {
-      container.removeEventListener(
-        "scroll",
-        handleScroll,
-      );
-
-      container.removeEventListener(
-        "wheel",
-        handleWheel,
-      );
-    };
+    // Remove custom scroll handlers to enable natural scrolling
   }, [isMobile, middleIndex]);
 
   return (
@@ -183,7 +155,8 @@ export function ServicesSection({
             gap-4
             md:gap-8
             overflow-x-auto
-            overflow-y-hidden
+            overflow-y-auto
+            touch-pan-y
             px-4
             md:px-6
             lg:px-8
@@ -206,10 +179,13 @@ export function ServicesSection({
                   justify-center
                   transform-gpu
                   will-change-transform
-                  transition-[transform,opacity]
+                  transition-[transform,opacity,box-shadow,filter]
                   duration-500
                   ease-out
-                  ${isMobile ? 'cursor-pointer' : ''}
+                  hover:scale-105
+                  hover:shadow-2xl
+                  hover:brightness-110
+                  ${isMobile ? 'cursor-pointer hover:scale-105 hover:shadow-2xl hover:brightness-110' : ''}
                 "
                 style={{
                   transform: `translateY(${
@@ -219,11 +195,19 @@ export function ServicesSection({
                   })`,
                   opacity: isActive ? 1 : 0.75,
                 }}
+                onMouseEnter={() => {
+                  if (!isMobile) {
+                    setActive(index);
+                  }
+                }}
+                onMouseLeave={() => {
+                  if (!isMobile) {
+                    setActive(middleIndex);
+                  }
+                }}
                 onClick={() => {
                   if (isMobile) {
                     navigate({ to: "/services/$slug", params: { slug: s.slug } });
-                  } else {
-                    setActive(index);
                   }
                 }}
               >
@@ -273,6 +257,9 @@ export function ServicesSection({
                         ease-out
                         ${isActive ? "scale-105" : "scale-100"}
                       `}
+                      style={{
+                        filter: 'contrast(1.1) saturate(1.1) brightness(0.7) sepia(0.2) hue-rotate(15deg)'
+                      }}
                     />
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
@@ -344,7 +331,7 @@ export function ServicesSection({
                             justify-center
                             gap-2
                             rounded-full
-                            bg-[#D8C2A0] hover:bg-[#C4B090]
+                            bg-[#D8C2A0] hover:bg-[#C4B090] hover:scale-105 hover:shadow-lg hover:shadow-xl
                             px-4
                             md:px-5
                             py-2

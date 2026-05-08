@@ -145,47 +145,47 @@ export function QuoteForm() {
     <form onSubmit={onSubmit} className="grid gap-6">
       <div className="grid sm:grid-cols-2 gap-6">
         <div>
-          <Label htmlFor="name" className="text-white font-medium mb-2 block">Full Name</Label>
+          <Label htmlFor="name" className="text-gray-900 font-medium mb-2 block">Full Name</Label>
           <Input 
             id="name" 
             name="name" 
             placeholder="John Smith" 
             required 
-            className="bg-black/40 border-white/20 text-white placeholder:text-white/70 focus:border-[#D8C2A0] focus:ring-[#D8C2A0]/20"
+            className="bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-[#D8C2A0] focus:ring-[#D8C2A0]/20"
           />
         </div>
         <div>
-          <Label htmlFor="phone" className="text-white font-medium mb-2 block">Phone</Label>
+          <Label htmlFor="phone" className="text-gray-900 font-medium mb-2 block">Phone</Label>
           <Input 
             id="phone" 
             name="phone" 
             type="tel" 
             placeholder="0400 000 000" 
             required 
-            className="bg-black/40 border-white/20 text-white placeholder:text-white/70 focus:border-[#D8C2A0] focus:ring-[#D8C2A0]/20"
+            className="bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-[#D8C2A0] focus:ring-[#D8C2A0]/20"
           />
         </div>
       </div>
       <div>
-        <Label htmlFor="email" className="text-white font-medium mb-2 block">Email</Label>
-        <Input 
-          id="email" 
-          name="email" 
-          type="email" 
-          placeholder="you@email.com" 
-          required 
-          className="bg-black/40 border-white/20 text-white placeholder:text-white/70 focus:border-[#D8C2A0] focus:ring-[#D8C2A0]/20"
-        />
+        <Label htmlFor="email" className="text-gray-900 font-medium mb-2 block">Email</Label>
+          <Input 
+            id="email" 
+            name="email" 
+            type="email" 
+            placeholder="you@email.com" 
+            required 
+            className="bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-[#D8C2A0] focus:ring-[#D8C2A0]/20"
+          />
       </div>
       <div>
-        <Label htmlFor="service" className="text-white font-medium mb-2 block">Service Needed</Label>
+        <Label htmlFor="service" className="text-gray-900 font-medium mb-2 block">Service Needed</Label>
         <Select name="service" required>
-          <SelectTrigger id="service" className="bg-black/40 border-white/20 text-white focus:border-[#D8C2A0] focus:ring-[#D8C2A0]/20 [&>span]:text-white">
-            <SelectValue placeholder="Select a service" className="text-white/70" />
+          <SelectTrigger id="service" className="bg-white border-gray-300 text-black focus:border-[#D8C2A0] focus:ring-[#D8C2A0]/20 [&>span]:text-black">
+            <SelectValue placeholder="Select a service" className="text-gray-500" />
           </SelectTrigger>
-          <SelectContent className="bg-black/90 border-white/20 text-white [&>div>span]:text-white">
+          <SelectContent className="bg-white border-gray-300 text-black [&>div>span]:text-black">
             {services.map((s) => (
-              <SelectItem key={s} value={s} className="hover:bg-[#D8C2A0]/20 focus:bg-[#D8C2A0]/20 text-white data-[highlighted]:text-white">
+              <SelectItem key={s} value={s} className="hover:bg-[#D8C2A0]/20 focus:bg-[#D8C2A0]/20 text-black data-[highlighted]:text-black">
                 {s}
               </SelectItem>
             ))}
@@ -193,23 +193,23 @@ export function QuoteForm() {
         </Select>
       </div>
       <div>
-        <Label htmlFor="message" className="text-white font-medium mb-2 block">Project Details</Label>
+        <Label htmlFor="message" className="text-gray-900 font-medium mb-2 block">Project Details</Label>
         <Textarea
           id="message"
           name="message"
           rows={4}
           placeholder="Tell us about your project, area size, location..."
-          className="bg-black/40 border-white/20 text-white placeholder:text-white/70 focus:border-[#D8C2A0] focus:ring-[#D8C2A0]/20 resize-none"
+          className="bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-[#D8C2A0] focus:ring-[#D8C2A0]/20 resize-none"
         />
       </div>
       <div>
-        <Label htmlFor="files" className="text-white font-medium mb-2 block">Upload Images (optional)</Label>
+        <Label htmlFor="files" className="text-gray-900 font-medium mb-2 block">Upload Images (optional)</Label>
         <label
           htmlFor="files"
-          className="mt-1 flex items-center gap-3 border-2 border-dashed border-white/30 rounded-xl px-6 py-4 cursor-pointer hover:bg-[#D8C2A0]/5 hover:border-[#D8C2A0]/50 transition-all duration-300 group"
+          className="mt-1 flex items-center gap-3 border-2 border-dashed border-gray-300 rounded-xl px-6 py-4 cursor-pointer hover:bg-[#D8C2A0]/5 hover:border-[#D8C2A0]/50 transition-all duration-300 group"
         >
-          <Upload className="h-5 w-5 text-white/60 group-hover:text-[#D8C2A0] transition-colors" />
-          <span className="text-sm text-white/80 group-hover:text-white transition-colors">
+          <Upload className="h-5 w-5 text-gray-500 group-hover:text-[#D8C2A0] transition-colors" />
+          <span className="text-sm text-gray-600 group-hover:text-gray-900 transition-colors">
             {files.length ? `${files.length} file(s) selected` : "Click to upload site photos"}
           </span>
           <input

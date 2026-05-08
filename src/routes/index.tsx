@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Hero } from "@/components/site/Hero";
-import { Features } from "@/components/site/Features";
+// import { Features } from "@/components/site/Features";
 import { Builders } from "@/components/site/Builders";
 import { ServicesSection } from "@/components/site/ServicesSection";
 import { WhyUs } from "@/components/site/WhyUs";
@@ -28,10 +28,11 @@ function Index() {
   return (
     <SiteLayout>
       <Hero />
-      <Features />
+      {/* <Features /> */}
+       <WhyUs />
       <Builders />
       <ServicesSection />
-      <WhyUs />
+     
       <Gallery />
       <Testimonials />
       <section className="py-20 md:py-28 bg-secondary/50">

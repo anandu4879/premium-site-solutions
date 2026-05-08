@@ -10,12 +10,12 @@ import {
 } from "lucide-react";
 
 const features = [
-  { icon: Banknote, title: "Free Quotes", desc: "No obligation, on-site assessments." },
+  // { icon: Banknote, title: "Free Quotes", desc: "No obligation, on-site assessments." },
   { icon: BadgeCheck, title: "Affordable Pricing", desc: "Honest, transparent quotes." },
   { icon: HardHat, title: "Experienced Team", desc: "10+ years on the tools." },
   { icon: Truck, title: "Fully Equipped", desc: "Our own gear, ready to roll." },
   { icon: Zap, title: "Fast Response", desc: "Quote turnaround in 24 hours." },
-  { icon: Handshake, title: "Reliable Service", desc: "On time, on budget, every time." },
+  // { icon: Handshake, title: "Reliable Service", desc: "On time, on budget, every time." },
   { icon: ShieldCheck, title: "Safe Work Practices", desc: "Fully insured & compliant." },
   { icon: Smile, title: "Customer Satisfaction", desc: "We don't leave until you're happy." },
 ];
@@ -38,7 +38,7 @@ export function WhyUs() {
             We deliver exceptional service with attention to detail that sets us apart from the rest.
           </p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {features.map((f, index) => (
             <div
               key={f.title}

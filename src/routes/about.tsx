@@ -69,7 +69,7 @@ function AboutPage() {
               customer satisfaction from the first quote to the final clean-up. We're fully insured,
               safety-focused and committed to leaving every site better than we found it.
             </p>
-            <div className="mt-10 grid grid-cols-3 gap-6">
+            <div className="mt-10 grid grid-cols-3 gap-4 sm:gap-6">
               {[
                 ["10+", "Years Experience"],
                 ["500+", "Projects Done"],

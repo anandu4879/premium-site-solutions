@@ -84,9 +84,20 @@ export function Partners() {
                   <img
                     src={builder.image}
                     alt={builder.name}
-                    className="max-h-full max-w-full object-contain filter brightness-0 invert transition-all duration-300"
+                    className="max-h-full max-w-full object-contain transition-all duration-300"
                     loading="lazy"
+                    onError={(e) => {
+                      console.error(`Failed to load image: ${builder.image}`, e);
+                      e.currentTarget.style.display = 'none';
+                    }}
+                    onLoad={(e) => {
+                      console.log(`Successfully loaded: ${builder.name}`);
+                    }}
                   />
+                  {/* Fallback text if image fails to load */}
+                  <div className="absolute inset-0 flex items-center justify-center text-white/80 text-xs font-medium text-center px-2">
+                    {builder.name}
+                  </div>
                 </div>
                 
                 {/* Hover Glow Effect */}
