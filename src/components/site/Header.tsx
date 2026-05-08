@@ -71,8 +71,8 @@ export function Header() {
               className="h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 object-contain"
             />
             <div className="flex flex-col leading-none gap-0">
-              <span className="text-white font-bold text-xl md:text-2xl lg:text-3xl">BJ <span className="text-[#D8C2A0]">&</span> R</span>
-              <span className="text-[#D8C2A0] text-lg md:text-xl lg:text-2xl font-medium">MAINTENANCE</span>
+              <span className="text-white font-bold text-xl md:text-2xl lg:text-2xl">BJ <span className="text-[#D8C2A0]">&</span> R</span>
+              <span className="text-[#D8C2A0] text-lg md:text-xl lg:text-xl font-medium">MAINTENANCE</span>
               <span className="text-white text-sm md:text-base opacity-80">PTY.LTD</span>
             </div>
           </div>
