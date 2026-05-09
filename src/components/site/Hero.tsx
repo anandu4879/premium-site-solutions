@@ -42,7 +42,7 @@ export function Hero() {
             {/* <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] text-balance mb-6">
               Your Trusted Partner for <span className="text-[#D8C2A0]">Site Maintenance</span> and <span className="text-[#D8C2A0]">Property Care</span>
             </h1> */}
-            <h1 className="text-4xl lg:text-7xl font-bold leading-[1.1] text-balance text-white mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-[1.1] text-balance text-white mb-6">
               Complete <span className="text-[#D8C2A0]">Artificial 
                 Grass</span>, <span className="text-[#D8C2A0]">Site</span> & <span className="text-[#D8C2A0]">Trade</span> Services Under One Trusted Team
             </h1>
