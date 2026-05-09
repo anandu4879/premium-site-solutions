@@ -106,7 +106,7 @@ import g21 from "@/assets/gallery-15.jpg";
 import g13 from "@/assets/trendseter.png";
 import g22 from "@/assets/gallery-16.jpg";
 import g23 from "@/assets/gallery-17.jpg";
-import g25 from "@/assets/gallery-13.jpg";
+import g25 from "@/assets/gallery-18.jpg";
 // ==========================================================
 // BUILDER LOGO IMAGES
 // ==========================================================
