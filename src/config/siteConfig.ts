@@ -594,7 +594,7 @@ We work closely with businesses, contractors, and project managers to deliver fl
       src: g19,
 
       label:
-        "Construction Cleanup",
+        "Site Cleanup",
 
       size: "tall",
     },
