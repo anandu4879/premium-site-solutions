@@ -97,17 +97,14 @@ import g9 from "@/assets/averna.png";
 import g10 from "@/assets/vicore.png";
 import g11 from "@/assets/cu.png";
 import g12 from "@/assets/Shelford.png";
-import g13 from "@/assets/trendseter.png";
 import g14 from "@/assets/res.png";
 import g15 from "@/assets/before.png";
 import g16 from "@/assets/gallery-10.jpg";
 import g17 from "@/assets/gallery-11.jpg";
 import g18 from "@/assets/gallery-12.jpg";
 import g19 from "@/assets/gallery-13.jpg";
-//import g20 from "@/assets/gallery-14.jpg";
 import g21 from "@/assets/gallery-15.jpg";
 import g22 from "@/assets/gallery-16.jpg";
-import g23 from "@/assets/gallery-17.jpg";
 
 // ==========================================================
 // BUILDER LOGO IMAGES
@@ -505,12 +502,7 @@ We work closely with businesses, contractors, and project managers to deliver fl
       image: g12,
     },
 
-    {
-      name: "Trendsetter Homes",
-
-      image: g13,
-    },
-
+    
     {
       name: "Residential Attitude",
 
@@ -606,13 +598,5 @@ We work closely with businesses, contractors, and project managers to deliver fl
 
       size: "wide",
     },
-    {
-      src: g23,
-
-      label:
-        "Before and After - Site Clean",
-
-      size: "wide",
-    },
-  ],
+      ],
 };
