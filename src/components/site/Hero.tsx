@@ -33,16 +33,16 @@ export function Hero() {
           {/* Left Side - Content */}
           <div className="lg:col-span-2 text-white animate-fade-up translate-y-[8px]">
             {/* Trust Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/5 backdrop-blur-md px-4 py-2 text-xs font-medium border border-[#D8C2A0]/20 mb-0">
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/5 backdrop-blur-md px-4 py-2 text-xs font-medium border border-[#D8C2A0]/20 mb-1 mt-1">
               <ShieldCheck className="h-3.5 w-3.5 text-[#D8C2A0]" />
-              <span className="text-white/90">Trusted by Builders & Homeowners across WA</span>
+              <span className="text-white/90 ">Trusted by Builders & Homeowners across WA</span>
             </div>
             
             {/* Hero Heading */}
             {/* <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] text-balance mb-6">
               Your Trusted Partner for <span className="text-[#D8C2A0]">Site Maintenance</span> and <span className="text-[#D8C2A0]">Property Care</span>
             </h1> */}
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-[1.1] text-balance text-white mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-[1.1] text-balance text-white mb-6 mt-1">
               Complete <span className="text-[#D8C2A0]">Artificial 
                 Grass</span>, <span className="text-[#D8C2A0]">Site</span> & <span className="text-[#D8C2A0]">Trade</span> Services Under One Trusted Team
             </h1>
