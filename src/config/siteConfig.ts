@@ -100,6 +100,7 @@ import g12 from "@/assets/Shelford.png";
 import g13 from "@/assets/trendseter.png";
 import g14 from "@/assets/res.png";
 import g15 from "@/assets/before.png";
+import g16 from "@/assets/";
 
 // ==========================================================
 // BUILDER LOGO IMAGES

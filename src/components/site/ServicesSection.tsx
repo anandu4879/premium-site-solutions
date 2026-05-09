@@ -46,10 +46,14 @@ export function ServicesSection({
               What We Do
             </p>
 
-            <h2 className="text-4xl lg:text-7xl font-bold leading-[1.1] text-balance text-white mb-6">
+            {/* <h2 className="text-4xl lg:text-7xl font-bold leading-[1.1] text-balance text-white mb-6">
               Complete <span className="text-[#D8C2A0]">Artificial 
                 Grass</span>, <span className="text-[#D8C2A0]">Site</span> & <span className="text-[#D8C2A0]">Trade</span> Services Under One Trusted Team
-            </h2>
+            </h2> */}
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] text-balance text-white mb-6">
+              Your Trusted Partner for <span className="text-[#D8C2A0]">Site Maintenance</span> and <span className="text-[#D8C2A0]">Property Care</span>
+            </h1>
+
 
             <p className="text-lg lg:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
               From premium artificial turf to construction site cleanup, our experienced crew delivers a job done right — the first time.
