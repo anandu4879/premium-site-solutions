@@ -102,12 +102,11 @@ import g15 from "@/assets/before.png";
 import g16 from "@/assets/gallery-10.jpg";
 import g17 from "@/assets/gallery-11.jpg";
 import g18 from "@/assets/gallery-12.jpg";
-import g19 from "@/assets/gallery-13.jpg";
 import g21 from "@/assets/gallery-15.jpg";
 import g13 from "@/assets/trendseter.png";
 import g22 from "@/assets/gallery-16.jpg";
 import g23 from "@/assets/gallery-17.jpg";
-
+import g25 from "@/assets/gallery-13.jpg";
 // ==========================================================
 // BUILDER LOGO IMAGES
 // ==========================================================
@@ -585,7 +584,7 @@ We work closely with businesses, contractors, and project managers to deliver fl
     },
     
     {
-      src: g19,
+      src: g25,
 
       label:
         "Site Cleanup",
@@ -610,3 +609,4 @@ We work closely with businesses, contractors, and project managers to deliver fl
     },
       ],
 };
+
