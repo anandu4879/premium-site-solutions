@@ -104,7 +104,9 @@ import g17 from "@/assets/gallery-11.jpg";
 import g18 from "@/assets/gallery-12.jpg";
 import g19 from "@/assets/gallery-13.jpg";
 import g21 from "@/assets/gallery-15.jpg";
+import g13 from "@/assets/trendseter.png";
 import g22 from "@/assets/gallery-16.jpg";
+import g23 from "@/assets/gallery-17.jpg";
 
 // ==========================================================
 // BUILDER LOGO IMAGES
@@ -473,7 +475,7 @@ We work closely with businesses, contractors, and project managers to deliver fl
   builders: [
 
     {
-      name: "101 Residentails",
+      name: "101 Residentials",
 
       image: g8,
     },
@@ -595,6 +597,14 @@ We work closely with businesses, contractors, and project managers to deliver fl
 
       label:
         "Before and After - Artificial Grass",
+
+      size: "wide",
+    },
+     {
+      src: g23,
+
+      label:
+        "Before and After - Site Clean",
 
       size: "wide",
     },
