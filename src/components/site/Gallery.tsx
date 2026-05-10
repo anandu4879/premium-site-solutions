@@ -1,9 +1,17 @@
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
+import { useSearch } from "@tanstack/react-router";
 
 import { siteConfig } from "@/config/siteConfig";
 
-const items = siteConfig.gallery;
+// Get all images from all services
+const allItems = siteConfig.services.flatMap(service => 
+  service.images.map(image => ({
+    ...image,
+    serviceSlug: service.slug,
+    serviceTitle: service.title
+  }))
+);
 
 const gallerySizes: Record<
   string,
@@ -42,7 +50,7 @@ const gallerySizes: Record<
   },
 };
 
-function getGallerySize(item: (typeof items)[number]) {
+function getGallerySize(item: (typeof allItems)[number]) {
   if ("size" in item && item.size && gallerySizes[item.size]) {
     return gallerySizes[item.size];
   }
@@ -59,7 +67,14 @@ function getGallerySize(item: (typeof items)[number]) {
 }
 
 export function Gallery({ heading = true }: { heading?: boolean }) {
-  const [selectedItem, setSelectedItem] = useState<(typeof items)[number] | null>(null);
+  const [selectedItem, setSelectedItem] = useState<(typeof allItems)[number] | null>(null);
+  const search = useSearch({ from: "/gallery" }) as { service?: string };
+  const selectedService = search.service;
+
+  // Filter items by service if specified
+  const filteredItems = selectedService
+    ? allItems.filter(item => item.serviceSlug === selectedService)
+    : allItems;
 
   useEffect(() => {
     if (!selectedItem) return;
@@ -93,7 +108,7 @@ export function Gallery({ heading = true }: { heading?: boolean }) {
           </div>
         )}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {items.map((it, idx) => {
+          {filteredItems.map((it, idx) => {
             const size = getGallerySize(it);
 
             return (

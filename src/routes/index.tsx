@@ -5,7 +5,7 @@ import { Hero } from "@/components/site/Hero";
 import { Builders } from "@/components/site/Builders";
 import { ServicesSection } from "@/components/site/ServicesSection";
 import { WhyUs } from "@/components/site/WhyUs";
-import { Gallery } from "@/components/site/Gallery";
+import { ServiceGalleries } from "@/components/site/ServiceGallery";
 import { Testimonials } from "@/components/site/Testimonials";
 import { CTASection } from "@/components/site/CTASection";
 import { QuoteForm } from "@/components/site/QuoteForm";
@@ -33,7 +33,7 @@ function Index() {
       <Builders />
       <ServicesSection />
      
-      <Gallery />
+      <ServiceGalleries />
       <Testimonials />
       <section className="py-20 md:py-28 bg-secondary/50">
         <div className="container-x grid lg:grid-cols-2 gap-12 items-start">

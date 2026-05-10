@@ -323,7 +323,7 @@ export const siteConfig = {
 
       
       detail:
-      `Transform your outdoor spaces with high-quality artificial grass designed for beauty, durability, and low maintenance. We specialize in supplying and installing premium synthetic turf for residential, commercial, and landscaping projects. Whether it’s your backyard, front lawn, playground, rooftop, office space, or sports area, we create clean, green spaces that look natural all year round.
+      `Transform your outdoor spaces with high-quality artificial grass designed for beauty, durability, and low maintenance. We specialize in supplying and installing premium synthetic turf for residential, commercial, and landscaping projects. Whether it's your backyard, front lawn, playground, rooftop, office space, or sports area, we create clean, green spaces that look natural all year round.
 
 Our artificial grass is pet-friendly, child-safe, weather-resistant, and built to handle heavy use while staying fresh and vibrant. Say goodbye to mowing, watering, mud, and ongoing lawn maintenance.
 
@@ -338,6 +338,23 @@ We focus on professional workmanship, affordable pricing, and customer satisfact
         "Sports & Recreation Areas",
 
       ],
+      images: [
+        {
+          src: g7,
+          label: "Front yard Lawn Transformation",
+          size: "small"
+        },
+        {
+          src: g15,
+          label: "Before and After - Artificial Grass",
+          size: "wide"
+        },
+        {
+          src: g22,
+          label: "Before and After - Artificial Grass",
+          size: "wide"
+        }
+      ]
     },
 
     {
@@ -366,6 +383,18 @@ We focus on professional workmanship, affordable pricing, and customer satisfact
         "Waterproofing",
         "Ute Transport & Delivery Services",
       ],
+      images: [
+        {
+          src: g17,
+          label: "Landscape prep",
+          size: "large"
+        },
+        {
+          src: g23,
+          label: "Before and After - Site Clean",
+          size: "wide"
+        }
+      ]
     },
 
     {
@@ -393,6 +422,7 @@ We work closely with businesses, contractors, and project managers to deliver fl
         "Maintenance Support Workers",
         "Short-Term & Long-Term Hire",
       ],
+      images: []
     },
 
     {
@@ -417,6 +447,13 @@ We work closely with businesses, contractors, and project managers to deliver fl
         "Construction Site Sand Removal",
         " Tight-Access Sand Clearing with Compact Equipment ",
       ],
+      images: [
+        {
+          src: g25,
+          label: "Site Cleanup",
+          size: "tall"
+        }
+      ]
     },
 
     {
@@ -439,6 +476,7 @@ We work closely with businesses, contractors, and project managers to deliver fl
         "Paving replacement",
         "General Handyman Work ",
       ],
+      images: []
     },
   ],
 
@@ -514,99 +552,5 @@ We work closely with businesses, contractors, and project managers to deliver fl
 
 
 
-  // ========================================================
-  // GALLERY IMAGES
-  // ========================================================
-  //
-  // These appear automatically in:
-  // ✅ Gallery Section
-  //
-  // TO ADD NEW IMAGE:
-  //
-  // 1. Add image in:
-  //    src/assets/
-  //
-  // 2. Import image at top
-  //
-  // 3. Add new object below
-  //
-  // Example:
-  //
-  // {
-  //   src: g7,
-  //
-  //   label:
-  //     "Pressure Cleaning Project",
-  //
-  //   size: "medium",
-  // },
-  //
-  // size options:
-  // "small"  = compact square image
-  // "medium" = regular gallery image
-  // "large"  = bigger image across 2 columns
-  //
-  // Extra options:
-  // "normal" = same as medium
-  // "square" = square image
-  // "tall"   = taller portrait image
-  // "wide"   = stretched image across 2 columns
-  //
-  // ========================================================
-
-  gallery: [
-
-    {
-      src: g7,
-
-      label:
-        "Front yard Lawn Transformation",
-
-      size: "small",
-    },
-
-    {
-      src: g15,
-
-      label:
-        "Before and After - Artificial Grass",
-
-      size: "wide",
-    },
-  
-    {
-      src: g17,
-
-      label:
-        "Landscape prep",
-
-      size: "large",
-    },
-    
-    {
-      src: g25,
-
-      label:
-        "Site Cleanup",
-
-      size: "tall",
-    },
-    {
-      src: g22,
-
-      label:
-        "Before and After - Artificial Grass",
-
-      size: "wide",
-    },
-     {
-      src: g23,
-
-      label:
-        "Before and After - Site Clean",
-
-      size: "wide",
-    },
-      ],
 };
 
