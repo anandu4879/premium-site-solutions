@@ -104,9 +104,9 @@ import g17 from "@/assets/gallery-11.jpg";
 import g18 from "@/assets/gallery-12.jpg";
 import g21 from "@/assets/gallery-15.jpg";
 import g13 from "@/assets/trendseter.png";
-import g22 from "@/assets/gallery-16.jpg";
-import g23 from "@/assets/gallery-17.jpg";
+import g22 from "@/assets/before_and _after_ppol.jpg";
 import g25 from "@/assets/gallery-18.jpg";
+import g26 from "@/assets/before_HANDYMAN.jpg";
 // ==========================================================
 // BUILDER LOGO IMAGES
 // ==========================================================
@@ -352,7 +352,7 @@ We focus on professional workmanship, affordable pricing, and customer satisfact
         {
           src: g22,
           label: "Before and After - Artificial Grass",
-          size: "wide"
+          size: "tall"
         }
       ]
     },
@@ -389,11 +389,7 @@ We focus on professional workmanship, affordable pricing, and customer satisfact
           label: "Landscape prep",
           size: "large"
         },
-        {
-          src: g23,
-          label: "Before and After - Site Clean",
-          size: "wide"
-        }
+        
       ]
     },
 
@@ -476,7 +472,13 @@ We work closely with businesses, contractors, and project managers to deliver fl
         "Paving replacement",
         "General Handyman Work ",
       ],
-      images: []
+      images: [
+        {
+          src: g26,
+          label: "Handyman Services - Before and After",
+          size: "wide"
+        }
+      ]
     },
   ],
 
