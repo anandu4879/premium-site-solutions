@@ -54,7 +54,7 @@ export function Builders() {
                 }}
               >
                 {/* Logo Container */}
-                <div className="relative w-32 h-16 lg:w-40 lg:h-20 flex items-center justify-center opacity-60 group-hover:opacity-100 transition-all duration-300 group-hover:scale-105">
+                <div className="relative w-32 h-16 lg:w-40 lg:h-20 flex items-center justify-center opacity-100 group-hover:opacity-100 transition-all duration-300 group-hover:scale-105">
                   <img
                     src={builder.image}
                     alt={builder.name}

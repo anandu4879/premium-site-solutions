@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowUpRight, Check, X } from "lucide-react";
+import { ArrowUpRight, Check, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link, useNavigate } from "@tanstack/react-router";
 
 import { siteConfig } from "@/config/siteConfig";
@@ -16,6 +16,7 @@ export function ServicesSection({
   const [active, setActive] = useState<number>(middleIndex);
   const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const loopedServices = useMemo(() => {
     // Reduce loops on mobile for better performance
@@ -24,6 +25,39 @@ export function ServicesSection({
   }, [isMobile]);
 
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const handlePrevious = () => {
+    if (isMobile) return;
+    const newIndex = active > 0 ? active - 1 : loopedServices.length - 1;
+    setActive(newIndex);
+    scrollToCard(newIndex);
+  };
+
+  const handleNext = () => {
+    if (isMobile) return;
+    const newIndex = active < loopedServices.length - 1 ? active + 1 : 0;
+    setActive(newIndex);
+    scrollToCard(newIndex);
+  };
+
+  const scrollToCard = (index: number) => {
+    if (!scrollContainerRef.current || isMobile) return;
+    
+    const container = scrollContainerRef.current;
+    const cards = container.querySelectorAll('.service-card');
+    const targetCard = cards[index] as HTMLElement;
+    
+    if (targetCard) {
+      const cardWidth = targetCard.offsetWidth;
+      const containerWidth = container.offsetWidth;
+      const scrollLeft = targetCard.offsetLeft - (containerWidth - cardWidth) / 2;
+      
+      container.scrollTo({
+        left: scrollLeft,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -62,8 +96,9 @@ export function ServicesSection({
         )}
 
         <div
-          ref={containerRef}
+          ref={scrollContainerRef}
           className="
+            relative
             flex
             items-center
             gap-4
@@ -313,6 +348,27 @@ export function ServicesSection({
             );
           })}
         </div>
+        
+        {/* Desktop Navigation Arrows */}
+        {!isMobile && (
+          <>
+            <button
+              onClick={handlePrevious}
+              className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 z-20 h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-lg text-white transition-all duration-300 hover:bg-[#D8C2A0]/20 hover:border-[#D8C2A0]/40 hover:scale-110 group shadow-lg"
+              aria-label="Previous service"
+            >
+              <ChevronLeft className="h-6 w-6 group-hover:text-[#D8C2A0] transition-colors" />
+            </button>
+            
+            <button
+              onClick={handleNext}
+              className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 z-20 h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-lg text-white transition-all duration-300 hover:bg-[#D8C2A0]/20 hover:border-[#D8C2A0]/40 hover:scale-110 group shadow-lg"
+              aria-label="Next service"
+            >
+              <ChevronRight className="h-6 w-6 group-hover:text-[#D8C2A0] transition-colors" />
+            </button>
+          </>
+        )}
       </div>
 
     </section>

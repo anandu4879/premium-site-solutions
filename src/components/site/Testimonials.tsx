@@ -39,7 +39,7 @@ export function Testimonials() {
   useEffect(() => {
     const timer = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % reviews.length);
-    }, 6000);
+    }, 20000);
 
     return () => window.clearInterval(timer);
   }, []);
