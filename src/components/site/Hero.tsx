@@ -35,7 +35,7 @@ export function Hero() {
             {/* Trust Badge */}
             <div className="inline-flex items-center gap-2 rounded-full bg-white/5 backdrop-blur-md px-4 py-2 text-xs font-medium border border-[#D8C2A0]/20 mb-1 mt-1">
               <ShieldCheck className="h-3.5 w-3.5 text-[#D8C2A0]" />
-              <span className="text-white/90 ">Trusted by Builders & Homeowners across WA</span>
+              <span className="text-white/90 ">What We Do</span>
             </div>
             
             {/* Hero Heading */}

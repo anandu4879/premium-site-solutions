@@ -43,7 +43,7 @@ export function ServicesSection({
         {heading && (
           <div className="max-w-4xl mx-auto text-center mb-16 lg:mb-20">
             <p className="text-[#D8C2A0] font-semibold uppercase tracking-widest text-sm mb-4">
-              What We Do
+              Trusted by Builders & Homeowners across WA
             </p>
 
             {/* <h2 className="text-4xl lg:text-7xl font-bold leading-[1.1] text-balance text-white mb-6">
