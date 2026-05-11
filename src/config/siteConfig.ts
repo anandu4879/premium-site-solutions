@@ -78,32 +78,10 @@ import handyman from "@/assets/service-handyman.jpg";
 //
 // ==========================================================
 
-import g1 from "@/assets/gallery-1.jpeg";
-
-import g2 from "@/assets/gallery-2.jpg";
-
-import g3 from "@/assets/gallery-3.webp";
-
-import g4 from "@/assets/gallery-4.jpg";
-
-import g5 from "@/assets/gallery-5.jpg";
-
-import g6 from "@/assets/gallery-6.jpg";
 
 import g7 from "@/assets/gallery-8.jpg";
-
-import g8 from "@/assets/builders/101.png";
-import g9 from "@/assets/builders/averna.png";
-import g10 from "@/assets/builders/vicore.png";
-import g11 from "@/assets/builders/cu.png";
-import g12 from "@/assets/builders/Shelford.png";
-import g14 from "@/assets/builders/res.png";
 import g15 from "@/assets/before.png";
-import g16 from "@/assets/gallery-10.jpg";
 import g17 from "@/assets/gallery-11.jpg";
-import g18 from "@/assets/gallery-12.jpg";
-import g21 from "@/assets/gallery-15.jpg";
-import g13 from "@/assets/builders/trendseter.png";
 import g22 from "@/assets/before_and _after_ppol.jpg";
 import g25 from "@/assets/gallery-18.jpg";
 import g26 from "@/assets/before_HANDYMAN.jpg";
@@ -517,49 +495,6 @@ We work closely with businesses, contractors, and project managers to deliver fl
   // },
   //
   // ========================================================
-
- 
-
-  builders: [
-
-    {
-      name: "101 Residentials",
-
-      image: g8,
-    },
-
-    {
-      name: "Averna Homes",
-
-      image: g9,
-    },
-
-    {
-      name: " Vicore Constructions",
-
-      image: g10,
-    },
-
-    {
-      name: " CU Building Group",
-
-      image: g11,
-    },
-
-    {
-      name: " Shelford Constructions",
-
-      image: g12,
-    },
-
-    
-    {
-      name: "Residential Attitude",
-
-      image: g14,
-    },
-    
-  ],
 
 
 
