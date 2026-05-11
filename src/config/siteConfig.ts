@@ -261,6 +261,15 @@ export const siteConfig = {
       location:
         "Perth",
     },
+    {
+      title:
+        "Artificial Turf Tradesman",
+
+      type: "Full-time",
+
+      location:
+        "Perth",
+    },
   ],
 
 

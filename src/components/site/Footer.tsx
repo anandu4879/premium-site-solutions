@@ -96,7 +96,7 @@ export function Footer() {
                 {siteConfig.contact.email}
               </a>
               <span className="hidden sm:block w-px h-4 bg-white/20" />
-              <p className="text-center sm:text-left">ABN 00 000 000 000 · Fully insured</p>
+              <p className="text-center sm:text-left">ABN 52 655 039 731 · Fully insured</p>
             </div>
           </div>
         </div>
