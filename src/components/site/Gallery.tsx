@@ -5,13 +5,18 @@ import { useSearch } from "@tanstack/react-router";
 import { siteConfig } from "@/config/siteConfig";
 
 // Get all images from all services
-const allItems = siteConfig.services.flatMap(service => 
-  service.images.map(image => ({
+console.log("Services in config:", siteConfig.services.map(s => ({ slug: s.slug, imageCount: s.images?.length || 0 })));
+
+const allItems = siteConfig.services.flatMap(service => {
+  console.log(`Processing service ${service.slug}:`, service.images);
+  return service.images.map(image => ({
     ...image,
     serviceSlug: service.slug,
     serviceTitle: service.title
-  }))
-);
+  }));
+});
+
+console.log("All gallery items:", allItems);
 
 const gallerySizes: Record<
   string,

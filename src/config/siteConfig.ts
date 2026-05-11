@@ -58,6 +58,9 @@ import sand from "@/assets/service-sand.webp";
 
 import handyman from "@/assets/service-handyman.jpg";
 
+// Dynamic image imports
+import { getServiceImages } from "@/config/dynamicServiceImages";
+
 
 
 // ==========================================================
@@ -325,23 +328,7 @@ We focus on professional workmanship, affordable pricing, and customer satisfact
         "Sports & Recreation Areas",
 
       ],
-      images: [
-        {
-          src: g7,
-          label: "Front yard Lawn Transformation",
-          size: "small"
-        },
-        {
-          src: g15,
-          label: "Before and After - Artificial Grass",
-          size: "wide"
-        },
-        {
-          src: g22,
-          label: "Before and After - Artificial Grass",
-          size: "tall"
-        }
-      ]
+      images: getServiceImages("artificial-grass")
     },
 
     {
@@ -370,14 +357,7 @@ We focus on professional workmanship, affordable pricing, and customer satisfact
         "Waterproofing",
         "Ute Transport & Delivery Services",
       ],
-      images: [
-        {
-          src: g17,
-          label: "Landscape prep",
-          size: "large"
-        },
-        
-      ]
+      images: getServiceImages("construction-maintenance")
     },
 
     {
@@ -405,7 +385,7 @@ We work closely with businesses, contractors, and project managers to deliver fl
         "Maintenance Support Workers",
         "Short-Term & Long-Term Hire",
       ],
-      images: []
+      images: getServiceImages("labour-hire")
     },
 
     {
@@ -430,13 +410,7 @@ We work closely with businesses, contractors, and project managers to deliver fl
         "Construction Site Sand Removal",
         " Tight-Access Sand Clearing with Compact Equipment ",
       ],
-      images: [
-        {
-          src: g25,
-          label: "Site Cleanup",
-          size: "tall"
-        }
-      ]
+      images: getServiceImages("sand-removal")
     },
 
     {
@@ -459,13 +433,7 @@ We work closely with businesses, contractors, and project managers to deliver fl
         "Paving replacement",
         "General Handyman Work ",
       ],
-      images: [
-        {
-          src: g26,
-          label: "Handyman Services - Before and After",
-          size: "wide"
-        }
-      ]
+      images: getServiceImages("handyman")
     },
   ],
 
