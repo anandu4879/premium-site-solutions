@@ -92,18 +92,18 @@ import g6 from "@/assets/gallery-6.jpg";
 
 import g7 from "@/assets/gallery-8.jpg";
 
-import g8 from "@/assets/101.png";
-import g9 from "@/assets/averna.png";
-import g10 from "@/assets/vicore.png";
-import g11 from "@/assets/cu.png";
-import g12 from "@/assets/Shelford.png";
-import g14 from "@/assets/res.png";
+import g8 from "@/assets/builders/101.png";
+import g9 from "@/assets/builders/averna.png";
+import g10 from "@/assets/builders/vicore.png";
+import g11 from "@/assets/builders/cu.png";
+import g12 from "@/assets/builders/Shelford.png";
+import g14 from "@/assets/builders/res.png";
 import g15 from "@/assets/before.png";
 import g16 from "@/assets/gallery-10.jpg";
 import g17 from "@/assets/gallery-11.jpg";
 import g18 from "@/assets/gallery-12.jpg";
 import g21 from "@/assets/gallery-15.jpg";
-import g13 from "@/assets/trendseter.png";
+import g13 from "@/assets/builders/trendseter.png";
 import g22 from "@/assets/before_and _after_ppol.jpg";
 import g25 from "@/assets/gallery-18.jpg";
 import g26 from "@/assets/before_HANDYMAN.jpg";
