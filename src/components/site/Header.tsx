@@ -2,7 +2,6 @@ import { Link, linkOptions } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.png";
 import { siteConfig } from "@/config/siteConfig";
 
 const nav = [
@@ -19,7 +18,42 @@ export function Header() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [logo, setLogo] = useState<string>("");
+  const [logoLoading, setLogoLoading] = useState(true);
+
   const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const loadLogo = async () => {
+      try {
+        setLogoLoading(true);
+        
+        // Dynamically import logo from logo directory
+        const logoModules = import.meta.glob('/src/assets/logo/*.{png,jpg,jpeg,webp,svg,gif}', { eager: true });
+        
+        // Get the first logo found
+        const logoPaths = Object.keys(logoModules);
+        
+        if (logoPaths.length > 0) {
+          const logoPath = logoPaths[0];
+          const logoModule = logoModules[logoPath];
+          const logoUrl = (logoModule as any).default;
+          
+          setLogo(logoUrl);
+          console.log(`✅ Dynamically loaded logo: ${logoPath}`);
+        } else {
+          console.warn('⚠️ No logo found in assets/logo/ folder');
+        }
+        
+      } catch (error) {
+        console.error('❌ Error loading logo:', error);
+      } finally {
+        setLogoLoading(false);
+      }
+    };
+
+    loadLogo();
+  }, []);
 
   useEffect(() => {
     // Initialize scrolled state on mount
@@ -65,11 +99,26 @@ export function Header() {
           aria-label="BJ & R Maintenance PTY. LTD"
         >
           <div className="flex items-center gap-1 h-auto">
-            <img
-              src={logo}
-              alt="BJ & R Maintenance"
-              className="h-16 w-16 md:h-20 md:w-20 lg:h-20 lg:w-20 object-contain"
-            />
+            {logoLoading ? (
+              <div className="h-16 w-16 md:h-20 md:w-20 lg:h-20 lg:w-20 bg-[#D8C2A0]/20 rounded-lg animate-pulse" />
+            ) : logo ? (
+              <img
+                src={logo}
+                alt="BJ & R Maintenance"
+                className="h-16 w-16 md:h-20 md:w-20 lg:h-20 lg:w-20 object-contain"
+                onError={(e) => {
+                  console.error('Failed to load logo:', e);
+                  e.currentTarget.style.display = 'none';
+                }}
+                onLoad={() => {
+                  console.log('Logo loaded successfully');
+                }}
+              />
+            ) : (
+              <div className="h-16 w-16 md:h-20 md:w-20 lg:h-20 lg:w-20 bg-[#D8C2A0]/20 rounded-lg flex items-center justify-center">
+                <span className="text-[#D8C2A0] font-bold text-xs">BJ&R</span>
+              </div>
+            )}
             <div className="flex flex-col leading-none gap-0">
               <span className="text-white font-bold text-xl md:text-2xl lg:text-2xl">BJ <span className="text-[#D8C2A0]">&</span> R</span>
               <span className="text-[#D8C2A0] text-lg md:text-xl lg:text-xl font-medium">MAINTENANCE</span>
