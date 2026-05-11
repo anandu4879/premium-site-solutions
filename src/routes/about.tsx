@@ -3,7 +3,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { WhyUs } from "@/components/site/WhyUs";
 import { Testimonials } from "@/components/site/Testimonials";
 import { CTASection } from "@/components/site/CTASection";
-import about from "@/assets/gallery-1.jpeg";
+import about from "@/assets/about/gallery-8.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
