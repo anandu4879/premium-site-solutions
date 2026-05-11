@@ -13,7 +13,7 @@ import { QuoteForm } from "@/components/site/QuoteForm";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "BJ & R Maintenance — Artificial Grass & Site Services in Perth, WA" },
+      { title: "BJ & R Maintenance" },
       {
         name: "description",
         content:
