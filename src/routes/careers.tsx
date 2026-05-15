@@ -80,79 +80,30 @@ function CareersPage() {
   ) => {
     e.preventDefault();
 
+    const form = e.currentTarget;
+
+    const fd = new FormData(form);
+
+    const data = Object.fromEntries(fd.entries());
+
+    const res = schema.safeParse(data);
+
+    if (!res.success) {
+      toast.error(
+        res.error.issues[0]?.message ??
+          "Please check the form",
+      );
+
+      return;
+    }
+
     try {
       setLoading(true);
-
-      const form =
-        e.currentTarget;
-
-      const fd =
-        new FormData(form);
-
-      const data =
-        Object.fromEntries(
-          fd.entries(),
-        );
-
-      const res =
-        schema.safeParse(data);
-
-      if (!res.success) {
-        toast.error(
-          res.error.issues[0]
-            ?.message ??
-            "Please check the form",
-        );
-
-        return;
-      }
-
-      fd.append(
-        "_subject",
-        "New Job Application",
-      );
-
-      fd.append(
-        "_captcha",
-        "false",
-      );
-
-      fd.append(
-        "_template",
-        "table",
-      );
-
-      const response =
-        await fetch(
-          "https://formsubmit.co/ajax/scmslogin@gmail.com",
-          {
-            method: "POST",
-            body: fd,
-            headers: {
-              Accept:
-                "application/json",
-            },
-          },
-        );
-
-      if (!response.ok) {
-        throw new Error(
-          "Submission failed",
-        );
-      }
-
-      toast.success(
-        "Application submitted successfully!",
-      );
-
-      form.reset();
-
-      setSelected("");
+      form.submit();
     } catch (error) {
       toast.error(
         "Something went wrong.",
       );
-    } finally {
       setLoading(false);
     }
   };
@@ -287,9 +238,16 @@ function CareersPage() {
               </p>
 
               <form
+                action="https://formsubmit.co/scmslogin@gmail.com"
+                method="POST"
                 className="mt-6 grid gap-6"
                 onSubmit={onSubmit}
               >
+                <input type="hidden" name="_subject" value="New Job Application" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_next" value="https://www.bjrmaintenance.com/thank-you" />
+
                 <div>
                   <Label htmlFor="cname" className="text-white font-medium mb-2 block">
                     Full Name

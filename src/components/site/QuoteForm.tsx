@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -30,6 +30,7 @@ const services = siteConfig.services.map(
 export function QuoteForm() {
   const [files, setFiles] = useState<File[]>([]);
   const [submitting, setSubmitting] = useState(false);
+  const uploadedFilesInputRef = useRef<HTMLInputElement | null>(null);
 
   const onSubmit = async (
     e: React.FormEvent<HTMLFormElement>,
@@ -58,21 +59,12 @@ export function QuoteForm() {
 
       let uploadedUrls: string[] = [];
 
-      // Upload files to Cloudinary
       if (files.length > 0) {
         for (const file of files) {
-          const cloudinaryData =
-            new FormData();
+          const cloudinaryData = new FormData();
 
-          cloudinaryData.append(
-            "file",
-            file,
-          );
-
-          cloudinaryData.append(
-            "upload_preset",
-            "xyt5y8cg",
-          );
+          cloudinaryData.append("file", file);
+          cloudinaryData.append("upload_preset", "xyt5y8cg");
 
           const uploadRes = await fetch(
             "https://api.cloudinary.com/v1_1/dhd74hitg/image/upload",
@@ -82,72 +74,60 @@ export function QuoteForm() {
             },
           );
 
-          const uploadJson =
-            await uploadRes.json();
+          const uploadJson = await uploadRes.json();
 
-          uploadedUrls.push(
-            uploadJson.secure_url,
-          );
+          if (uploadJson.secure_url) {
+            uploadedUrls.push(uploadJson.secure_url);
+          }
         }
       }
 
-      // FormSubmit Config
-      fd.append(
-        "_subject",
-        "New Quote Request",
-      );
-
-      fd.append(
-        "_captcha",
-        "false",
-      );
-
-      fd.append(
-        "_template",
-        "table",
-      );
-
-      fd.append(
-        "_next",
-        "https://www.bjrmaintenance.com/thank-you",
-      );
-
-      fd.append(
-        "uploaded_files",
-        uploadedUrls.join("\n"),
-      );
-
-      // Send Form
-      const response = await fetch(
-        "https://formsubmit.co/hellobjrmaintenance@gmail.com",
-        {
-          method: "POST",
-          body: fd,
-        },
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed");
+      if (uploadedFilesInputRef.current) {
+        uploadedFilesInputRef.current.value =
+          uploadedUrls.join("\n");
       }
 
-      toast.success(
-        "Quote request submitted successfully!",
-      );
-
-      form.reset();
-
-      setFiles([]);
+      form.submit();
     } catch (error) {
-      toast.error(
-        "Something went wrong.",
-      );
-    } finally {
+      toast.error("Something went wrong.");
       setSubmitting(false);
     }
   };
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-6">
+    <form
+      action="https://formsubmit.co/hellobjrmaintenance@gmail.com"
+      method="POST"
+      className="grid gap-6"
+      onSubmit={onSubmit}
+    >
+      <input
+        type="hidden"
+        name="_subject"
+        value="New Quote Request"
+      />
+      <input
+        type="hidden"
+        name="_captcha"
+        value="false"
+      />
+      <input
+        type="hidden"
+        name="_template"
+        value="table"
+      />
+      <input
+        type="hidden"
+        name="_next"
+        value="https://www.bjrmaintenance.com/thank-you"
+      />
+      <input
+        type="hidden"
+        name="uploaded_files"
+        ref={uploadedFilesInputRef}
+        value=""
+      />
+
       <div className="grid sm:grid-cols-2 gap-6">
         <div>
           <Label
