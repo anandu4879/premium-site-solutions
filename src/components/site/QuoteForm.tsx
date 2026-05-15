@@ -40,7 +40,6 @@ export function QuoteForm() {
     const form = e.currentTarget;
 
     const fd = new FormData(form);
-
     const data = Object.fromEntries(fd.entries());
 
     const parsed = schema.safeParse(data);
@@ -56,7 +55,6 @@ export function QuoteForm() {
 
     try {
       setSubmitting(true);
-
       let uploadedUrls: string[] = [];
 
       if (files.length > 0) {
@@ -82,45 +80,58 @@ export function QuoteForm() {
         }
       }
 
+      const payload = {
+        ...data,
+        uploaded_files: uploadedUrls.join("\n"),
+      };
+
       if (uploadedFilesInputRef.current) {
         uploadedFilesInputRef.current.value =
-          uploadedUrls.join("\n");
+          payload.uploaded_files;
       }
 
-      form.submit();
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          result?.message ||
+            "Unable to send quote request.",
+        );
+      }
+
+      toast.success(
+        "Quote request submitted successfully!",
+      );
+
+      form.reset();
+      setFiles([]);
+      setSubmitting(false);
+
+      window.location.href =
+        "https://www.bjrmaintenance.com/thank-you";
     } catch (error) {
-      toast.error("Something went wrong.");
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong.",
+      );
       setSubmitting(false);
     }
   };
 
   return (
     <form
-      action="https://formsubmit.co/hellobjrmaintenance@gmail.com"
-      method="POST"
       className="grid gap-6"
       onSubmit={onSubmit}
     >
-      <input
-        type="hidden"
-        name="_subject"
-        value="New Quote Request"
-      />
-      <input
-        type="hidden"
-        name="_captcha"
-        value="false"
-      />
-      <input
-        type="hidden"
-        name="_template"
-        value="table"
-      />
-      <input
-        type="hidden"
-        name="_next"
-        value="https://www.bjrmaintenance.com/thank-you"
-      />
       <input
         type="hidden"
         name="uploaded_files"
