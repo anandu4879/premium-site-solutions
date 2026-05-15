@@ -99,10 +99,42 @@ function CareersPage() {
 
     try {
       setLoading(true);
-      form.submit();
+
+      const payload = {
+        ...Object.fromEntries(fd.entries()),
+        formType: "career",
+        uploaded_files: "",
+      };
+
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          result?.error ||
+            "Unable to submit application.",
+        );
+      }
+
+      toast.success(
+        "Application submitted successfully!",
+      );
+
+      form.reset();
+      setSelected("");
+      setLoading(false);
     } catch (error) {
       toast.error(
-        "Something went wrong.",
+        error instanceof Error
+          ? error.message
+          : "Something went wrong.",
       );
       setLoading(false);
     }
@@ -238,15 +270,19 @@ function CareersPage() {
               </p>
 
               <form
-                action="https://formsubmit.co/scmslogin@gmail.com"
-                method="POST"
                 className="mt-6 grid gap-6"
                 onSubmit={onSubmit}
               >
-                <input type="hidden" name="_subject" value="New Job Application" />
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="_next" value="https://www.bjrmaintenance.com/thank-you" />
+                <input
+                  type="hidden"
+                  name="formType"
+                  value="career"
+                />
+                <input
+                  type="hidden"
+                  name="uploaded_files"
+                  value=""
+                />
 
                 <div>
                   <Label htmlFor="cname" className="text-white font-medium mb-2 block">

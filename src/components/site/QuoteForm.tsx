@@ -114,9 +114,6 @@ export function QuoteForm() {
       form.reset();
       setFiles([]);
       setSubmitting(false);
-
-      window.location.href =
-        "https://www.bjrmaintenance.com/thank-you";
     } catch (error) {
       toast.error(
         error instanceof Error
@@ -132,6 +129,11 @@ export function QuoteForm() {
       className="grid gap-6"
       onSubmit={onSubmit}
     >
+      <input
+        type="hidden"
+        name="formType"
+        value="quote"
+      />
       <input
         type="hidden"
         name="uploaded_files"

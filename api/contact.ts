@@ -5,7 +5,9 @@ const requestSchema = z.object({
   name: z.string().trim().min(2, "Enter your name").max(80),
   phone: z.string().trim().min(6, "Enter a valid phone").max(20),
   email: z.string().trim().email("Invalid email").max(160),
-  service: z.string().trim().min(1, "Select a service").max(120),
+  service: z.string().trim().max(120).optional().default(""),
+  position: z.string().trim().max(120).optional().default(""),
+  formType: z.enum(["quote", "career"]),
   message: z.string().trim().max(1000).optional().default(""),
   uploaded_files: z.string().optional().default(""),
 });
@@ -49,13 +51,30 @@ const buildUploadedFilesHtml = (uploadedFiles: string) => {
   `;
 };
 
-const buildHtmlEmail = (data: z.infer<typeof requestSchema>) => `
+const buildHtmlEmail = (data: z.infer<typeof requestSchema>) => {
+  const title = data.formType === "career" ? "New Job Application" : "New Quote Request";
+  const description =
+    data.formType === "career"
+      ? "A new job application has been submitted through your website. The details are below."
+      : "A new quote request has been submitted through your website. The details are below.";
+  const actionRow =
+    data.formType === "career"
+      ? `<tr>
+          <td style="padding:12px 0;font-weight:700;color:#111;vertical-align:top;width:30%;">Position</td>
+          <td style="padding:12px 0;color:#4b5563;">${escapeHtml(data.position || "(Not specified)")}</td>
+        </tr>`
+      : `<tr>
+          <td style="padding:12px 0;font-weight:700;color:#111;vertical-align:top;width:30%;">Service</td>
+          <td style="padding:12px 0;color:#4b5563;">${escapeHtml(data.service)}</td>
+        </tr>`;
+
+  return `
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>New Quote Request</title>
+    <title>${escapeHtml(title)}</title>
   </head>
   <body style="margin:0;padding:0;background:#f8fafc;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
     <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#f8fafc;padding:24px;">
@@ -65,12 +84,12 @@ const buildHtmlEmail = (data: z.infer<typeof requestSchema>) => `
             <tr>
               <td style="background:#111827;padding:32px;">
                 <p style="margin:0;color:#d8c2a0;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;">BJ &amp; R Maintenance</p>
-                <h1 style="margin:12px 0 0;color:#ffffff;font-size:32px;line-height:1.1;font-weight:700;">New Quote Request</h1>
+                <h1 style="margin:12px 0 0;color:#ffffff;font-size:32px;line-height:1.1;font-weight:700;">${escapeHtml(title)}</h1>
               </td>
             </tr>
             <tr>
               <td style="padding:32px;">
-                <p style="margin:0 0 24px;color:#475569;font-size:16px;line-height:1.75;">A new quote request has been submitted through your website. The details are below.</p>
+                <p style="margin:0 0 24px;color:#475569;font-size:16px;line-height:1.75;">${escapeHtml(description)}</p>
                 <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;">
                   <tr>
                     <td style="padding:12px 0;font-weight:700;color:#111;vertical-align:top;width:30%;">Name</td>
@@ -84,10 +103,7 @@ const buildHtmlEmail = (data: z.infer<typeof requestSchema>) => `
                     <td style="padding:12px 0;font-weight:700;color:#111;vertical-align:top;width:30%;">Email</td>
                     <td style="padding:12px 0;color:#4b5563;">${escapeHtml(data.email)}</td>
                   </tr>
-                  <tr>
-                    <td style="padding:12px 0;font-weight:700;color:#111;vertical-align:top;width:30%;">Service</td>
-                    <td style="padding:12px 0;color:#4b5563;">${escapeHtml(data.service)}</td>
-                  </tr>
+                  ${actionRow}
                   <tr>
                     <td style="padding:12px 0;font-weight:700;color:#111;vertical-align:top;width:30%;">Message</td>
                     <td style="padding:12px 0;color:#4b5563;">${escapeHtml(data.message || "(No message provided)")}</td>
@@ -104,15 +120,21 @@ const buildHtmlEmail = (data: z.infer<typeof requestSchema>) => `
   </body>
 </html>
 `;
+};
 
 const buildTextEmail = (data: z.infer<typeof requestSchema>) => {
+  const primaryField =
+    data.formType === "career"
+      ? `Position: ${data.position || "(Not specified)"}`
+      : `Service: ${data.service}`;
+
   const lines = [
-    "BJ & R Maintenance - New Quote Request",
+    `BJ & R Maintenance - ${data.formType === "career" ? "New Job Application" : "New Quote Request"}`,
     "",
     `Name: ${data.name}`,
     `Phone: ${data.phone}`,
     `Email: ${data.email}`,
-    `Service: ${data.service}`,
+    primaryField,
     "",
     "Message:",
     data.message || "(No message provided)",
