@@ -23,177 +23,227 @@ const schema = z.object({
   message: z.string().trim().max(1000).optional().default(""),
 });
 
-const services =
-  siteConfig.services.map(
-    (service) => service.title,
-  );
+const services = siteConfig.services.map(
+  (service) => service.title,
+);
 
 export function QuoteForm() {
   const [files, setFiles] = useState<File[]>([]);
   const [submitting, setSubmitting] = useState(false);
 
- const onSubmit = async (
-  e: React.FormEvent<HTMLFormElement>,
-) => {
-  e.preventDefault();
+  const onSubmit = async (
+    e: React.FormEvent<HTMLFormElement>,
+  ) => {
+    e.preventDefault();
 
-  const form = e.currentTarget;
+    const form = e.currentTarget;
 
-  const fd = new FormData(form);
+    const fd = new FormData(form);
 
-  const data = Object.fromEntries(fd.entries());
+    const data = Object.fromEntries(fd.entries());
 
-  const parsed = schema.safeParse(data);
+    const parsed = schema.safeParse(data);
 
-  if (!parsed.success) {
-    toast.error(
-      parsed.error.issues[0]?.message ??
-        "Please check the form",
-    );
+    if (!parsed.success) {
+      toast.error(
+        parsed.error.issues[0]?.message ??
+          "Please check the form",
+      );
 
-    return;
-  }
+      return;
+    }
 
-  try {
-    setSubmitting(true);
+    try {
+      setSubmitting(true);
 
-    let uploadedUrls: string[] = [];
+      let uploadedUrls: string[] = [];
 
-    // Upload files to Cloudinary
-    if (files.length > 0) {
-      for (const file of files) {
-        const cloudinaryData =
-          new FormData();
+      // Upload files to Cloudinary
+      if (files.length > 0) {
+        for (const file of files) {
+          const cloudinaryData =
+            new FormData();
 
-        cloudinaryData.append(
-          "file",
-          file,
-        );
+          cloudinaryData.append(
+            "file",
+            file,
+          );
 
-        cloudinaryData.append(
-          "upload_preset",
-          "xyt5y8cg",
-        );
+          cloudinaryData.append(
+            "upload_preset",
+            "xyt5y8cg",
+          );
 
-        const uploadRes = await fetch(
-          "https://api.cloudinary.com/v1_1/dhd74hitg/image/upload",
-          {
-            method: "POST",
-            body: cloudinaryData,
-          },
-        );
+          const uploadRes = await fetch(
+            "https://api.cloudinary.com/v1_1/dhd74hitg/image/upload",
+            {
+              method: "POST",
+              body: cloudinaryData,
+            },
+          );
 
-        const uploadJson =
-          await uploadRes.json();
+          const uploadJson =
+            await uploadRes.json();
 
-        uploadedUrls.push(
-          uploadJson.secure_url,
-        );
+          uploadedUrls.push(
+            uploadJson.secure_url,
+          );
+        }
       }
-    }
 
-    // Send to FormSubmit
-    fd.append(
-      "_subject",
-      "New Quote Request",
-    );
+      // FormSubmit Config
+      fd.append(
+        "_subject",
+        "New Quote Request",
+      );
 
-    fd.append("_captcha", "false");
+      fd.append(
+        "_captcha",
+        "false",
+      );
 
-    fd.append(
-      "_template",
-      "table",
-    );
+      fd.append(
+        "_template",
+        "table",
+      );
 
-    fd.append(
-      "uploaded_files",
-      uploadedUrls.join("\n"),
-    );
+      fd.append(
+        "_next",
+        "https://www.bjrmaintenance.com/thank-you",
+      );
 
-    const response = await fetch(
-      "https://formsubmit.co/ajax/hellobjrmaintenance@gmail.com",
-      {
-        method: "POST",
-        body: fd,
-        headers: {
-          Accept: "application/json",
+      fd.append(
+        "uploaded_files",
+        uploadedUrls.join("\n"),
+      );
+
+      // Send Form
+      const response = await fetch(
+        "https://formsubmit.co/hellobjrmaintenance@gmail.com",
+        {
+          method: "POST",
+          body: fd,
         },
-      },
-    );
+      );
 
-    if (!response.ok) {
-      throw new Error("Failed");
+      if (!response.ok) {
+        throw new Error("Failed");
+      }
+
+      toast.success(
+        "Quote request submitted successfully!",
+      );
+
+      form.reset();
+
+      setFiles([]);
+    } catch (error) {
+      toast.error(
+        "Something went wrong.",
+      );
+    } finally {
+      setSubmitting(false);
     }
-
-    toast.success(
-      "Quote request submitted successfully!",
-    );
-
-    form.reset();
-
-    setFiles([]);
-  } catch (error) {
-    toast.error(
-      "Something went wrong.",
-    );
-  } finally {
-    setSubmitting(false);
-  }
-};
+  };
 
   return (
     <form onSubmit={onSubmit} className="grid gap-6">
       <div className="grid sm:grid-cols-2 gap-6">
         <div>
-          <Label htmlFor="name" className="text-gray-900 font-medium mb-2 block">Full Name</Label>
-          <Input 
-            id="name" 
-            name="name" 
-            placeholder="John Smith" 
-            required 
+          <Label
+            htmlFor="name"
+            className="text-gray-900 font-medium mb-2 block"
+          >
+            Full Name
+          </Label>
+
+          <Input
+            id="name"
+            name="name"
+            placeholder="John Smith"
+            required
             className="bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-[#D8C2A0] focus:ring-[#D8C2A0]/20"
           />
         </div>
+
         <div>
-          <Label htmlFor="phone" className="text-gray-900 font-medium mb-2 block">Phone</Label>
-          <Input 
-            id="phone" 
-            name="phone" 
-            type="tel" 
-            placeholder="0400 000 000" 
-            required 
+          <Label
+            htmlFor="phone"
+            className="text-gray-900 font-medium mb-2 block"
+          >
+            Phone
+          </Label>
+
+          <Input
+            id="phone"
+            name="phone"
+            type="tel"
+            placeholder="0400 000 000"
+            required
             className="bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-[#D8C2A0] focus:ring-[#D8C2A0]/20"
           />
         </div>
       </div>
+
       <div>
-        <Label htmlFor="email" className="text-gray-900 font-medium mb-2 block">Email</Label>
-          <Input 
-            id="email" 
-            name="email" 
-            type="email" 
-            placeholder="you@email.com" 
-            required 
-            className="bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-[#D8C2A0] focus:ring-[#D8C2A0]/20"
-          />
+        <Label
+          htmlFor="email"
+          className="text-gray-900 font-medium mb-2 block"
+        >
+          Email
+        </Label>
+
+        <Input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="you@email.com"
+          required
+          className="bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-[#D8C2A0] focus:ring-[#D8C2A0]/20"
+        />
       </div>
+
       <div>
-        <Label htmlFor="service" className="text-gray-900 font-medium mb-2 block">Service Needed</Label>
+        <Label
+          htmlFor="service"
+          className="text-gray-900 font-medium mb-2 block"
+        >
+          Service Needed
+        </Label>
+
         <Select name="service" required>
-          <SelectTrigger id="service" className="bg-white border-gray-300 text-black focus:border-[#D8C2A0] focus:ring-[#D8C2A0]/20 [&>span]:text-black">
-            <SelectValue placeholder="Select a service" className="text-gray-500" />
+          <SelectTrigger
+            id="service"
+            className="bg-white border-gray-300 text-black focus:border-[#D8C2A0] focus:ring-[#D8C2A0]/20 [&>span]:text-black"
+          >
+            <SelectValue
+              placeholder="Select a service"
+              className="text-gray-500"
+            />
           </SelectTrigger>
+
           <SelectContent className="bg-white border-gray-300 text-black [&>div>span]:text-black">
             {services.map((s) => (
-              <SelectItem key={s} value={s} className="hover:bg-[#D8C2A0]/20 focus:bg-[#D8C2A0]/20 text-black data-[highlighted]:text-black">
+              <SelectItem
+                key={s}
+                value={s}
+                className="hover:bg-[#D8C2A0]/20 focus:bg-[#D8C2A0]/20 text-black data-[highlighted]:text-black"
+              >
                 {s}
               </SelectItem>
             ))}
           </SelectContent>
         </Select>
       </div>
+
       <div>
-        <Label htmlFor="message" className="text-gray-900 font-medium mb-2 block">Project Details</Label>
+        <Label
+          htmlFor="message"
+          className="text-gray-900 font-medium mb-2 block"
+        >
+          Project Details
+        </Label>
+
         <Textarea
           id="message"
           name="message"
@@ -202,33 +252,53 @@ export function QuoteForm() {
           className="bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-[#D8C2A0] focus:ring-[#D8C2A0]/20 resize-none"
         />
       </div>
+
       <div>
-        <Label htmlFor="files" className="text-gray-900 font-medium mb-2 block">Upload Images (optional)</Label>
+        <Label
+          htmlFor="files"
+          className="text-gray-900 font-medium mb-2 block"
+        >
+          Upload Images (optional)
+        </Label>
+
         <label
           htmlFor="files"
           className="mt-1 flex items-center gap-3 border-2 border-dashed border-gray-300 rounded-xl px-6 py-4 cursor-pointer hover:bg-[#D8C2A0]/5 hover:border-[#D8C2A0]/50 transition-all duration-300 group"
         >
           <Upload className="h-5 w-5 text-gray-500 group-hover:text-[#D8C2A0] transition-colors" />
+
           <span className="text-sm text-gray-600 group-hover:text-gray-900 transition-colors">
-            {files.length ? `${files.length} file(s) selected` : "Click to upload site photos"}
+            {files.length
+              ? `${files.length} file(s) selected`
+              : "Click to upload site photos"}
           </span>
+
           <input
             id="files"
             type="file"
             multiple
             accept="image/*"
             className="hidden"
-            onChange={(e) => setFiles(Array.from(e.target.files ?? []))}
+            onChange={(e) =>
+              setFiles(
+                Array.from(e.target.files ?? []),
+              )
+            }
           />
         </label>
       </div>
+
       <Button
         type="submit"
         size="lg"
         disabled={submitting}
         className="bg-[#D8C2A0] hover:bg-[#C4B090] text-black font-semibold gap-3 w-full sm:w-auto transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4"
       >
-        <Send className="h-5 w-5" /> {submitting ? "Sending..." : "Request Free Quote"}
+        <Send className="h-5 w-5" />
+
+        {submitting
+          ? "Sending..."
+          : "Request Free Quote"}
       </Button>
     </form>
   );
