@@ -96,7 +96,7 @@ export function Header() {
         <Link
           to="/"
           className="flex items-center transition-transform duration-200 hover:scale-[1.02] shrink-0"
-          aria-label="BJ & R Maintenance PTY. LTD"
+          aria-label="BJ & R Maintenance PTY LTD"
         >
           <div className="flex items-center gap-1 h-auto">
             {logoLoading ? (
@@ -122,7 +122,7 @@ export function Header() {
             <div className="flex flex-col leading-none gap-0">
               <span className="text-white font-bold text-xl md:text-2xl lg:text-2xl">BJ <span className="text-[#D8C2A0]">&</span> R</span>
               <span className="text-[#D8C2A0] text-lg md:text-xl lg:text-xl font-medium">MAINTENANCE</span>
-              <span className="text-white text-sm md:text-base opacity-80">PTY.LTD</span>
+              <span className="text-white text-sm md:text-base opacity-80">PTY LTD</span>
             </div>
           </div>
         </Link>

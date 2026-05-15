@@ -170,7 +170,7 @@ export const siteConfig = {
     whatsapp: "61476448093",
 
     // Business email
-    email: "hello@bjrmaintenance.com.au",
+    email: "hellobjrmaintenance@gmail.com",
 
     // Business address
     address:
@@ -191,11 +191,11 @@ export const siteConfig = {
   // ========================================================
 
   socials: {
-    facebook: "#",
+    facebook: "https://www.facebook.com/share/1EDpqJJpvY/?mibextid=wwXIfr",
 
-    instagram: "#",
+    instagram: "https://www.instagram.com/bj_and_r_maintenance?igsh=NWdwazBkZGY0NTJq&utm_source=qr",
 
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/company/bj-r-maintenance-pty-ltd/?viewAsMember=true",
   },
 
 

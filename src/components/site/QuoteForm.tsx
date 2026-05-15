@@ -111,7 +111,7 @@ export function QuoteForm() {
     );
 
     const response = await fetch(
-      "https://formsubmit.co/ajax/scmslogin@gmail.com",
+      "https://formsubmit.co/ajax/hellobjrmaintenance@gmail.com",
       {
         method: "POST",
         body: fd,
