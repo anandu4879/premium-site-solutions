@@ -15,6 +15,10 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "BJ & R Maintenance" },
       {
+        name: "google-site-verification",
+        content: "dD0KJGT_xABktzpb7Vdy_3YY4oVS8eLQzmhb-HsDy9s",
+      },
+      {
         name: "description",
         content:
           "Premium artificial grass installation, construction maintenance, labour hire, sand removal & handyman services. Free quotes across WA.",
