@@ -46,10 +46,7 @@ export const Route = createRootRoute({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      { rel: "icon", href: "/favicon.ico" },
-      { rel: "icon", type: "image/png", sizes: "96x96", href: "/favicon-96x96.png" },
-      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
-      { rel: "manifest", href: "/site.webmanifest" },
+      { rel: "icon", href: "/logo-favicon.png", type: "image/png" },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
