@@ -23,6 +23,10 @@ export const Route = createFileRoute("/")({
         content:
           "Premium artificial grass installation, construction maintenance, labour hire, sand removal & handyman services. Free quotes across WA.",
       },
+      { property: "og:image", content: "https://www.bjrmaintenance.com/web-app-manifest-512x512.png" },
+      { property: "og:image:width", content: "512" },
+      { property: "og:image:height", content: "512" },
+      { name: "twitter:image", content: "https://www.bjrmaintenance.com/web-app-manifest-512x512.png" },
     ],
   }),
   component: Index,
