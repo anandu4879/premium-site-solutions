@@ -3,9 +3,21 @@ import { siteConfig } from "@/config/siteConfig";
 import { Check, ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
-import React from "react";
+import React, { useEffect } from "react";
 
 export const Route = createFileRoute("/services/$slug")({
+  head: () => {
+    const service = siteConfig.services[0]; // This will be updated in the component
+    return {
+      meta: [
+        { title: `${service?.title || "Service"} — BJ & R Maintenance` },
+        {
+          name: "description",
+          content: service?.short || "Professional service by BJ & R Maintenance",
+        },
+      ],
+    };
+  },
   component: ServiceDetailPage,
 });
 
@@ -18,6 +30,26 @@ function ServiceDetailPage() {
   const service = siteConfig.services.find((s) => s.slug === slug);
 
   if (!service) return null;
+
+  // Service structured data
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `https://www.bjrmaintenance.com/services/${service.slug}`,
+    name: service.title,
+    description: service.detail,
+    image: `https://www.bjrmaintenance.com${service.image}`,
+    provider: {
+      "@type": "LocalBusiness",
+      name: "BJ & R Maintenance",
+      url: "https://www.bjrmaintenance.com",
+      telephone: "+61406183393",
+    },
+    areaServed: {
+      "@type": "City",
+      name: "Perth",
+    },
+  };
 
   // Define color themes for each service
   const serviceThemes = {
@@ -60,6 +92,18 @@ function ServiceDetailPage() {
 
   const theme = serviceThemes[service.slug as keyof typeof serviceThemes] || serviceThemes["artificial-grass"];
   const colors = theme;
+
+  // Inject structured data into head
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.innerHTML = JSON.stringify(serviceSchema);
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, [slug]);
 
   return (
     <div className="min-h-[100svh] flex flex-col bg-background overflow-x-hidden">

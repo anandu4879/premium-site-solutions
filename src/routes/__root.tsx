@@ -77,10 +77,48 @@ export const Route = createRootRoute({
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.bjrmaintenance.com",
+    name: "BJ & R Maintenance",
+    description:
+      "Premium artificial grass installation, construction maintenance, labour hire, sand removal & handyman services across Perth & WA.",
+    url: "https://www.bjrmaintenance.com",
+    logo: "https://www.bjrmaintenance.com/web-app-manifest-512x512.png",
+    image: "https://www.bjrmaintenance.com/web-app-manifest-512x512.png",
+    telephone: "+61406183393",
+    email: "hellobjrmaintenance@gmail.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Honeywood Avenue",
+      addressLocality: "Wandi",
+      postalCode: "6167",
+      addressRegion: "WA",
+      addressCountry: "AU",
+    },
+    sameAs: [
+      "https://www.facebook.com/share/1EDpqJJpvY/?mibextid=wwXIfr",
+      "https://www.instagram.com/bj_and_r_maintenance?igsh=NWdwazBkZGY0NTJq&utm_source=qr",
+      "https://www.linkedin.com/company/bj-r-maintenance-pty-ltd/?viewAsMember=true",
+    ],
+    priceRange: "$$",
+    areaServed: {
+      "@type": "City",
+      name: "Perth",
+    },
+  };
+
   return (
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
       </head>
       <body>
         {children}
